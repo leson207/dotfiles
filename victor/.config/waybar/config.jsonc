@@ -1,0 +1,144 @@
+{
+	"layer": "top",
+	"position": "top",
+	"autohide": true,
+	"autohide-blocked": false,
+	"exclusive": true,
+	"passthrough": false,
+	"gtk-layer-shell": true,
+
+	/* === Modules Order === */
+	"modules-left": [
+		"clock",
+		"cpu",
+		"memory",
+		"disk",
+		"temperature"
+	],
+	"modules-center": [
+		"hyprland/workspaces"
+	],
+	"modules-right": [
+		"tray",
+		"idle_inhibitor",
+		"power-profiles-daemon",
+		"battery",
+		"backlight",
+		"pulseaudio",
+		"network",
+	],
+
+	/* === Modules Left === */
+	"clock": {
+		"timezone": "Asia/Ho_Chi_Minh",
+		"format": "{:%I:%M | %d/%m}",
+		"tooltip-format": "{calendar}",
+		"calendar": { "mode": "month" }
+	},
+	"cpu": {
+		"format": "{usage}% ",
+		"tooltip": true,
+	},
+	"memory": {
+		"format": "{}% 󰍛",
+		"tooltip": true,
+		"tooltip-format": "RAM usage: {used} G / {total} G"
+	},
+	"disk": {
+		"format": "{percentage_free}% ",
+		"tooltip": true,
+		"tooltip-format": "Free space: {free} G / {total} G"
+	},
+	"temperature": {
+		"format": "{temperatureC}°C {icon}",
+		"tooltip": true,
+		"format-icons": [""]
+	},
+
+	/* === Modules Center === */
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			"default": "",
+			"active": ""
+		},
+		"persistent-workspaces": {"*": 2},
+		"disable-scroll": true,
+		"all-outputs": true,
+		"show-special": true
+	},
+
+	/* === Modules Right === */
+	"tray": {
+        "icon-size": 21,
+        "spacing": 10,
+        // "icons": {
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+
+	"backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            "good": 80,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+	"pulseaudio": {
+		"format": "{volume}% {icon}",
+		"format-muted": " {format_source}",
+		"format-icons": {
+			"default": ["",""]
+		}
+	},
+	"network": {
+		"format-wifi": "{essid} ({signalStrength}%) ",
+		"format-ethernet": "{ifname} 󰈀",
+		"format-disconnected": " ",
+		"tooltip-format": " {ifname} via {gwaddr}",
+		"tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50
+	}
+	// "network": {
+	//        "format-wifi": "{essid} ({signalStrength}%) ",
+	// 	"format-ethernet": "{ifname} {ipaddr}/{cidr} 󰈀",
+	// 	"format-disconnected": " ",
+	// 	"tooltip-format": " {ifname} via {gwaddr}",
+	// 	"tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+	// 	"tooltip-format-disconnected": "Disconnected ⚠",
+	// 	"max-length": 50
+	// }
+}

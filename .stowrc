@@ -1,0 +1,4 @@
+--dir=./victor
+--target=$HOME
+--ignore=.config/containers
+--verbose=1

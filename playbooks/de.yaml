@@ -1,0 +1,69 @@
+name: desktop environment
+description: desktop
+
+packages:
+  core:
+    - hyprland
+    - xdg-desktop-portal-hyprland
+    - xdg-desktop-portal-gtk
+    - sddm
+
+    - quickshell # ags/astal, eww
+    - hypridle
+    - hyprlock
+    - hyprpaper # swww, Azote
+    # - wlogout
+
+    - mako
+    - hyprpolkitagent
+    - hyprsunset
+    - hyprlauncher
+    - thunar # yazi, superfile
+    - fastfetch # hyprsysteminfo, gopsuinfo
+    - cliphist # copyq, wl-clip-persist, nwg-clipman, wl-clipboard
+
+
+    - noto-fonts # sans-serif, FontAwesome
+    - noto-fonts-cjk
+    - noto-fonts-emoji
+    - ttf-fira-code
+    - ttf-jetbrains-mono-nerd
+    - tex-gyre-fonts
+
+    # - cursor: hyprcursor
+    # - color picker: hyprpicker
+    # - ipc wrapper: hyprland-rs
+
+    # - qtsupport: qt5-wayland, qt6-wayland, qt5ct, qt6ct, kvantum, hyprland-qt-support, hyprqt6engine
+    # - utility: hyprtoolkit, hyprutils, hyprlang, hyprwayland-scanner, aquamarine, hyprgraphic, hyprat utils
+    # - mount: udiskie, ntfs-3g
+    # - nwg-look, matugen
+    # - browser: Nyxt, luakit
+
+  utils:
+    - stow # chezmoi, homemanager
+    - foot
+    - starship
+    - firefox
+    - obsidian
+    - fcitx5-unikey
+    - fcitx5-configtool
+    - vlc # mpv
+    - vlc-plugin-ffmpeg
+    # - vlc-plugin-libav
+    # - vlc-plugin-gstreamer
+    # - vlc-plugins-all
+    - gthumb
+
+    - tumbler
+    # - ffmpegthumbnailer # libopenraw ueberzugpp
+
+    # - speech-dispatcher speech-dispatcher-utils
+    # - image/video deduplicate
+
+units:
+  - sddm.service
+  - hyprpolkitagent.service (user)
+  - hyprsunset.service (user)
+  - hypridle.service (user)
+  - hyprpaper.service (user)

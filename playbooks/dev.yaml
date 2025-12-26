@@ -1,0 +1,35 @@
+name: dev
+description: dev
+
+packages:
+  cmd:
+    - fzf
+    - less
+
+  general:
+    - git
+    - tmux # zelij
+    - visual-studio-code-bin (aur)
+    - neovim
+    # - podman
+    # - podman-desktop
+  cpp:
+    - cmake
+    - ninja
+    - ccache
+    - conan (aur)
+
+    - clang
+    # - lldb
+    # - clangd
+    - lld
+    - mold
+
+    - libc++
+    - libc++abi
+
+  misc:
+    - go
+  # - uv
+  # - rustup
+
