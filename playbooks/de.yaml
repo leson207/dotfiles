@@ -4,66 +4,84 @@ description: desktop
 packages:
   core:
     - hyprland
-    - xdg-desktop-portal-hyprland
+    - uwsm
+    - libnewt
+    - app2unit
+    - xdg-user-dirs
     - xdg-desktop-portal-gtk
+    - xdg-desktop-portal-hyprland
     - sddm
 
-    - quickshell # ags/astal, eww
+    # - quickshell
     - hypridle
     - hyprlock
-    - hyprpaper # swww, Azote
-    # - wlogout
+    - hyprpaper
 
-    - mako
+    # - mako
+    - swaync
     - hyprpolkitagent
     - hyprsunset
     - hyprlauncher
-    - thunar # yazi, superfile
-    - fastfetch # hyprsysteminfo, gopsuinfo
-    - cliphist # copyq, wl-clip-persist, nwg-clipman, wl-clipboard
+    - fuzzel
+    - thunar
+    # - superfile
+    - wl-clipboard
+    - cliphist
+    # - copyq, wl-clip-persist, nwg-clipman
 
-
-    - noto-fonts # sans-serif, FontAwesome
+    # - sans-serif, FontAwesome
+    - noto-fonts
     - noto-fonts-cjk
     - noto-fonts-emoji
     - ttf-fira-code
     - ttf-jetbrains-mono-nerd
     - tex-gyre-fonts
+    # - ntfs-3g
+    # - udiskie
 
-    # - cursor: hyprcursor
-    # - color picker: hyprpicker
-    # - ipc wrapper: hyprland-rs
-
-    # - qtsupport: qt5-wayland, qt6-wayland, qt5ct, qt6ct, kvantum, hyprland-qt-support, hyprqt6engine
-    # - utility: hyprtoolkit, hyprutils, hyprlang, hyprwayland-scanner, aquamarine, hyprgraphic, hyprat utils
-    # - mount: udiskie, ntfs-3g
-    # - nwg-look, matugen
-    # - browser: Nyxt, luakit
+    # - hyprcursor
+    # - qt6-base, qt6-wayland, qt6ct, ,qt6-multimedia, qt6-multimedia-ffmpeg, hyprland-qt-support, hyprqt6engine
+    # - aquamarine
+    # - Nyxt, luakit
 
   utils:
-    - stow # chezmoi, homemanager
     - foot
     - starship
     - firefox
-    - obsidian
+
+    - fcitx5
     - fcitx5-unikey
     - fcitx5-configtool
-    - vlc # mpv
-    - vlc-plugin-ffmpeg
-    # - vlc-plugin-libav
+
+    - mpv
+    - vlc
+    # - vlc-gui-qt
+    # - vlc-plugins-base
+    # - vlc-plugins-extra
+    # - vlc-plugin-ffmpeg
+    # - vlc-plugin-pulse
     # - vlc-plugin-gstreamer
-    # - vlc-plugins-all
+
+    - imv
     - gthumb
 
     - tumbler
     # - ffmpegthumbnailer # libopenraw ueberzugpp
-
     # - speech-dispatcher speech-dispatcher-utils
     # - image/video deduplicate
+    - batsignal
+    - flameshot
 
+# maybe enable all of them as system, they nesscessary , i mean
 units:
   - sddm.service
+  - batsignal.service (user)
   - hyprpolkitagent.service (user)
   - hyprsunset.service (user)
   - hypridle.service (user)
   - hyprpaper.service (user)
+  # - mako.service (user)
+  - swaync.service (user)
+  - waybar.service (user)
+  - foot-server.service (user)
+  - xdg-user-dirs.service (user)

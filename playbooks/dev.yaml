@@ -2,22 +2,19 @@ name: dev
 description: dev
 
 packages:
-  cmd:
-    - fzf
-    - less
-
   general:
     - git
-    - tmux # zelij
+    - tmux
     - visual-studio-code-bin (aur)
     - neovim
     # - podman
+    # - podman-tui
     # - podman-desktop
   cpp:
     - cmake
     - ninja
     - ccache
-    - conan (aur)
+    - conan-bin (aur)
 
     - clang
     # - lldb

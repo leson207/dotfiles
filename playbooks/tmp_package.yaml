@@ -1,4 +1,17 @@
 packages:
   tmp:
+    # - gstreamer
+    # - gst-plugins-good
+    # - gst-plugins-base
+    # - gst-plugins-bad
+    # - gst-plugins-ugly
+    # - gst-libav
+
+    # - gum
+    # - hunspell
+    # - qt6-svg
+    # - qt6-virtualkeyboard
+    # - qt6-multimedia-ffmpeg
+
     - very
     - handsome (aur)

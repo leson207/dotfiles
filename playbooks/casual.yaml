@@ -1,0 +1,24 @@
+name: casual life application
+description: desktop
+
+packages:
+  extra:
+    - less
+    - luarocks
+  commandline:
+    - 7zip
+    - fzf
+    - bat
+    - btop
+    - nvtop
+    - stow
+    - fastfetch
+    - rsync
+    - yazi
+    - tldr
+    - sudo
+  gui:
+    - helium-browser-bin
+    - google-chrome
+    - thorium-browser-bin
+    - obsidian
