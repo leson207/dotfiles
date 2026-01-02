@@ -1,5 +1,23 @@
 packages:
   tmp:
+    # - borg
+    # - restic
+    - timeshift
+
+    # - task
+    # - timew
+    # - just
+    # - envdir
+
+    # - powertop
+    # - direnv
+    # - alsa-utils and audio stack with alsa
+    # - tlp
+
+    # - dust
+    # - dua-cli
+    # - progress
+
     # - gstreamer
     # - gst-plugins-good
     # - gst-plugins-base
@@ -7,6 +25,9 @@ packages:
     # - gst-plugins-ugly
     # - gst-libav
 
+    # - activitywatch-bin (aur)
+
+    # sddm-astronaut-theme
     # - gum
     # - hunspell
     # - qt6-svg

@@ -6,8 +6,9 @@ packages:
     - less
     - luarocks
   commandline:
-    - 7zip
+    - fd
     - fzf
+    - 7zip
     - bat
     - btop
     - nvtop
@@ -17,8 +18,12 @@ packages:
     - yazi
     - tldr
     - sudo
+    # - aria2
   gui:
-    - helium-browser-bin
-    - google-chrome
-    - thorium-browser-bin
+    - helium-browser-bin (aur)
+    - google-chrome (aur)
+    - thorium-browser-bin (aur)
+    - brave-bin (aur)
     - obsidian
+    - telegram-desktop
+    - vesktop-bin (aur)

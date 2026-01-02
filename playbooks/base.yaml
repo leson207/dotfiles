@@ -5,20 +5,30 @@ packages:
   core:
     - base
     - base-devel
+
     - linux
+    - linux-headers
+    - linux-zen
+    - linux-zen-headers
+
     - linux-firmware
     - efibootmgr
+
+  graphic:
     - mesa
-    - libva-mesa-driver
+    - mesa-utils
+    - vulkan-mesa-implicit-layers
+    - libva
+    - libva-utils
 
   intel:
     - intel-ucode
 
     - vulkan-intel
-    - intel-media-driver
+    # - intel-media-driver
     - libva-intel-driver
 
-    - intel-gpu-tools
+    # - intel-gpu-tools
 
     # - vlc-plugin-quicksync
 
@@ -28,22 +38,39 @@ packages:
     # - radeontop
     # - amdgpu_top
 
-  system:
+  file:
+    - ntfs-3g
+    - udisk2
+    - udiskie
+    # - udisk2-btrfs
+    # - btrfs-progs
+    # - udisks2-lvm2
+    # - lvm2
+    # - gvfs
+
+  sound:
     - pipewire
     - pipewire-alsa
     - pipewire-pulse
     - wireplumber
 
+  network:
+    # - ufw
+    # - gufw
     - openssh
     # - iwd
     - networkmanager
 
-    - reflector
-
-    - cpupower
+  power:
+    - preload
+    # - cpupower
     - thermald
     - irqbalance
     - auto-cpufreq
+    - ananicy-cpp
+
+  other:
+    - reflector
 
 units:
   - NetworkManager.service
@@ -54,6 +81,9 @@ units:
   - thermald.service
   - irqbalance.service
   - auto-cpufreq.service
+  - preload.service
+  - ananicy-cpp.service
+  - udiskie.service (user)
 
 
 # pre_install_hook:

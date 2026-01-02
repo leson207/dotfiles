@@ -13,7 +13,8 @@
 		"cpu",
 		"memory",
 		"disk",
-		"temperature"
+		"temperature",
+		"custom/notification_center"
 	],
 	"modules-center": [
 		"hyprland/workspaces"
@@ -131,7 +132,12 @@
 		"tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
 		"tooltip-format-disconnected": "Disconnected",
 		"max-length": 50
-	}
+	},
+	"custom/notification_center": {
+		"format": "󰣇",
+		"tooltip": "Open Notification Center",
+		"on-click": "swaync-client -t",
+	},
 	// "network": {
 	//        "format-wifi": "{essid} ({signalStrength}%) ",
 	// 	"format-ethernet": "{ifname} {ipaddr}/{cidr} 󰈀",

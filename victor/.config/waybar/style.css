@@ -20,6 +20,7 @@ window#waybar.hidden {
 #memory,
 #disk,
 #temperature,
+#custom-notification_center,
 #tray,
 #idle_inhibitor,
 #power-profiles-daemon,
@@ -76,6 +77,10 @@ window#waybar.hidden {
   background: #F8BD96;
 }
 
+#custom-notification_center {
+  background: #ABE9B3;
+}
+
 /* Modules center */
 #workspaces {
   background: rgba(0, 0, 0, 0.5);
@@ -127,7 +132,7 @@ window#waybar.hidden {
 
 #power-profiles-daemon {
   color: #1A1826;
-  background: #E8A2AF;
+  background: #CBA6F7;
 }
 
 #battery {

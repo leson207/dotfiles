@@ -4,27 +4,34 @@ description: desktop
 packages:
   core:
     - hyprland
+
     - uwsm
     - libnewt
     - app2unit
+
     - xdg-user-dirs
     - xdg-desktop-portal-gtk
     - xdg-desktop-portal-hyprland
+
     - sddm
 
+    - waybar
     # - quickshell
+
     - hypridle
     - hyprlock
     - hyprpaper
-
-    # - mako
-    - swaync
-    - hyprpolkitagent
     - hyprsunset
-    - hyprlauncher
+    - hyprpolkitagent
+    # - hyprlauncher
     - fuzzel
+
+    # - mako, dunst, fnott
+    - swaync
+
     - thunar
     # - superfile
+
     - wl-clipboard
     - cliphist
     # - copyq, wl-clip-persist, nwg-clipman
@@ -36,12 +43,9 @@ packages:
     - ttf-fira-code
     - ttf-jetbrains-mono-nerd
     - tex-gyre-fonts
-    # - ntfs-3g
-    # - udiskie
 
     # - hyprcursor
     # - qt6-base, qt6-wayland, qt6ct, ,qt6-multimedia, qt6-multimedia-ffmpeg, hyprland-qt-support, hyprqt6engine
-    # - aquamarine
     # - Nyxt, luakit
 
   utils:
@@ -69,8 +73,15 @@ packages:
     # - ffmpegthumbnailer # libopenraw ueberzugpp
     # - speech-dispatcher speech-dispatcher-utils
     # - image/video deduplicate
+    #
+
+    # - flameshot
+    - hyprshot # (grim, slurp, hyprpicker)
+
+    # - obs-studio
+    - wf-recorder
+
     - batsignal
-    - flameshot
 
 # maybe enable all of them as system, they nesscessary , i mean
 units:
