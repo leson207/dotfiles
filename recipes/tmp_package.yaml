@@ -1,35 +1,22 @@
-packages:
-  tmp:
-    # - borg
-    # - restic
-    - timeshift
+tmp:
+  package:
+    - activitywatch-bin (aur)
 
-    # - just
-    # - direnv
-
-    # - powertop
-    # - alsa-utils and audio stack with alsa
-    # - tlp
-
-    # - dust
-    # - dua-cli
-    # - progress
-
-    # - gstreamer
-    # - gst-plugins-good
-    # - gst-plugins-base
-    # - gst-plugins-bad
-    # - gst-plugins-ugly
-    # - gst-libav
-
-    # - activitywatch-bin (aur)
-
-    # sddm-astronaut-theme
+    # sddm-astronaut-theme (this perfect for script feature)
     # - gum
     # - hunspell
-    # - qt6-svg
-    # - qt6-virtualkeyboard
-    # - qt6-multimedia-ffmpeg
+    - lynx
+    - browsh (aur)
+
+    - gum
+    - qbittorrent
+
+
+    - glance-bin aur
+    - gh-dash-bin aur
+    - witr-bin aur
 
     - very
     - handsome (aur)
+
+

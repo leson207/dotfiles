@@ -5,13 +5,12 @@ core:
   package:
     - hyprland
 
-    - uwsm
-    - libnewt
+    - uwsm # dep: libnewt
     - app2unit (aur)
 
     - sddm
   system-unit:
-    - sddm.service
+    - sddm
 
 xdg:
   package:
@@ -19,13 +18,27 @@ xdg:
     - xdg-desktop-portal-gtk
     - xdg-desktop-portal-hyprland
   user-unit:
-    - xdg-user-dirs.service
+    - xdg-user-dirs
 
-bundel2:
+lool-n-feel:
   package:
     - waybar
     # - quickshell
 
+    - matugen
+    - kvantum
+
+    - wallust (aur)
+    # - hyprcursor
+    # - qt6-base, qt6-wayland, qt6ct, ,qt6-multimedia, qt6-multimedia-ffmpeg, hyprland-qt-support, hyprqt6engine
+    # - qt6-svg
+    # - qt6-virtualkeyboard
+    # - qt6-multimedia-ffmpeg
+  user-unit:
+    - waybar
+
+bundel2:
+  package:
     - hypridle
     - hyprlock
     - hyprpaper
@@ -36,25 +49,24 @@ bundel2:
 
     - swaync
     # - mako, dunst, fnott
+
+    - batsignal
   user-unit:
-    - hyprpolkitagent.service
-    - hyprsunset.service
-    - hypridle.service
-    - hyprpaper.service
-    # - mako.service
-    - swaync.service
-    - waybar.service
+    - hyprpolkitagent
+    - hyprsunset
+    - hypridle
+    - hyprpaper
+    # - mako
+    - swaync
+    - batsignal
 
 media:
   package:
     - mpv
     - vlc
-    # - vlc-gui-qt
-    # - vlc-plugins-base
-    # - vlc-plugins-extra
-    # - vlc-plugin-ffmpeg
-    # - vlc-plugin-pulse
-    # - vlc-plugin-gstreamer
+
+    - swayimg
+    - clapper
 
     - imv
     - gthumb
@@ -62,14 +74,16 @@ media:
     - tumbler
     # - ffmpegthumbnailer # libopenraw ueberzugpp
     # - speech-dispatcher speech-dispatcher-utils
-    # - image/video deduplicate
-    #
+
+    -  czkawka-gui-bin (aur)
 
     # - flameshot
-    - hyprshot # (grim, slurp, hyprpicker)
+    - hyprshot # dep: grim, slurp, hyprpicker
 
     # - obs-studio
     - wf-recorder
+    - gpu-screen-recorder (aur)
+    - gpu-screen-recorder-ui (aur)
 
 intput:
   package:
@@ -93,32 +107,47 @@ font:
     - ttf-jetbrains-mono-nerd
     - tex-gyre-fonts
 
+terminal:
+  package:
+    # - alacritty
+    # - kitty
+    - foot
+
+    - nushell
+    - starship
+    - atuin
+    - fastfetch
+  user-unit:
+    - foot-server
+
+backup:
+  package:
+    # - borg
+    # - restic
+    - timeshift
+
+secret:
+  package:
+    - bitwarden
+    - seahorse
+    - gnome-keyring
+
 other:
   package:
     - yazi
     - thunar
     # - superfile
-    # - gvfs
+
+    - firefox
 
     - okular
     - mediawriter
 
-    - matugen
-
-    # - hyprcursor
-    # - qt6-base, qt6-wayland, qt6ct, ,qt6-multimedia, qt6-multimedia-ffmpeg, hyprland-qt-support, hyprqt6engine
     # - Nyxt, luakit
 
     - stow
-    - fastfetch
-    - foot
-    - nushell
-    - starship
-    - firefox
-    - batsignal
-    - bitwarden
-    - hugo
+    # - chemzmoi
+    # - home-manager
 
-  user-unit:
-    - batsignal.service
-    - foot-server.service
+    # - nix
+    # - guix

@@ -3,7 +3,12 @@ description: dev
 
 cpp:
   package:
+    # - xmake
+    # - meson
+    # - bazel
+    # - buck2-bin (aur)
     - cmake
+
     - ninja
     - ccache
     - conan-bin (aur)
@@ -27,6 +32,8 @@ lang:
 git:
   package:
     - git
+    # - jujutsu
+
     - less
     - git-delta
 
@@ -34,27 +41,40 @@ vim:
   package:
     # - vim
     - neovim
+    # - helix
+    # - kakoune
     - luarocks
 
 virtual-machine:
   package:
     - dnsmasq
-    - libvirtd
+    - libvirt
     - qemu-full
     - virt-viewer
     - virt-manager
     - bridge-utils
   system-unit:
-    - libvirtd.service
+    - libvirtd
+
+research:
+  package:
+    - just
+    - mise
+    - direnv
 
 other:
   package:
     - zed
-    - tmux # zellij
     - code
+    # - emacs
+
+    - tmux
+    # - zellij
+
+    - tldr
     - man-db
     - github-cli
-    # - emacs
+
     # - podman
     # - podman-tui
     # - podman-desktop

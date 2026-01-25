@@ -1,7 +1,6 @@
 name: base
 description: Module description
 
-
 core:
   package:
     - base
@@ -21,6 +20,7 @@ graphic:
     - mesa
     - mesa-utils
     - vulkan-mesa-implicit-layers
+
     - libva
     - libva-utils
 
@@ -43,25 +43,31 @@ amd:
     # - radeontop
     # - amdgpu_top
 
-file:
+file-system:
   package:
     - ntfs-3g
     - udisks2
     - udiskie
-    # - udisk2-btrfs
-    # - btrfs-progs
-    # - udisks2-lvm2
-    # - lvm2
-    # - gvfs
+
+    - gvfs
+    - gvfs-mtp
   system-unit:
     - udisks2
-  user-unit:
-    - udiskie.service
 
 sound:
   package:
     - pipewire
+    - wireplumber
     - pipewire-alsa
+    - pipewire-pulse
+    - pipewire-audio
+    - alsa-utils
+
+    - easyeffects
+    - qpwgraph
+    - pavucontrol
+  system-unit:
+    - pipewire
     - pipewire-pulse
     - wireplumber
 
@@ -73,8 +79,8 @@ network:
     # - iwd
     - networkmanager
   system-unit:
-    - NetworkManager.service
-    - sshd.service
+    - NetworkManager
+    - sshd
 
 power:
   package:
@@ -85,21 +91,20 @@ power:
     - auto-cpufreq
     - ananicy-cpp
   system-unit:
-    # - cpupower.service
-    - thermald.service
-    - irqbalance.service
-    - auto-cpufreq.service
-    - preload.service
-    - ananicy-cpp.service
-
+    # - iwd
+    # - cpupower
+    - thermald
+    - irqbalance
+    - auto-cpufreq
+    - preload
+    - ananicy-cpp
 
 other:
   package:
     - reflector
-
-units:
-  - fstrim.timer
-  - reflector.timer
+  system-unit:
+    - fstrim.timer
+    - reflector.timer
 
 
 # pre_install_hook:

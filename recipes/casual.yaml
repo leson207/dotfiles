@@ -12,11 +12,26 @@ cmd:
 
     - tree
     - 7zip
-    - btop
-    - nvtop
     - rsync
-    - tldr
+    - hugo
     # - aria2
+
+    # - dust
+    # - dua-cli
+    # - progress
+
+monitor:
+  package:
+    # - atop
+    - btop
+    # - htop
+    - nvtop
+    # - glances
+    # - bottom
+    # - hyperfine
+
+    # - powertop
+    # - tlp
 
 browser:
   package:
@@ -25,9 +40,15 @@ browser:
     - helium-browser-bin (aur)
     - thorium-browser-bin (aur)
 
+ai:
+  package:
+    - openai-codex
+    - gemini-cli
+
 gui:
   package:
     - obsidian
+    - anki-bin (aur)
     # - telegram-desktop
-    - vesktop-bin (aur) # webcord, openasar
-    # - matrix something
+    # - vesktop-bin (aur) # webcord, openasar
+    # - fluffychat-bin (aur)
