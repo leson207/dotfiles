@@ -1,8 +1,9 @@
 name: base
 description: Module description
 
-packages:
-  core:
+
+core:
+  package:
     - base
     - base-devel
 
@@ -13,77 +14,92 @@ packages:
 
     - linux-firmware
     - efibootmgr
+    - sudo
 
-  graphic:
+graphic:
+  package:
     - mesa
     - mesa-utils
     - vulkan-mesa-implicit-layers
     - libva
     - libva-utils
 
-  intel:
+intel:
+  package:
     - intel-ucode
 
     - vulkan-intel
-    # - intel-media-driver
+    - intel-media-driver
     - libva-intel-driver
 
     # - intel-gpu-tools
 
     # - vlc-plugin-quicksync
 
-  amd:
+amd:
+  package:
     - vulkan-radeon
 
     # - radeontop
     # - amdgpu_top
 
-  file:
+file:
+  package:
     - ntfs-3g
-    - udisk2
+    - udisks2
     - udiskie
     # - udisk2-btrfs
     # - btrfs-progs
     # - udisks2-lvm2
     # - lvm2
     # - gvfs
+  system-unit:
+    - udisks2
+  user-unit:
+    - udiskie.service
 
-  sound:
+sound:
+  package:
     - pipewire
     - pipewire-alsa
     - pipewire-pulse
     - wireplumber
 
-  network:
+network:
+  package:
     # - ufw
     # - gufw
     - openssh
     # - iwd
     - networkmanager
+  system-unit:
+    - NetworkManager.service
+    - sshd.service
 
-  power:
-    - preload
+power:
+  package:
     # - cpupower
+    - preload
     - thermald
     - irqbalance
     - auto-cpufreq
     - ananicy-cpp
+  system-unit:
+    # - cpupower.service
+    - thermald.service
+    - irqbalance.service
+    - auto-cpufreq.service
+    - preload.service
+    - ananicy-cpp.service
 
-  other:
+
+other:
+  package:
     - reflector
 
 units:
-  - NetworkManager.service
-  - sshd.service
   - fstrim.timer
   - reflector.timer
-  - cpupower.service
-  - thermald.service
-  - irqbalance.service
-  - auto-cpufreq.service
-  - preload.service
-  - ananicy-cpp.service
-  - udiskie.service (user)
 
 
 # pre_install_hook:

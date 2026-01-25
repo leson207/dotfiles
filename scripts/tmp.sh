@@ -81,3 +81,28 @@ journalctl -xe
 
 /boot/loader/entries/arch.conf
 options mitigations=auto,nosmt
+
+
+chmod +x ~/.checkpoint/prompt.sh
+ln -s .checkpoint/checkpoint.service .config/systemd/user/checkpiont.service
+ln -s .checkpoint/checkpoint.timer .config/systemd/user/checkpoint.timer
+
+# for config kanata
+sudo nvim /etc/udev/rules.d/90-uinput.rules
+ACTION=="add", KERNEL=="uinput", RUN+="/usr/bin/setfacl -m u:$USER:rw /dev/uinput"
+
+sudo usermod -aG input,uinput $USER
+
+
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+sudo modprobe -r uinput
+sudo modprobe uinput
+
+
+sudo timedatectl set-ntp true
+sudo systemctl enable --now systemd-timesyncd
+
+
+
+sudo systemctl enable --now libvirtd

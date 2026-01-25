@@ -1,0 +1,15 @@
+(deflayer dvorak-programmer
+    S-4    S-7      [      S-[  S-]  S-9   =   S-8  S-0     S-=      ]      S-1      S-3   bspc
+    tab     ;       ,       .    p    y    f    g    c       r       l       /       S-2    \
+    caps    a       o       e    u    i    d    h    t       n       s       -       ret
+    lsft    '       q       j    k    x    b    m    w       v       z       rsft
+    lctl    lmet    lalt              spc            ralt    rmet    rctl
+)
+
+(deflayer dvorak-programmer-upper
+    S-`     S-5     7       5    3    1    9    0    2        4       6       8       `    bspc
+    tab     S-;     S-,    S-.  S-p  S-y  S-f  S-g  S-c      S-r     S-l     S-/     S-6    S-\
+    caps    S-a     S-o    S-e  S-u  S-i  S-d  S-h  S-t      S-n     S-s     S--     ret
+    lsft    S-'     S-q    S-j  S-k  S-x  S-b  S-m  S-w      S-v     S-z     rsft
+    lctl    lmet    lalt             spc             ralt    rmet    rctl
+)

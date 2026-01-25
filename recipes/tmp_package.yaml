@@ -4,13 +4,10 @@ packages:
     # - restic
     - timeshift
 
-    # - task
-    # - timew
     # - just
-    # - envdir
+    # - direnv
 
     # - powertop
-    # - direnv
     # - alsa-utils and audio stack with alsa
     # - tlp
 

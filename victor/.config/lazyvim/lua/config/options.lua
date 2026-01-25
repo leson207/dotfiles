@@ -10,4 +10,4 @@ local opt = vim.opt
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.shiftwidth = 4 -- Size of an indent
 opt.clipboard = ""
-opt.expandtab = false -- Use spaces instead of tabs
+opt.expandtab = true -- Use spaces instead of tabs

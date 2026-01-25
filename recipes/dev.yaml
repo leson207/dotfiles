@@ -1,0 +1,60 @@
+name: dev
+description: dev
+
+cpp:
+  package:
+    - cmake
+    - ninja
+    - ccache
+    - conan-bin (aur)
+
+    - clang
+    - lldb
+    # - clangd
+
+    - lld
+    - mold
+
+    - libc++
+    - libc++abi
+
+lang:
+  package:
+    - go
+    - uv
+    # - rustup
+
+git:
+  package:
+    - git
+    - less
+    - git-delta
+
+vim:
+  package:
+    # - vim
+    - neovim
+    - luarocks
+
+virtual-machine:
+  package:
+    - dnsmasq
+    - libvirtd
+    - qemu-full
+    - virt-viewer
+    - virt-manager
+    - bridge-utils
+  system-unit:
+    - libvirtd.service
+
+other:
+  package:
+    - zed
+    - tmux # zellij
+    - code
+    - man-db
+    - github-cli
+    # - emacs
+    # - podman
+    # - podman-tui
+    # - podman-desktop

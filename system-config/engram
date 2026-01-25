@@ -1,0 +1,59 @@
+xkb_symbols "engram-intl" {
+
+ name[Group1]= "U.S. English - Engram international";
+
+    // Number row
+    key <TLDE> { [ bracketleft, braceleft] };
+    key <AE01> { [ 1, bar ] };
+    key <AE02> { [ 2, equal ] };
+    key <AE03> { [ 3, asciitilde ] };
+    key <AE04> { [ 4, plus ] };
+    key <AE05> { [ 5, less ] };
+    key <AE06> { [ 6, greater ] };
+    key <AE07> { [ 7, asciicircum ] };
+    key <AE08> { [ 8, ampersand ] };
+    key <AE09> { [ 9, percent ] };
+    key <AE10> { [ 0, asterisk ] };
+    key <AE11> { [ bracketright, braceright ] };
+    key <AE12> { [ slash, backslash ] };
+
+    // Top letter row (QWERTY row)
+    key <AD01> { [ b, B ] };
+    key <AD02> { [ y, Y ] };
+    key <AD03> { [ o, O ] };
+    key <AD04> { [ u, U ] };
+    key <AD05> { [ apostrophe, parenleft ] };
+    key <AD06> { [ quotedbl, parenright ] };
+    key <AD07> { [ d, D ] };
+    key <AD08> { [ n, N ] };
+    key <AD09> { [ g, G ] };
+    key <AD10> { [ v, V ] };
+    key <AD11> { [ q, Q ] };
+    key <AD12> { [ numbersign, dollar ] };
+    key <BKSL> { [ at, grave ] };
+
+    // Home row (ASDF row)
+    key <AC01> { [ h, H ] };
+    key <AC02> { [ i, I ] };
+    key <AC03> { [ a, A ] };
+    key <AC04> { [ e, E ] };
+    key <AC05> { [ comma, semicolon ] };
+    key <AC06> { [ period, colon ] };
+    key <AC07> { [ t, T ] };
+    key <AC08> { [ r, R ] };
+    key <AC09> { [ s, S ] };
+    key <AC10> { [ c, C ] };
+    key <AC11> { [ z, Z ] };
+
+    // Bottom row (ZXCV row)
+    key <AB01> { [ k, K ] };
+    key <AB02> { [ j, J ] };
+    key <AB03> { [ x, X ] };
+    key <AB04> { [ w, W ] };
+    key <AB05> { [ minus, underscore ] };
+    key <AB06> { [ question, exclam ] };
+    key <AB07> { [ m, M ] };
+    key <AB08> { [ l, L ] };
+    key <AB09> { [ f, F ] };
+    key <AB10> { [ p, P ] };
+};

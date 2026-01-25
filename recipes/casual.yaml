@@ -1,0 +1,33 @@
+name: casual life application
+description: desktop
+
+cmd:
+  package:
+    - fd
+    - fzf
+    - bat
+    - ripgrep
+    - zoxide
+    - eza
+
+    - tree
+    - 7zip
+    - btop
+    - nvtop
+    - rsync
+    - tldr
+    # - aria2
+
+browser:
+  package:
+    - brave-bin (aur)
+    - google-chrome (aur)
+    - helium-browser-bin (aur)
+    - thorium-browser-bin (aur)
+
+gui:
+  package:
+    - obsidian
+    # - telegram-desktop
+    - vesktop-bin (aur) # webcord, openasar
+    # - matrix something

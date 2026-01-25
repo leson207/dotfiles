@@ -1,0 +1,124 @@
+name: desktop environment
+description: desktop
+
+core:
+  package:
+    - hyprland
+
+    - uwsm
+    - libnewt
+    - app2unit (aur)
+
+    - sddm
+  system-unit:
+    - sddm.service
+
+xdg:
+  package:
+    - xdg-user-dirs
+    - xdg-desktop-portal-gtk
+    - xdg-desktop-portal-hyprland
+  user-unit:
+    - xdg-user-dirs.service
+
+bundel2:
+  package:
+    - waybar
+    # - quickshell
+
+    - hypridle
+    - hyprlock
+    - hyprpaper
+    - hyprsunset
+    - hyprpolkitagent
+    # - hyprlauncher
+    - fuzzel
+
+    - swaync
+    # - mako, dunst, fnott
+  user-unit:
+    - hyprpolkitagent.service
+    - hyprsunset.service
+    - hypridle.service
+    - hyprpaper.service
+    # - mako.service
+    - swaync.service
+    - waybar.service
+
+media:
+  package:
+    - mpv
+    - vlc
+    # - vlc-gui-qt
+    # - vlc-plugins-base
+    # - vlc-plugins-extra
+    # - vlc-plugin-ffmpeg
+    # - vlc-plugin-pulse
+    # - vlc-plugin-gstreamer
+
+    - imv
+    - gthumb
+
+    - tumbler
+    # - ffmpegthumbnailer # libopenraw ueberzugpp
+    # - speech-dispatcher speech-dispatcher-utils
+    # - image/video deduplicate
+    #
+
+    # - flameshot
+    - hyprshot # (grim, slurp, hyprpicker)
+
+    # - obs-studio
+    - wf-recorder
+
+intput:
+  package:
+    - wl-clipboard
+    - cliphist
+    # - copyq, wl-clip-persist, nwg-clipman
+
+    - fcitx5
+    - fcitx5-unikey
+    - fcitx5-configtool
+
+    - kanata-bin (aur)
+
+font:
+  package:
+    # - sans-serif, FontAwesome
+    - noto-fonts
+    - noto-fonts-cjk
+    - noto-fonts-emoji
+    - ttf-fira-code
+    - ttf-jetbrains-mono-nerd
+    - tex-gyre-fonts
+
+other:
+  package:
+    - yazi
+    - thunar
+    # - superfile
+    # - gvfs
+
+    - okular
+    - mediawriter
+
+    - matugen
+
+    # - hyprcursor
+    # - qt6-base, qt6-wayland, qt6ct, ,qt6-multimedia, qt6-multimedia-ffmpeg, hyprland-qt-support, hyprqt6engine
+    # - Nyxt, luakit
+
+    - stow
+    - fastfetch
+    - foot
+    - nushell
+    - starship
+    - firefox
+    - batsignal
+    - bitwarden
+    - hugo
+
+  user-unit:
+    - batsignal.service
+    - foot-server.service

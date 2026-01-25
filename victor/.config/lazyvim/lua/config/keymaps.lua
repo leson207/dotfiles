@@ -14,6 +14,25 @@ vim.keymap.set('v', '<leader>y', function()
 	vim.fn.setreg('"', old_unnamed)
 end, { noremap = true, silent = true, desc = 'Copy to clipboard without affecting registers' })
 
+vim.keymap.set({"n", "t", "v"}, '<leader>p', function()
+	local mode = vim.fn.mode()
+	local old_unnamed = vim.fn.getreg('"')
+	local clipboard_content = vim.fn.getreg('+')
+
+	if mode == 't' then
+		-- In terminal mode, send the clipboard content as input
+		vim.api.nvim_paste(clipboard_content, true, -1)
+	elseif mode == 'i' then
+		-- In insert mode, paste at cursor position
+		vim.api.nvim_put({clipboard_content}, 'c', true, true)
+	else
+		-- In normal/visual mode
+		vim.cmd('normal! "+p')
+	end
+
+	vim.fn.setreg('"', old_unnamed)
+end, { noremap = true, silent = true, desc = 'Paste content from clipboard' })
+
 vim.keymap.set('n', '<leader>cy', function()
 	vim.diagnostic.open_float()
 	vim.diagnostic.open_float()
@@ -32,8 +51,8 @@ vim.keymap.set('t', '<leader>ty', function ()
 
 	-- adjust this pattern to your shell prompt
 	for i = #lines-4, 1, -1 do
-		if string.match(lines[i], " ~") then
-		start_line = i
+		if string.match(lines[i], "❯ ") then
+		start_line = i-1
 		break
 		end
 	end
@@ -41,3 +60,4 @@ vim.keymap.set('t', '<leader>ty', function ()
 	vim.fn.setreg('+', output)
 	print("Copy last command output to clipboard")
 end, { noremap = true, silent = true, desc = "Copy last command output to clipboard"})
+
