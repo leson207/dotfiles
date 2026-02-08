@@ -3,6 +3,9 @@ description: desktop
 
 core:
   package:
+    # - river
+    # - niri
+    # - mangowc
     - hyprland
 
     - uwsm # dep: libnewt
@@ -18,69 +21,93 @@ xdg:
     - xdg-desktop-portal-gtk
     - xdg-desktop-portal-hyprland
   user-unit:
-    - xdg-user-dirs
+    - xdg-user-dirs-update
+
+widget:
+  package:
+    # - eww
+    # - quickshell
+    - waybar
+
+    # - birghtnessctl
+    # - playerctl
+    # - power-profiles-daemon
+    # - ddcutil
+  user-unit:
+    - waybar
 
 lool-n-feel:
   package:
-    - waybar
-    # - quickshell
-
+    # - hyprtoolkit
     - matugen
     - kvantum
 
-    - wallust (aur)
-    # - hyprcursor
-    # - qt6-base, qt6-wayland, qt6ct, ,qt6-multimedia, qt6-multimedia-ffmpeg, hyprland-qt-support, hyprqt6engine
-    # - qt6-svg
-    # - qt6-virtualkeyboard
-    # - qt6-multimedia-ffmpeg
+    - qt6ct
+    # - hyprqt6engine
+
+    # - hellwal
+    # - wallust (aur)
+    # - pywall
+    # - colorthief
+
+wallpaper:
+  package:
+    # setter
+    # - swww
+    # - awww
+    - hyprpaper
+    # - swaybg
+    # - mpvpaper
+
+    # galery
+    # - waypaper
+    # - waytrogen
+    # - hyprwall
+    #
+    # - wallutils
+    - rofi
   user-unit:
-    - waybar
+    - hyprpaper
 
 bundel2:
   package:
     - hypridle
     - hyprlock
-    - hyprpaper
     - hyprsunset
     - hyprpolkitagent
+
     # - hyprlauncher
     - fuzzel
 
     - swaync
     # - mako, dunst, fnott
-
-    - batsignal
   user-unit:
     - hyprpolkitagent
     - hyprsunset
     - hypridle
-    - hyprpaper
     # - mako
     - swaync
-    - batsignal
 
 media:
   package:
     - mpv
     - vlc
-
-    - swayimg
     - clapper
 
+    - feh
     - imv
     - gthumb
-
-    - tumbler
-    # - ffmpegthumbnailer # libopenraw ueberzugpp
-    # - speech-dispatcher speech-dispatcher-utils
-
-    -  czkawka-gui-bin (aur)
+    - swayimg
 
     # - flameshot
     - hyprshot # dep: grim, slurp, hyprpicker
+    # - wayshot
+    # - grimblast
+    # - satty
+    # - swappy
 
     # - obs-studio
+    # - wl-screenrec
     - wf-recorder
     - gpu-screen-recorder (aur)
     - gpu-screen-recorder-ui (aur)
@@ -99,26 +126,34 @@ intput:
 
 font:
   package:
-    # - sans-serif, FontAwesome
     - noto-fonts
     - noto-fonts-cjk
     - noto-fonts-emoji
+    - ttf-opensans
+    - tex-gyre-fonts
     - ttf-fira-code
     - ttf-jetbrains-mono-nerd
-    - tex-gyre-fonts
+    # - ttf-cascadia-code-nerd
 
 terminal:
   package:
-    # - alacritty
-    # - kitty
     - foot
+    # - kitty
+    # - ghostty
+    # - alacritty
+    # - wezterm-git (aur)
 
     - nushell
     - starship
     - atuin
+
+    - tmux
+    # - zellij
+
     - fastfetch
   user-unit:
     - foot-server
+    # - app-com.mitchellh.ghostty.service
 
 backup:
   package:
@@ -132,13 +167,40 @@ secret:
     - seahorse
     - gnome-keyring
 
-other:
+file-manager:
   package:
     - yazi
-    - thunar
     # - superfile
 
+    - thunar
+    - thunar-volman
+    - thunar-archive-plugin
+    - thunar-media-tags-plugin
+    # - catfish
+    # - plocate
+    # - zeitgeist
+
+    - czkawka-gui-bin (aur)
+    - 7zip
+
+preview:
+  package:
+    - tumbler
+    - ffmpegthumbnailer
+
+    # - ueberzugpp chafa
+    # - libjpeg-turbo libpng webp-pixbuf-loader libopenraw
+    # - imagemagick
+
+    # - poppler
+    # - pfdtomppm
+
+    # - bsdtar
+
+other:
+  package:
     - firefox
+    # - speech-dispatcher
 
     - okular
     - mediawriter

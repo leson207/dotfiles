@@ -22,7 +22,7 @@ graphic:
     - vulkan-mesa-implicit-layers
 
     - libva
-    - libva-utils
+    # - libva-utils
 
 intel:
   package:
@@ -51,6 +51,8 @@ file-system:
 
     - gvfs
     - gvfs-mtp
+    # - gvfs-smb
+    - sshfs
   system-unit:
     - udisks2
 
@@ -79,25 +81,33 @@ network:
     # - iwd
     - networkmanager
   system-unit:
-    - NetworkManager
     - sshd
+    - NetworkManager
+    # - iwd
 
 power:
   package:
-    # - cpupower
+    # - tlp
+    - batsignal
+    - cpupower
     - preload
     - thermald
     - irqbalance
     - auto-cpufreq
     - ananicy-cpp
+    - tuned
+    - tuned-ppd
   system-unit:
-    # - iwd
-    # - cpupower
+    # - tlp
+    - batsignal
+    - cpupower
     - thermald
     - irqbalance
     - auto-cpufreq
     - preload
     - ananicy-cpp
+    - tuned
+    - tuned-ppd
 
 other:
   package:

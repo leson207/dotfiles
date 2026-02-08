@@ -6,12 +6,12 @@
     font-size: 18px;
     text-shadow: none;
     color: var(--foreground);
-    background-color: transparent;
-    background: transparent;
+    /* background-color: transparent; */
+    /* background: transparent; */
 }
 
 .control-center {
-    background-color: var(--background);
+    /* background-color: var(--background); */
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.65);
     padding: 5px;
 }
@@ -22,7 +22,7 @@
 }
 
 .notification {
-    background-color: alpha(var(--background), 0.8);
+    /* background-color: alpha(var(--background), 0.8); */
 }
 
 .notification > *:last-child > *  {
@@ -52,7 +52,7 @@
 }
 .notification.low,
 .notification.normal  {
-    background-color: var(--background);
+    /* background-color: var(--background); */
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.65);
 }
 

@@ -11,6 +11,7 @@ cpp:
 
     - ninja
     - ccache
+    # - sccache
     - conan-bin (aur)
 
     - clang
@@ -29,7 +30,7 @@ lang:
     - uv
     # - rustup
 
-git:
+version-control:
   package:
     - git
     # - jujutsu
@@ -66,10 +67,8 @@ other:
   package:
     - zed
     - code
+    - typst
     # - emacs
-
-    - tmux
-    # - zellij
 
     - tldr
     - man-db

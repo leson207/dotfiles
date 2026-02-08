@@ -24,3 +24,26 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 
 source ~/.zoxide.nu
 source ~/.local/share/atuin/init.nu
+
+# Copy outputs of the last N commands to clipboard
+# def cc [number: int]
+# {
+#     # Get the last N commands from history, excluding 'cc' commands
+#     let cmds = (history | where command !~ '^cc ' | last $number)
+#
+#     if ($cmds | is-empty)
+#     {
+#         print "No commands in history"
+#     }
+#     else
+#     {
+#         # Execute each command and collect outputs
+#         let outputs = ($cmds | each { |cmd|
+#             let output = (nu -c $cmd.command | into string)
+#             $"Command: ($cmd.command)\nOutput: ($output)\n"
+#         } | str join "\n---\n")
+#
+#         $outputs | wl-copy
+#         print $"Copied outputs of last ($number) commands"
+#     }
+# }

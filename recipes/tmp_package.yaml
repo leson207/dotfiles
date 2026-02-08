@@ -1,22 +1,67 @@
 tmp:
   package:
     - activitywatch-bin (aur)
+    - timew
+    - task
+    - hamster-time-tracker
+    - watson (aur)
+    - zenity
+    - espanso-wayland
 
     # sddm-astronaut-theme (this perfect for script feature)
-    # - gum
-    # - hunspell
     - lynx
     - browsh (aur)
 
+    # github/charmbracelet
     - gum
+    - glow
+    - vhs
+    - crush
+    - lipgloss
+
     - qbittorrent
 
+    - glance-bin (aur)
+    - gh-dash-bin (aur)
+    - witr-bin (aur)
 
-    - glance-bin aur
-    - gh-dash-bin aur
-    - witr-bin aur
+    - jan-bin (aur)
+    - cc-switch-bin (aur)
+    - chatgpt-desktop-bin (aur)
+    - nextchat-bin (aur)
+    - cherry-studio-bin (aur)
+    - gpt4all-chat-git (aur)
+    - anythingllm-desktop-bin (aur)
+    - open-webui (aur)
+    - ollama-bin
+    - goose-desktop-bin (aur)
+
+    - ast-grep
+    - uutils-coreutils
+
+    - onlyoffice (aur)
+    - libreoffice-fresh
+    - openoffice
+
+    - lapce
+    - xi-editor
+    - fresh-editor-bin (aur)
+    - micro
+
+    - memos (aur)
+    - zettlr
+
+    - broot
+    - pake
+
+    - spotify-tui (aur)
+    - spicetify
+
+    - thunderbird
+    - betterbird-bin (aur)
+    - stalwart-mail (aur)
+    - stalwart-cli (aur)
 
     - very
     - handsome (aur)
-
 

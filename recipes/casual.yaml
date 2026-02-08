@@ -6,12 +6,11 @@ cmd:
     - fd
     - fzf
     - bat
+    - eza
     - ripgrep
     - zoxide
-    - eza
 
     - tree
-    - 7zip
     - rsync
     - hugo
     # - aria2
@@ -30,25 +29,27 @@ monitor:
     # - bottom
     # - hyperfine
 
-    # - powertop
-    # - tlp
-
 browser:
   package:
     - brave-bin (aur)
     - google-chrome (aur)
+    - zen-browser-bin (aur)
     - helium-browser-bin (aur)
     - thorium-browser-bin (aur)
+    - microsoft-edge-stable-bin (aur)
 
 ai:
   package:
     - openai-codex
     - gemini-cli
+    - aider-char (aur)
 
-gui:
+other:
   package:
     - obsidian
     - anki-bin (aur)
     # - telegram-desktop
     # - vesktop-bin (aur) # webcord, openasar
+
     # - fluffychat-bin (aur)
+    # - fractal

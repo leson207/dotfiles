@@ -34,16 +34,16 @@
 |#
 
 (deflayer base
-    `       1       2       3    4    5    6    7    8       9       0       -       =      bspc
-    tab     y       u       o    w    q    x    c    m       l       b       _       S-3    S-2
-    caps    i       e       a    n    p    f    s    t       r       d       .       ret
-    lsft    ,       ;      spc   /    z    v    g    j       k       h       rsft
+    `       1       2       3    4    5    6    7    8       9       0       -        =     bspc
+    tab     y       u       o    p    q    z    f    m       g       w       x        '     S-2
+    caps    i       e       a    n    b    v    s    r       t       d       ,       ret
+    lsft    .       ;      spc   /    \    j    h    l       k       c       rsft
     lctl    lmet    lalt            @magic           ralt    rmet    rctl
 )
 
 (deflayer sym
     _       S-1     S-2    S-3  S-4  S-5  S-6  S-7  S-8    S-9     S-0     S--     S-=     _
-    _       S-1     S-,    S-.  S-8   '   S-'  S-[   [      ]      S-]      _       _      _
+    _       S-1     S-,    S-.  S-8   '   S-'  S-[  S-]     [       ]       _       _      _
     _        /       -     S-=   =    0    1   S-9  S-0    S--     S-;      -       _
     _       S-5     S-7   ret  S-\  esc   S-3  bspc down   up       \       _
     _        _       _               ret             _       _       _
