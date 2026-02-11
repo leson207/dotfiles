@@ -1,0 +1,5 @@
+# ~/.config/systemd/user/checkpoint.service
+[Service]
+Type=oneshot
+ExecStart=%h/.checkpoint/prompt.sh
+

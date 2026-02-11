@@ -1,0 +1,44 @@
+return {
+	-- {
+	--    	"LazyVim/LazyVim",
+	--    	opts = { colorscheme = "catppuccin" },
+	-- },
+	--
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin",
+	-- 	priority = 1000,
+	-- 	opts = {
+	-- 		flavour = "frappe", -- light lavender base
+	-- 		transparent_background = false,
+	--
+	-- 		styles = {
+	-- 			comments = { "italic" },
+	-- 			keywords = { "bold" },
+	-- 			functions = { "bold" },
+	-- 			variables = { "bold" },
+	-- 		},
+	--
+	-- 		color_overrides = {
+	-- 			latte = {
+	-- 				base = "#F4EEFF",      -- lavender background
+	-- 				mantle = "#EDE6FF",
+	-- 				crust = "#E6DDFF",
+	-- 				text = "#FF69B4",      -- HOT PINK text
+	-- 				subtext1 = "#FF85C2",
+	-- 				subtext0 = "#FF9AD5",
+	-- 			},
+	-- 		},
+	--
+	-- 		custom_highlights = function(colors)
+	-- 			return {
+	-- 				Normal = { fg = colors.text, bold = true },
+	-- 				Identifier = { fg = "#FF6FB1", bold = true },
+	-- 				Function = { fg = "#FF5FA2", bold = true },
+	-- 				Keyword = { fg = "#FF85C2", bold = true },
+	-- 				Type = { fg = "#D77AFF", bold = true },
+	-- 			}
+	-- 		end,
+	-- 	}
+	-- }
+}

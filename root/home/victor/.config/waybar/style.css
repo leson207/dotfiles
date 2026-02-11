@@ -1,0 +1,167 @@
+/* -- Global rules -- */
+* {
+  border: none;
+  font-family: "JetbrainsMono Nerd Font";
+  font-size: 15px;
+  min-height: 10px;
+}
+
+window#waybar {
+  background: rgba(34, 36, 54, 0.6);
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* - Genera rules for visible modules -- */
+#clock,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#custom-notification_center,
+#tray,
+#idle_inhibitor,
+#power-profiles-daemon,
+#battery,
+#backlight,
+#pulseaudio,
+#network {
+  color: #161320;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: none;
+}
+
+/* Separation to the left */
+#cpu,
+#idle_inhibitor,
+#backlight {
+  margin-left: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Separation to the rigth */
+#clock,
+#temperature,
+#pulseaudio {
+  margin-right: 5px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* -- Specific styles -- */
+
+/* Modules left */
+#clock {
+  background: #ABE9B3;
+}
+
+#cpu {
+  background: #96CDFB;
+}
+
+#memory {
+  background: #DDB6F2;
+}
+
+#disk {
+  background: #F5C2E7;
+}
+
+#temperature {
+  background: #F8BD96;
+}
+
+#custom-notification_center {
+  background: #ABE9B3;
+}
+
+/* Modules center */
+#workspaces {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin: 6px 5px;
+  padding: 0px 6px;
+}
+
+#workspaces button {
+  color: #B5E8E0;
+  background: transparent;
+  padding: 4px 4px;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#workspaces button.occupied {
+  color: #A6E3A1;
+}
+
+#workspaces button.active {
+  color: #89B4FA;
+  text-shadow: 0 0 4px #ABE9B3;
+}
+
+#workspaces button:hover {
+  color: #89B4FA;
+}
+
+#workspaces button.active:hover {}
+
+/* Modules right */
+
+/* #tray { */
+/*   background: #A6E3A1; */
+/*   padding-right: 15px; */
+/* } */
+
+#tray {
+  background: transparent;
+  border-radius: 10px;
+  padding: 0px 5px;
+  margin: 6px 5px;
+}
+
+#idle_inhibitor {
+  background: #B5E8E0;
+  padding-right: 15px;
+}
+
+#power-profiles-daemon {
+  color: #1A1826;
+  background: #CBA6F7;
+}
+
+#battery {
+  color: #1A1826;
+  background: #E8A2AF;
+  min-width: 50px;
+}
+
+#backlight {
+  background: #A6E3A1;
+  padding-right: 15px;
+}
+
+#pulseaudio {
+  min-width: 55px;
+  color: #1A1826;
+  background: #F5E0DC;
+}
+
+#network {
+  background: #CBA6F7;
+  padding-right: 13px;
+  min-width: 10px;
+}
+
+/* === Optional animation === */
+@keyframes blink {
+  to {
+    background-color: #BF616A;
+    color: #B5E8E0;
+  }
+}

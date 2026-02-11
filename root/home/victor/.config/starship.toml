@@ -1,0 +1,11 @@
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """$time $directory$all"""
+continuation_prompt = '▶▶ '
+
+[time]
+disabled = false
+time_format = "%H:%M"
+format = "[$time]($style)"
+

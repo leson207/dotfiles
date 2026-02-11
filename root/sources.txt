@@ -1,0 +1,4 @@
+/boot/loader/entries/arch.conf
+/boot/loader/entries/arch-zen.conf
+/etc/pacman.conf
+

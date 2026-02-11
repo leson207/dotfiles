@@ -1,1 +1,0 @@
-victor/.bash_profile

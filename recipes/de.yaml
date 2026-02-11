@@ -38,17 +38,18 @@ widget:
 
 lool-n-feel:
   package:
-    # - hyprtoolkit
+     # color extractor
     - matugen
-    - kvantum
-
-    - qt6ct
-    # - hyprqt6engine
-
     # - hellwal
     # - wallust (aur)
-    # - pywall
     # - colorthief
+    # - kde-material-you-colors
+
+    # engine
+    # - hyprtoolkit
+    - kvantum
+    - qt6ct
+    # - hyprqt6engine
 
 wallpaper:
   package:

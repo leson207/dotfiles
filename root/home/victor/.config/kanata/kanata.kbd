@@ -1,0 +1,80 @@
+#|
+(defcfg
+    linux-dev-names-include (
+        "SONiX USB DEVICE Keyboard"
+        "SONiX USB DEVICE Consumer Control"
+        "SONiX USB DEVICE"
+    )
+    process-unmapped-keys no
+)
+|#
+
+(defsrc
+    `       1       2       3    4    5    6    7    8       9       0       -       =      bspc
+    tab     q       w       e    r    t    y    u    i       o       p       [       ]      \
+    caps    a       s       d    f    g    h    j    k       l       ;       '       ret
+    lsft    z       x       c    v    b    n    m    ,       .       /       rsft
+    lctl    lmet    lalt             spc             ralt    rmet    rctl
+)
+
+(defalias
+    ;; spc (tap-hold 200 200 spc (layer-while-held sym))
+    ;; caps (layer-toggle engram)
+    magic (layer-while-held sym)
+)
+
+#|
+(deflayer base
+    `       1       2       3    4    5    6    7    8       9       0       -       =      bspc
+    tab     q       w       e    r    t    y    u    i       o       p       [       ]      \
+    @magic  a       s       d    f    g    h    j    k       l       ;     @magic    ret
+    lsft    z       x       c    v    b    n    m    ,       .       /       rsft
+    lctl    lmet    lalt             spc            ralt    rmet    rctl
+)
+|#
+
+(deflayer base
+    `       1       2       3    4    5    6    7    8       9       0       -        =     bspc
+    tab     y       u       o    p    q    z    f    m       g       w       x        '     S-2
+    caps    i       e       a    n    b    v    s    r       t       d       ,       ret
+    lsft    .       ;      spc   /    \    j    h    l       k       c       rsft
+    lctl    lmet    lalt            @magic           ralt    rmet    rctl
+)
+
+(deflayer sym
+    _       S-1     S-2    S-3  S-4  S-5  S-6  S-7  S-8    S-9     S-0     S--     S-=     _
+    _       S-1     S-,    S-.  S-8   '   S-'  S-[  S-]     [       ]       _       _      _
+    _        /       -     S-=   =    0    1   S-9  S-0    S--     S-;      -       _
+    _       S-5     S-7   ret  S-\  esc   S-3  bspc down   up       \       _
+    _        _       _               ret             _       _       _
+)
+
+#|
+(deflayer draft-sym
+    `      <      >      -      |      ^     {      }      $      tab
+    !      *      /      =      &      #     (      )      ;      "
+    ~      +      [      ]      %      @     :      ,      .      '
+    _      _                       ret             _        _
+)
+
+bs backspace
+dh dash
+
+f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f12
+tab
+ps, sl, pb, ins, hm, del, end
+
+(deflayer sym-ansi
+    !      <      >      *      '      "     {      [     ]       }
+    /      -      +      =      0      1     (      )     dh      :
+    %      &     ret     |     esc     #     bs     ↓     ↑       \
+    _      _                       ret                     _      _
+)
+
+(deflayer sym-ansi-2
+    pu     ↑      pd     ?      ^      @     4      5      6      _
+    ←      ↓      →     f11     |      0     1      2      3      \
+    $      #      %      ~      `      _     7      8      9      _
+    _      _                       ret                     _      _
+)
+|#
