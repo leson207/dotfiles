@@ -4,4 +4,4 @@ configuration {
     font: "monospace 11";
 }
 
-@theme "~/.config/rofi/colors.rasi"
+@theme "~/.config/rofi/color.rasi"

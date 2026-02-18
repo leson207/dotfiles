@@ -1,6 +1,24 @@
 [config]
 version_check = true
 
+reload_apps = true
+
+# 🔥 Make colors punchy instead of pastel
+scheme = "vibrant"
+
+# 👁 Increase overall contrast (text, borders, selections)
+contrast = "high"
+
+# 🎨 Saturation boosts (safe but noticeable)
+[overrides.primary]
+saturation = 3
+
+[overrides.secondary]
+saturation = 2
+
+[overrides.tertiary]
+saturation = 1.4
+
 # [templates.m3colors]
 # input_path = '~/.config/matugen/templates/quickkshell/colors.json'
 # output_path = '~/.local/state/quickshell/user/generated/colors.json'
@@ -12,24 +30,70 @@ version_check = true
 # [templates.kde_colors]
 # input_path = '~/.config/matugen/templates/quickshell/kde-color.txt'
 # output_path = '~/.local/state/quickshell/user/generated/color.txt'
-#
-# [templates.hyprland]
-# input_path = '~/.config/matugen/templates/hypr/hyprland-colors.conf'
-# output_path = '~/.config/hypr/hyprland-colors.conf'
-#
-# [templates.hyprlock]
-# input_path = '~/.config/matugen/templates/hypr/hyprlock-colors.conf'
-# output_path = '~/.config/hypr/hyprlock-colors.conf'
+
+[templates.gtk3]
+input_path = '/home/victor/.config/matugen/templates/gtk-3.0/color.css'
+output_path = '/home/victor/.config//gtk-3.0/gtk.css'
+
+[templates.gtk4]
+input_path = '/home/victor/.config/matugen/templates/gtk-4.0/color.css'
+output_path = '/home/victor/.config/gtk-4.0/gtk.css'
+
+[templates.hyprland]
+input_path = '/home/victor/.config/matugen/templates/hypr/hyprland/color.conf'
+output_path = '/home/victor/.config/hypr/hyprland/color.conf'
+
+[templates.hyprlock]
+input_path = '/home/victor/.config/matugen/templates/hypr/hyprlock/color.conf'
+output_path = '/home/victor/.config/hypr/hyprlock/color.conf'
+
+[templates.kitty]
+input_path = "/home/victor/.config/matugen/templates/kitty/color.conf"
+output_path = "/home/victor/.config/kitty/color.conf"
+
+[templates.rofi]
+input_path = "/home/victor/.config/matugen/templates/rofi/color.rasi"
+output_path = "/home/victor/.config/rofi/color.rasi"
+
+[templates.rofi_wallpaper]
+input_path = "/home/victor/.config/matugen/templates/rofi/color-wall.rasi"
+output_path = "/home/victor/.config/rofi/color-wall.rasi"
+
+[templates.swaync]
+input_path = '/home/victor/.config/matugen/templates/swaync/style.css'
+output_path = '/home/victor/.config/swaync/style.css'
+post_hook = 'swaync-client -rs'
 
 [templates.fuzzel]
-input_path = '~/.config/matugen/templates/fuzzel/theme.ini'
+input_path = '/home/victor/.config/matugen/templates/fuzzel/theme.ini'
 output_path = '~/.config/fuzzel/theme.ini'
 
-# [templates.gtk3]
-# input_path = '~/.config/matugen/templates/gtk-3.0/gtk.css'
-# output_path = '~/.config/gtk-3.0/gtk.css'
-#
-# [templates.gtk4]
-# input_path = '~/.config/matugen/templates/gtk-4.0/gtk.css'
-# output_path = '~/.config/gtk-4.0/gtk.css'
+[templates.btop]
+input_path = '/home/victor/.config/matugen/templates/btop/matugen.theme'
+output_path = '/home/victor/.config/btop/themes/matugen.theme'
+post_hook = "sh -c 'pkill -USR2 btop || true'"
 
+[templates.pywalfox]
+input_path = '/home/victor/.config/matugen/templates/pywalfox/color.json'
+output_path = '/home/victor/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
+
+# [templates.vscode]
+# input_path = '/home/victor/.config/matugen/templates/code/color.json'
+# output_path = '/home/victor/.config/Code/User/settings.json'
+
+[templates.spicetify]
+input_path = "/home/victor/.config/matugen/templates/spicetify/Matugen/color.ini"
+output_path = "/home/victor/.config/spicetify/Themes/Matugen/color.ini"
+
+[templates.spotify]
+input_path = "/home/victor/.config/matugen/templates/spicetify/Onepunch/color.ini"
+output_path = "/home/victor/.config/spicetify/Themes/Onepunch/color.ini"
+post_hook = "spicetify config current_theme Matugen; spicetify config color_scheme base; spicetify apply -n; spicetify refresh -n"
+
+
+
+[templates.cava]
+input_path = '/home/victor/.config/matugen/templates/cava/color.ini'
+output_path = '/home/victor/.config/cava/themes/matugen'
+post_hook = 'pkill -USR1 cava'

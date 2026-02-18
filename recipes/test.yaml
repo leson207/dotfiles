@@ -1,0 +1,250 @@
+firefox:
+  source: official
+  units:
+    - name: dummy.service
+    - scope: system
+  deps (maybe only those optional):
+    speech-dispatcher:
+      source: official
+      units:
+        - name: speech-dispatcher.service
+        - scope: user
+
+# other file
+browser:
+  - firefox
+
+window-compositor:
+  # - river
+  # - niri
+  # - mangowc
+  - hyprland
+
+session-manager:
+    - uwsm # dep: libnewt
+    - app2unit (aur)
+
+display-manager:
+  - sddm - [] - [sddm]
+
+
+xdg:
+  - xdg-user-dirs - [xdg-user-dirs-update] - []
+  - xdg-desktop-portal-gtk
+  - xdg-desktop-portal-hyprland
+
+wallpaper:
+  setter:
+    # - swww
+    # - awww
+    - hyprpaper - [hyprpaper] - []
+    # - swaybg
+    # - mpvpaper
+
+  galery:
+    # - waypaper
+    # - waytrogen
+    # - hyprwall
+    - rofi
+    # - wallutils
+
+widget:
+  package:
+    # - eww
+    # - quickshell
+    - waybar
+
+    # - birghtnessctl
+    # - playerctl
+    # - power-profiles-daemon
+    # - ddcutil
+  user-unit:
+    - waybar
+
+lool-n-feel:
+  color extractor:
+    - matugen
+    # - hellwal
+    # - wallust (aur)
+    # - colorthief
+    # - kde-material-you-colors
+    # - pywall
+
+  engine:
+    - kvantum
+    - qt6ct
+
+  utils:
+    # - hyprqt6engine
+    # - hyprtoolkit
+
+notification:
+  - swaync - [] - [swaync]
+  # - mako - [] - [mako]
+  # - dunst
+  # - fnott
+
+
+bundel2:
+  package:
+    - hypridle
+    - hyprlock
+    - hyprsunset
+    - hyprpolkitagent
+
+    # - hyprlauncher
+    - fuzzel
+  user-unit:
+    - hyprpolkitagent
+    - hyprsunset
+    - hypridle
+
+
+
+media:
+  video-player:
+    - mpv
+    - vlc
+    - clapper
+
+  image-viwer:
+    - feh
+    - imv
+    - gthumb
+    - swayimg
+
+  screen-shot:
+    # - flameshot
+    - hyprshot # dep: grim, slurp, hyprpicker
+    # - wayshot
+    # - grimblast
+    # - satty
+    # - swappy
+
+  screen-record:
+    # - obs-studio
+    # - wl-screenrec
+    - wf-recorder
+    - gpu-screen-recorder (aur)
+    - gpu-screen-recorder-ui (aur)
+
+clipboard:
+  - wl-clipboard
+  - cliphist
+  # - copyq
+  # - wl-clip-persist
+  # - nwg-clipman
+
+
+input-method:
+  - fcitx5
+  - fcitx5-unikey
+  - fcitx5-configtool
+
+keyboard-mapper:
+  - kanata-bin (aur)
+
+font:
+  - noto-fonts
+  - noto-fonts-cjk
+  - noto-fonts-emoji
+  - ttf-opensans
+  - tex-gyre-fonts
+  - ttf-fira-code
+  - ttf-jetbrains-mono-nerd
+  # - ttf-cascadia-code-nerd
+
+terminal:
+  - foot - [] - [foot-server]
+  # - kitty
+  # - ghostty - [] - [app-com.mitchellh.ghostty.service]
+  # - alacritty
+  # - wezterm-git (aur)
+
+shell:
+  # - zsh
+  - nushell
+
+multiplexer:
+    - tmux
+    # - zellij
+
+terminal-other:
+    - starship
+    - atuin
+
+    - fastfetch
+
+backup:
+  # - borg
+  # - restic
+  - timeshift
+
+secret:
+  - bitwarden
+  - seahorse
+  - gnome-keyring
+
+file-manager:
+  thunar:
+    - thunar
+    - thunar-volman
+    - thunar-archive-plugin
+    - thunar-media-tags-plugin
+    # - catfish
+    # - plocate
+    # - zeitgeist
+
+  other:
+    - yazi
+    # - superfile
+
+  utils:
+    - czkawka-gui-bin (aur)
+    - 7zip
+
+preview:
+  # i remember this have 1 service
+  - tumbler
+  - ffmpegthumbnailer
+
+  # - ueberzugpp chafa
+  # - libjpeg-turbo libpng webp-pixbuf-loader libopenraw
+  # - imagemagick
+
+  # - poppler
+  # - pfdtomppm
+
+  # - bsdtar
+
+dotfile-manager:
+  - stow
+  # - chemzmoi
+  # - home-manager
+
+package-manager:
+  # - homebrew
+  # - nix
+  # - guix
+
+browser:
+  normal:
+    # this is a combo that separate by a blankline
+    - firefox - [system-unit if any] - [user-service if any]
+    - speech-dispatcher # i do not know if only firefox need it but assume that for a genralize config
+
+    - brave-bin (aur)
+    - google-chrome (aur)
+    - zen-browser-bin (aur)
+    - helium-browser-bin (aur)
+    - thorium-browser-bin (aur)
+    - microsoft-edge-stable-bin (aur)
+
+  keyboard-driven:
+    # more nested if needed
+    # - Nyxt
+    # - luakit
+
+other:
+    - okular
+    - mediawriter

@@ -1,0 +1,117 @@
+widget:
+  package:
+    # - eww
+    # - quickshell
+    - waybar
+
+    # - birghtnessctl
+    # - playerctl
+    # - power-profiles-daemon
+    # - ddcutil
+  user-unit:
+    - waybar
+
+lool-n-feel:
+  package:
+     # color extractor
+    - matugen
+    # - hellwal
+    # - wallust (aur)
+    # - colorthief
+    # - kde-material-you-colors
+
+    # engine
+    # - hyprtoolkit
+    - kvantum
+    - qt6ct
+    # - hyprqt6engine
+
+wallpaper:
+    # - wallutils
+
+
+bundel2:
+  package:
+    - hypridle
+    - hyprlock
+    - hyprsunset
+    - hyprpolkitagent
+
+    # - hyprlauncher
+    - fuzzel
+  user-unit:
+    - hyprpolkitagent
+    - hyprsunset
+    - hypridle
+
+intput:
+  package:
+    - wl-clipboard
+    - cliphist
+    # - copyq, wl-clip-persist, nwg-clipman
+
+    - fcitx5
+    - fcitx5-unikey
+    - fcitx5-configtool
+
+    - kanata-bin (aur)
+
+font:
+  package:
+    - noto-fonts
+    - noto-fonts-cjk
+    - noto-fonts-emoji
+    - ttf-opensans
+    - tex-gyre-fonts
+    - ttf-fira-code
+    - ttf-jetbrains-mono-nerd
+    # - ttf-cascadia-code-nerd
+
+terminal:
+  package:
+    - foot
+    # - kitty
+    # - ghostty
+    # - alacritty
+    # - wezterm-git (aur)
+
+    - nushell
+    - starship
+    - atuin
+
+    - tmux
+    # - zellij
+
+    - fastfetch
+  user-unit:
+    - foot-server
+    # - app-com.mitchellh.ghostty.service
+
+backup:
+  package:
+    # - borg
+    # - restic
+    - timeshift
+
+secret:
+  package:
+    - bitwarden
+    - seahorse
+    - gnome-keyring
+
+other:
+  package:
+    - firefox
+    # - speech-dispatcher
+
+    - okular
+    - mediawriter
+
+    # - Nyxt, luakit
+
+    - stow
+    # - chemzmoi
+    # - home-manager
+
+    # - nix
+    # - guix

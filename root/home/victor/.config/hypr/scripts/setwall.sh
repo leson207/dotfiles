@@ -16,7 +16,7 @@ WALL="$1"
 hyprctl hyprpaper wallpaper ", $WALL, fill"
 
 # colors
-matugen image "$WALL"
+matugen image "$WALL" -m light --source-color-index 0
 
 # compositor
 hyprctl reload

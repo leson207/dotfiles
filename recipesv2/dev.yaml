@@ -1,0 +1,79 @@
+name: dev
+description: dev
+
+cpp:
+  package:
+    # - xmake
+    # - meson
+    # - bazel
+    # - buck2-bin (aur)
+    - cmake
+
+    - ninja
+    - ccache
+    # - sccache
+    - conan-bin (aur)
+
+    - clang
+    - lldb
+    # - clangd
+
+    - lld
+    - mold
+
+    - libc++
+    - libc++abi
+
+lang:
+  package:
+    - go
+    - uv
+    # - rustup
+
+version-control:
+  package:
+    - git
+    # - jujutsu
+
+    - less
+    - git-delta
+
+vim:
+  package:
+    # - vim
+    - neovim
+    # - helix
+    # - kakoune
+    - luarocks
+
+virtual-machine:
+  package:
+    - dnsmasq
+    - libvirt
+    - qemu-full
+    - virt-viewer
+    - virt-manager
+    - bridge-utils
+  system-unit:
+    - libvirtd
+
+research:
+  package:
+    - just
+    - mise
+    - direnv
+
+other:
+  package:
+    - zed
+    - code
+    - typst
+    # - emacs
+
+    - tldr
+    - man-db
+    - github-cli
+
+    # - podman
+    # - podman-tui
+    # - podman-desktop

@@ -1,0 +1,55 @@
+name: casual life application
+description: desktop
+
+cmd:
+  package:
+    - fd
+    - fzf
+    - bat
+    - eza
+    - ripgrep
+    - zoxide
+
+    - tree
+    - rsync
+    - hugo
+    # - aria2
+
+    # - dust
+    # - dua-cli
+    # - progress
+
+monitor:
+  package:
+    # - atop
+    - btop
+    # - htop
+    - nvtop
+    # - glances
+    # - bottom
+    # - hyperfine
+
+browser:
+  package:
+    - brave-bin (aur)
+    - google-chrome (aur)
+    - zen-browser-bin (aur)
+    - helium-browser-bin (aur)
+    - thorium-browser-bin (aur)
+    - microsoft-edge-stable-bin (aur)
+
+ai:
+  package:
+    - openai-codex
+    - gemini-cli
+    - aider-char (aur)
+
+other:
+  package:
+    - obsidian
+    - anki-bin (aur)
+    # - telegram-desktop
+    # - vesktop-bin (aur) # webcord, openasar
+
+    # - fluffychat-bin (aur)
+    # - fractal

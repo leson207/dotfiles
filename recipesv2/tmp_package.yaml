@@ -1,0 +1,77 @@
+tmp:
+  package:
+    - activitywatch-bin (aur)
+    - timew
+    - task
+    - hamster-time-tracker
+    - watson (aur)
+    - zenity
+    - espanso-wayland
+
+    - gnome-themes-standard
+    - gtk-engine-murrinev
+    - gnome-themes-extra
+    - orchis-theme-git
+    - python-pywalfox
+
+    # github/charmbracelet
+    - gum
+    - glow
+    - vhs
+    - crush
+    - lipgloss
+
+    - cava
+    - spicetify-cli (AUR)
+    - spotify (aur)
+    - spicetify backup apply
+    - sudo chmod -R a+wr /opt/spotify
+
+    - orchis-theme
+    - tela-circle-icon-theme
+    - vimix-cursors
+    - papirus-icon-theme
+    - qt5ct
+    - qt6ct
+
+    - nwg-*
+    - nwg-look
+    - nwg-displays
+    - nwg-panel
+
+    - qbittorrent
+
+    - glance-bin (aur)
+    - gh-dash-bin (aur)
+    - witr-bin (aur)
+
+    - jan-bin (aur)
+    - cc-switch-bin (aur)
+    - chatgpt-desktop-bin (aur)
+    - nextchat-bin (aur)
+    - cherry-studio-bin (aur)
+    - gpt4all-chat-git (aur)
+    - anythingllm-desktop-bin (aur)
+    - open-webui (aur)
+    - ollama-bin
+    - goose-desktop-bin (aur)
+
+    - ast-grep
+    - uutils-coreutils
+
+    - broot
+    - pake
+
+    - spotify-tui (aur)
+    - spicetify
+
+    - thunderbird
+    - betterbird-bin (aur)
+    - stalwart-mail (aur)
+    - stalwart-cli (aur)
+
+    - sing-box (aur)
+
+    - very
+    - handsome (aur)
+
