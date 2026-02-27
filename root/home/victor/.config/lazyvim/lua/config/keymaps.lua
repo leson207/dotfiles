@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
+vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
 -- Alt+h moves cursor left in insert mode
 vim.keymap.set("i", "<A-h>", "<Left>", { desc = "Cursor Left", silent = true })
 -- Alt+l moves cursor right in insert mode

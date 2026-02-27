@@ -1,556 +1,528 @@
-from src.schema.enumeration import Repo, Scope
-from src.schema.atomic import Unit, PackageRecipe, TopicRecipe
+from src.schema.enumeration import Relationship, Repo, Scope
+from src.schema.atomic import Unit, Package, Topic
 
 
 map = {}
 
-map["window-compositor"]=TopicRecipe(
+Topic(
+    name="dotfile-manager",
+    recipes=[
+        Package("stow", Repo.OFFICIAL),
+        # Package("chemzmoi", Repo.OFFICIAL),
+    ]
+)
+
+map["window-compositor"]=Topic(
     name="window-compositor",
     recipes=[
-        PackageRecipe("hyprland", Repo.OFFICIAL),
-        # PackageRecipe("river", Repo.OFFICIAL),
-        # PackageRecipe("niri", Repo.OFFICIAL),
-        # PackageRecipe("mangowc", Repo.OFFICIAL)
-    ]
-)
-
-TopicRecipe(
-    name="session-manager",
-    recipes=[PackageRecipe("uwsm", Repo.OFFICIAL, supporters=[PackageRecipe("libnewt", Repo.OFFICIAL)])]
-)
-
-TopicRecipe(
-    name="app-manager",
-    recipes=[
-        PackageRecipe("app2unit", Repo.AUR),
-        PackageRecipe("uwsm", Repo.OFFICIAL, supporters=[PackageRecipe("libnewt", Repo.OFFICIAL)])
-    ]
-)
-
-# TopicRecipe(
-#     name="session-manager",
-#     recipes=[
-#         PackageRecipe("uwsm", Repo.OFFICIAL, supporters=[PackageRecipe("libnewt", Repo.OFFICIAL)]),
-#         TopicRecipe(
-#             name="app-launcher",
-#             recipes=[PackageRecipe("app2unit", Repo.AUR)]
-#         )
-#     ]
-# )
-
-TopicRecipe(
-    name="display-manager",
-    recipes=[
-        PackageRecipe(
-            name="sddm",
+        Package(
+            name="hyprland",
             repo=Repo.OFFICIAL,
-            units=[Unit("sddm.service", Scope.MULTI_USER)]
+            single_user_config=[
+                "~/.config/hypr/hyprland",
+                "~/.config/hypr/hyprland.conf",
+            ],
+        ),
+        # Package("river", Repo.OFFICIAL),
+        # Package("niri", Repo.OFFICIAL),
+        # Package("mangowc", Repo.OFFICIAL)
+    ]
+)
+
+Topic(
+    name="session-manager",
+    relationship=Relationship.ASSOCIATED,
+    recipes=[
+        Package("app2unit", Repo.AUR),
+        Package(
+            name="uwsm",
+            repo=Repo.OFFICIAL,
+            single_user_config=["~./config/uwsm"],
+            supporters=[Package("libnewt", Repo.OFFICIAL)]
         )
     ]
 )
 
-TopicRecipe(
-    name="xgd-dirs",
-    recipes=[
-        PackageRecipe("xdg-user-dirs", Repo.OFFICIAL, units=[Unit("xdg-user-dirs-update.service", Scope.SINGLE_USER)]),
-    ]
+Topic(
+    name="display-manager",
+    recipes=[Package(name="sddm", repo=Repo.OFFICIAL, units=[Unit("sddm.service", Scope.MULTI_USER)])]
 )
 
-TopicRecipe(
+Topic(
     name="screen-share",
+    relationship=Relationship.ASSOCIATED,
     recipes=[
-        PackageRecipe("xdg-desktop-portal", Repo.OFFICIAL),
-        PackageRecipe("xdg-desktop-portal-gtk", Repo.OFFICIAL),
-        PackageRecipe("xdg-desktop-portal-hyprland", Repo.OFFICIAL),
+        Package("xdg-desktop-portal-gtk", Repo.OFFICIAL),
+        Package("xdg-desktop-portal-hyprland", Repo.OFFICIAL),
     ]
 )
 
-TopicRecipe(
+Topic(
     name="bar",
     recipes=[
-        PackageRecipe("waybar", Repo.OFFICIAL, units=[Unit("waybar.service", Scope.SINGLE_USER)]),
-        # PackageRecipe("eww", Repo.UNKNOWN),
-        # PackageRecipe("ags", Repo.UNKNOWN),
-        # PackageRecipe("quickshell", Repo.UNKNOWN),
-        # PackageRecipe("hyprpanel", Repo.UNKNOWN),
+        Package(
+            name="waybar",
+            repo=Repo.OFFICIAL,
+            units=[Unit("waybar.service", Scope.SINGLE_USER)],
+            single_user_config=["~/.config/waybar"]
+        ),
+        # Package("eww", Repo.UNKNOWN),
+        # Package("ags", Repo.UNKNOWN),
+        # Package("hyprpanel", Repo.UNKNOWN),
+        # Package("quickshell", Repo.UNKNOWN),
     ]
 )
 
-TopicRecipe(
+Topic(
     name="color-extractor",
     recipes=[
-        # PackageRecipe("wallust", Repo.AUR),
-        PackageRecipe("matugen", Repo.OFFICIAL),
-        # PackageRecipe("hellwal", Repo.AUR),
-        # PackageRecipe("python-colorthief", Repo.OFFICIAL),
-        # PackageRecipe("kde-material-you-colors", Repo.AUR),
+        # Package("pywall", Repo.AUR),
+        # Package("wallust", Repo.AUR),
+        # Package("hellwal", Repo.AUR),
+        Package("matugen", Repo.OFFICIAL, single_user_config=["~/.config/matugen"]),
+        # Package("python-colorthief", Repo.OFFICIAL),
+        # Package("kde-material-you-colors", Repo.AUR),
     ]
 )
 
-TopicRecipe(
-    name="qt-config",
+Topic(
+    name="qt-theming",
+    relationship=Relationship.ASSOCIATED,
     recipes=[
-        PackageRecipe("qt5ct", Repo.OFFICIAL),
-        PackageRecipe("qt6ct", Repo.OFFICIAL),
-        PackageRecipe("hyprqt6engine", Repo.AUR),
+        Package("qt5ct", Repo.OFFICIAL, single_user_config=["~/.config/qt5ct"]),
+        Package("qt6ct", Repo.OFFICIAL, single_user_config=["~/.config/qt5ct"]),
+        Package("hyprqt6engine", Repo.AUR),
+        Package("kvantum", Repo.OFFICIAL, single_user_config=["~/.config/Kvantum"]),
     ]
 )
 
-TopicRecipe(
-    name="qt-theme-engine",
-    recipes=[
-        PackageRecipe("kvantum", Repo.OFFICIAL),
-    ]
-)
-
-TopicRecipe(
+Topic(
     name="gtk-theming",
-    TopicRecipe=[
-        PackageRecipe("nwglook", Repo.OFFICIAL),
+    relationship=Relationship.ASSOCIATED,
+    recipes=[
+        Package(
+            name="",
+            repo=Repo.OFFICIAL,
+            single_user_config=[
+                "~/.config/gtk-3.0",
+                "~/.config/gtk-4.0"
+            ]
+        ),
+        Package("nwglook", Repo.OFFICIAL, single_user_config=["~/.config/nwg-look"]),
+        Package(
+            name="orchis-theme",
+            repo=Repo.OFFICIAL,
+            supporters=[
+                Package("vimix-cursors", Repo.OFFICIAL),
+                Package("tela-circle-icon-theme", Repo.OFFICIAL),
+            ]
+        ),
+        Package("gnome-themes-extra", Repo.OFFICIAL),
     ]
 )
 
-TopicRecipe(
+Topic(
     name="wallpaper",
     recipes=[
-        TopicRecipe(
+        Topic(
             name="setter",
             recipes=[
-                # PackageRecipe("swww", Repo.OFFICIAL),
-                # PackageRecipe("awww-bin", Repo.AUR),
-                # PackageRecipe("swaybg", Repo.OFFICIAL),
-                # PackageRecipe("mpvpaper", Repo.AUR),
-                PackageRecipe("hyprpaper", Repo.OFFICIAL, units=[Unit("hyprpaper.service", Scope.SINGLE_USER)]),
+                # Package("swww", Repo.OFFICIAL),
+                # Package("awww-bin", Repo.AUR),
+                # Package("swaybg", Repo.OFFICIAL),
+                # Package("mpvpaper", Repo.AUR),
+                Package(
+                    name="hyprpaper",
+                    repo=Repo.OFFICIAL,
+                    units=[Unit("hyprpaper.service", Scope.SINGLE_USER)],
+                    single_user_config=["~/.config/hypr/hyprpaper.conf"]
+                ),
             ]
         ),
-        TopicRecipe(
+        Topic(
             name="picker",
             recipes=[
-                PackageRecipe("rofi", Repo.OFFICIAL),
-                # PackageRecipe("waypaper", Repo.AUR),
-                # PackageRecipe("waytrogen-bin", Repo.AUR),
+                Package("rofi", Repo.OFFICIAL, single_user_config=["~/.config/rofi"]),
+                # Package("waypaper", Repo.AUR),
+                # Package("waytrogen-bin", Repo.AUR),
             ]
-        ),
-        TopicRecipe(
-            name="misc",
-            recipes=[PackageRecipe("wallutils", Repo.OFFICIAL)]
         )
     ]
 )
 
-TopicRecipe(
+Topic(
     name="desktop-component",
     recipes=[
-        TopicRecipe(
+        Topic(
             name="screen-lock",
             recipes=[
-                PackageRecipe("hyprlock", Repo.OFFICIAL),
-                # PackageRecipe("quickshell", Repo.OFFICIAL),
+                Package("hyprlock", Repo.OFFICIAL, single_user_config=["~/.config/hypr/hyprlock.conf"]),
+                # Package("quickshell", Repo.OFFICIAL),
             ]
         ),
-        TopicRecipe(
+        Topic(
             name="polkit",
-            recipes=[PackageRecipe("hyprpolkitagent", Repo.OFFICIAL, units=[Unit("hyprpolkitagent.service", Scope.SINGLE_USER)])]
+            recipes=[Package("hyprpolkitagent", Repo.OFFICIAL, units=[Unit("hyprpolkitagent.service", Scope.SINGLE_USER)])]
         ),
-        TopicRecipe(
+        Topic(
             name="idle",
-            recipes=[PackageRecipe("hypridle", Repo.OFFICIAL, units=[Unit("hypridle.service", Scope.SINGLE_USER)])]
+            recipes=[
+                Package(
+                    name="hypridle",
+                    repo=Repo.OFFICIAL,
+                    units=[Unit("hypridle.service", Scope.SINGLE_USER)],
+                    single_user_config=["~/.config/hypr/hypridle.conf"]
+                )
+            ]
         ),
-        TopicRecipe(
+        Topic(
             name="backlight",
-            recipes=[PackageRecipe("hyprsunset", Repo.OFFICIAL, units=[Unit("hyprsunset.service", Scope.SINGLE_USER)])]
+            recipes=[
+                Package(
+                    name="hyprsunset",
+                    repo=Repo.OFFICIAL,
+                    units=[Unit("hyprsunset.service", Scope.SINGLE_USER)],
+                    single_user_config=["~/.config/hypr/hyprsunset.conf"]
+                )
+            ]
         )
     ]
 )
 
-TopicRecipe(
+Topic(
     name="launcher",
     recipes=[
-        PackageRecipe("fuzzel", Repo.OFFICIAL),
-        PackageRecipe("hyprlauncher", Repo.OFFICIAL),
+        Package("fuzzel", Repo.OFFICIAL, single_user_config=["~/.config/fuzzel"]),
+        Package("hyprlauncher", Repo.OFFICIAL, single_user_config=["~/.config/hypr/hyprlauncher.conf"]),
     ]
 )
 
-TopicRecipe(
+Topic(
     name="notification",
     recipes=[
-        # PackageRecipe("dunst", Repo.OFFICIAL),
-        # PackageRecipe("fnott", Repo.OFFICIAL),
-        # PackageRecipe("mako", Repo.OFFICIAL, units=[Unit("mako.service", Scope.SINGLE_USER)]),
-        PackageRecipe("swaync", Repo.OFFICIAL, units=[Unit("swaync.service", Scope.SINGLE_USER)]),
-    ]
-)
-
-TopicRecipe(
-    name="video-player",
-    recipes=[
-        PackageRecipe("mpv", Repo.OFFICIAL),
-        PackageRecipe("vlc", Repo.OFFICIAL),
-        # PackageRecipe("clapper", Repo.OFFICIAL),
-    ]
-)
-
-TopicRecipe(
-    name="image-viewer",
-    recipes=[
-        PackageRecipe("mpv", Repo.OFFICIAL),
-        # PackageRecipe("imv", Repo.OFFICIAL),
-        # PackageRecipe("feh", Repo.OFFICIAL),
-        # PackageRecipe("gthumb", Repo.OFFICIAL),
-        # PackageRecipe("swayimg", Repo.OFFICIAL),
-    ]
-)
-
-TopicRecipe(
-    name="screen-shot",
-    recipes=[
-        # TopicRecipe(
-        #     name="shot",
-        #     recipes=[
-        #         PackageRecipe("grim", Repo.OFFICIAL)
-        #     ]
-        # ),
-        # TopicRecipe(
-        #     name="crop",
-        #     recipes=[
-        #         PackageRecipe("slurp", Repo.OFFICIAL)
-        #     ]
-        # ),
-        # TopicRecipe(
-        #     name="edit",
-        #     recipes=[
-        #         PackageRecipe("swappy", Repo.OFFICIAL),
-        #         PackageRecipe("satty", Repo.OFFICIAL)
-        #     ]
-        # ),
-        TopicRecipe(
-            name="full",
-            recipes=[
-                PackageRecipe("hyprshot", Repo.OFFICIAL, supporters=[PackageRecipe("hyprpicker", Repo.OFFICIAL)]),
-                # PackageRecipe("flameshot", Repo.OFFICIAL),
-            ]
+        # Package("fnott", Repo.OFFICIAL),
+        # Package("dunst", Repo.OFFICIAL, single_user_config=["~/.config/dunst"]),
+        # Package("mako", Repo.OFFICIAL, units=[Unit("mako.service", Scope.SINGLE_USER)], single_user_config=["~/.config/mako"]),
+        Package(
+            name="swaync",
+            repo=Repo.OFFICIAL,
+            units=[Unit("swaync.service", Scope.SINGLE_USER)],
+            single_user_config=["~/.config/swaync"]
         )
     ]
 )
 
-TopicRecipe(
-    name="screen-recorder",
-    recipes=[
-        PackageRecipe("wl-screenrec", Repo.AUR),
-        PackageRecipe("obs-studio", Repo.OFFICIAL),
-        PackageRecipe("wf-recorder", Repo.OFFICIAL),
-        PackageRecipe("gpu-screen-recorder", Repo.AUR, supporters=[PackageRecipe("gpu-screen-recorder-ui", Repo.AUR)]),
-    ]
-)
-
-TopicRecipe(
+Topic(
     name="clipboard",
     recipes=[
-        TopicRecipe(
+        Topic(
             name="copy-paste",
-            recipes=[PackageRecipe("wl-clipboard", Repo.OFFICIAL)]
+            recipes=[Package("wl-clipboard", Repo.OFFICIAL)]
         ),
-        TopicRecipe(
+        Topic(
             name="history",
             recipes=[
-                # PackageRecipe("copyq", Repo.OFFICIAL),
-                PackageRecipe("cliphist", Repo.OFFICIAL),
-                # PackageRecipe("nwg-clipman", Repo.OFFICIAL),
-                # PackageRecipe("wl-clip-persist", Repo.OFFICIAL),
+                # Package("copyq", Repo.OFFICIAL),
+                Package("cliphist", Repo.OFFICIAL),
+                # Package("nwg-clipman", Repo.OFFICIAL),
+                # Package("wl-clip-persist", Repo.OFFICIAL),
             ]
         )
     ]
 )
 
-TopicRecipe(
+Topic(
     name="input",
     recipes=[
-        TopicRecipe(
+        Topic(
             name="input-method",
             recipes=[
-                PackageRecipe(
+                Package(
                     name="fcitx5",
                     repo=Repo.OFFICIAL,
+                    single_user_config=[
+                        "~/.config/fcitx5/config"
+                        "~/.config/fcitx5/profile"
+                    ],
                     supporters=[
-                        PackageRecipe("fcitx5-unikey", Repo.OFFICIAL),
-                        PackageRecipe("fcitx5-configtool", Repo.OFFICIAL),
+                        Package("fcitx5-unikey", Repo.OFFICIAL),
+                        Package("fcitx5-configtool", Repo.OFFICIAL)
                     ]
                 )
             ]
         ),
-        TopicRecipe(
+        Topic(
             name="keyboard-remapper",
             recipes=[
-                PackageRecipe(name="katana-bin", repo=Repo.AUR),
-                # PackageRecipe(name="wlr-which-key", repo=Repo.AUR)
-                # PackageRecipe(name="xremap-hypr-bin", repo=Repo.AUR)
-                # PackageRecipe(name="xremap-wlroots-bin", repo=Repo.AUR)
+                Package("katana-bin", Repo.AUR, single_user_config=["~/.config/kanata"]),
+                # Package("wlr-which-key", Repo.AUR)
+                # Package("xremap-hypr-bin", Repo.AUR)
+                # Package("xremap-wlroots-bin", Repo.AUR)
             ]
         )
     ]
 )
 
-TopicRecipe(
+Topic(
     name="font",
     recipes=[
-        TopicRecipe(
+        Topic(
             name="noto-fonts",
+            relationship=Relationship.ASSOCIATED,
             recipes=[
-                PackageRecipe("noto-fonts", Repo.OFFICIAL),
-                PackageRecipe("noto-fonts-cjk", Repo.OFFICIAL),
-                PackageRecipe("noto-fonts-emoji", Repo.OFFICIAL)
+                Package("noto-fonts", Repo.OFFICIAL),
+                Package("noto-fonts-cjk", Repo.OFFICIAL),
+                Package("noto-fonts-emoji", Repo.OFFICIAL)
             ]
         ),
-        TopicRecipe(
+        Topic(
             name="ttf",
+            relationship=Relationship.ASSOCIATED,
             recipes=[
-                PackageRecipe("ttf-opensans", Repo.OFFICIAL),
-                PackageRecipe("ttf-fira-code", Repo.OFFICIAL),
-                PackageRecipe("ttf-cascadia-code-nerd", Repo.OFFICIAL),
-                PackageRecipe("ttf-jetbrains-mono-nerd", Repo.OFFICIAL)
+                Package("ttf-opensans", Repo.OFFICIAL),
+                Package("ttf-fira-code", Repo.OFFICIAL),
+                Package("ttf-cascadia-code-nerd", Repo.OFFICIAL),
+                Package("ttf-jetbrains-mono-nerd", Repo.OFFICIAL)
             ]
         ),
-        TopicRecipe(
+        Topic(
             name="tex-gyre",
-            recipes=[PackageRecipe("tex-gyre-fonts", Repo.OFFICIAL)]
+            relationship=Relationship.ASSOCIATED,
+            recipes=[Package("tex-gyre-fonts", Repo.OFFICIAL)]
         )
     ]
 )
 
-TopicRecipe(
-    name="terminal",
-    recipes=[
-        PackageRecipe("foot", Repo.OFFICIAL, units=[Unit("foot-server.service", Scope.SINGLE_USER)]),
-        PackageRecipe("ghostty", Repo.OFFICIAL, units=[Unit("app-com.mitchellh.ghostty.service", Scope.SINGLE_USER)]),
-        PackageRecipe("kitty", Repo.OFFICIAL),
-        PackageRecipe("aclacritty", Repo.OFFICIAL),
-        PackageRecipe("wezterm-git", Repo.AUR),
-    ]
-)
-
-TopicRecipe(
-    name="terminal-multiplexer",
-    recipes=[
-        PackageRecipe("tmux", Repo.OFFICIAL),
-        PackageRecipe("zellij", Repo.OFFICIAL),
-    ]
-)
-
-TopicRecipe(
+Topic(
     name="shell",
     recipes=[
-        # PackageRecipe("zsh", Repo.OFFICIAL),
-        # PackageRecipe("fish", Repo.OFFICIAL),
-        PackageRecipe("nushell", Repo.OFFICIAL),
+        # Package("zsh", Repo.OFFICIAL),
+        # Package("fish", Repo.OFFICIAL),
+        Package("bash", Repo.OFFICIAL, single_user_config=["~/.bashrc", "~/.bash_profile"]),
+        Package(
+            name="nushell",
+            repo=Repo.OFFICIAL,
+            single_user_config=[
+                # "~/.config/nushell",
+                "~/.config/nushell/config.nu",
+                "~/.config/nushell/env.nu",
+            ]
+        ),
     ]
 )
 
-TopicRecipe(
+Topic(
     name="shell-history",
-    recipes=[PackageRecipe("atuin", Repo.OFFICIAL)]
+    recipes=[Package("atuin", Repo.OFFICIAL)]
 )
 
-TopicRecipe(
+Topic(
     name="shell-promt",
-    recipes=[PackageRecipe("atuin", Repo.OFFICIAL)]
+    recipes=[Package("starship", Repo.OFFICIAL, single_user_config=["~/.config/starship.toml"])]
 )
 
-# TopicRecipe(
-#     name="secret",
-#     recipes=[
-#         PackageRecipe("seahorse", Repo.OFFICIAL, supporters=[PackageRecipe("gnome-keyring", Repo.OFFICIAL)]),
-#         PackageRecipe("bitwardern", Repo.OFFICIAL, supporters=[PackageRecipe("gnome-keyring", Repo.OFFICIAL)]),
-#     ]
-# )
+Topic(
+    name="terminal-emulator",
+    recipes=[
+        Package(
+            name="foot",
+            repo=Repo.OFFICIAL,
+            units=[Unit("foot-server.service", Scope.SINGLE_USER)],
+            single_user_config=["~/.config/foot"]
+        ),
+        Package(
+            name="wezterm-git",
+            repo=Repo.AUR,
+            single_user_config=["~/.config/wezterm"]
+        ),
+        Package("kitty", Repo.OFFICIAL, single_user_config=["~/.config/kitty"]),
+        # Package("aclacritty", Repo.OFFICIAL),
+        # Package("ghostty", Repo.OFFICIAL, units=[Unit("app-com.mitchellh.ghostty.service", Scope.SINGLE_USER)]),
+    ]
+)
 
-TopicRecipe(
+Topic(
+    name="terminal-multiplexer",
+    recipes=[
+        Package("tmux", Repo.OFFICIAL, single_user_config=["~/.tmux.conf"]),
+        Package("zellij", Repo.OFFICIAL),
+    ]
+)
+
+Topic(
     name="file",
     recipes=[
-        TopicRecipe(
+        Topic(
             name="manager",
             recipes=[
-                PackageRecipe(
+                Package(
                     name="thunar",
                     repo=Repo.OFFICIAL,
                     supporters=[
-                        PackageRecipe("thunar-volman", Repo.OFFICIAL),
-                        PackageRecipe("thunar-archive-plugin", Repo.OFFICIAL),
-                        PackageRecipe("thunar-media-tags-plugin", Repo.OFFICIAL),
-                        # PackageRecipe("catfish", Repo.OFFICIAL),
-                        # PackageRecipe("plocate", Repo.OFFICIAL),
-                        # PackageRecipe("zeitgeist", Repo.OFFICIAL),
+                        Package("thunar-volman", Repo.OFFICIAL),
+                        Package("thunar-archive-plugin", Repo.OFFICIAL),
+                        Package("thunar-media-tags-plugin", Repo.OFFICIAL),
+                        # Package("catfish", Repo.OFFICIAL),
+                        # Package("plocate", Repo.OFFICIAL),
+                        # Package("zeitgeist", Repo.OFFICIAL),
                     ]
                 ),
-                PackageRecipe(
+                Package(
                     name="yazi",
                     repo=Repo.OFFICIAL,
+                    single_user_config=["~/.config/yazi"],
                     supporters=[
-                        PackageRecipe("7zip", Repo.OFFICIAL),
-                        PackageRecipe("chafa", Repo.OFFICIAL),
-                        PackageRecipe("ffmpeg", Repo.OFFICIAL),
-                        PackageRecipe("jq", Repo.OFFICIAL),
-                        PackageRecipe("poppler", Repo.OFFICIAL),
-                        PackageRecipe("resvg", Repo.OFFICIAL),
-                        PackageRecipe(
+                        Package("7zip", Repo.OFFICIAL),
+                        Package("chafa", Repo.OFFICIAL),
+                        Package("ffmpeg", Repo.OFFICIAL),
+                        Package("jq", Repo.OFFICIAL),
+                        Package("poppler", Repo.OFFICIAL),
+                        Package("resvg", Repo.OFFICIAL),
+                        Package(
                             name="imagemagick",
                             repo=Repo.OFFICIAL,
-                            supporters=[PackageRecipe("libjpeg-turbo", Repo.OFFICIAL)]
+                            supporters=[Package("libjpeg-turbo", Repo.OFFICIAL)]
                         )
                     ]
                 ),
-                PackageRecipe("superfile", Repo.OFFICIAL)
+                # Package("superfile", Repo.OFFICIAL)
             ]
         ),
-        TopicRecipe(
-            name="backup",
-            recipes=[
-                PackageRecipe("borg", Repo.OFFICIAL),
-                PackageRecipe("restic", Repo.OFFICIAL),
-                PackageRecipe("timeshift", Repo.OFFICIAL),
-            ]
-        ),
-        TopicRecipe(
+        Topic(
             name="misc",
             recipes=[
-                PackageRecipe("fd", Repo.OFFICIAL),
-                PackageRecipe("fzf", Repo.OFFICIAL),
-                PackageRecipe("bat", Repo.OFFICIAL),
-                PackageRecipe("eza", Repo.OFFICIAL),
-                PackageRecipe("zoxide", Repo.OFFICIAL),
-                PackageRecipe("ripgrep", Repo.OFFICIAL),
-                PackageRecipe("rsync", Repo.OFFICIAL),
-
-                PackageRecipe("7zip", Repo.OFFICIAL),
-                PackageRecipe("czkawka-gui-bin", Repo.AUR),
+                Package("xdg-user-dirs", Repo.OFFICIAL, units=[Unit("xdg-user-dirs-update.service", Scope.SINGLE_USER)]),
+                Package("czkawka-gui-bin", Repo.AUR),
             ]
         )
     ]
 )
 
-TopicRecipe(
+Topic(
     name="thumnail",
     recipes=[
-        PackageRecipe(
+        Package(
             name="tumbler",
             repo=Repo.OFFICIAL,
             units=[Unit("tumblerd.service", Scope.SINGLE_USER)],
             supporters=[
-                PackageRecipe("ffmpegthumbnailer", Repo.OFFICIAL),
-                PackageRecipe("freetype2", Repo.OFFICIAL),
-                PackageRecipe("libgepub", Repo.OFFICIAL),
-                PackageRecipe("libgsf", Repo.OFFICIAL),
-                PackageRecipe("libopenraw", Repo.OFFICIAL),
-                PackageRecipe("poppler-glib", Repo.OFFICIAL),
-                PackageRecipe("libarchive", Repo.OFFICIAL),
+                Package("ffmpegthumbnailer", Repo.OFFICIAL),
+                Package("freetype2", Repo.OFFICIAL),
+                Package("libgepub", Repo.OFFICIAL),
+                Package("libgsf", Repo.OFFICIAL),
+                Package("libopenraw", Repo.OFFICIAL),
+                Package("poppler-glib", Repo.OFFICIAL),
+                Package("libarchive", Repo.OFFICIAL),
 
-                # PackageRecipe("ueberzugpp", Repo.OFFICIAL),
+                # Package("ueberzugpp", Repo.OFFICIAL),
             ]
         )
     ]
 )
 
-
-# TopicRecipe(
-#     name="package-manager",
-#     recipes=[
-#         PackageRecipe("nix", Repo.OFFICIAL),
-#         PackageRecipe("guix", Repo.AUR),
-#     ]
-# )
-
-TopicRecipe(
-    name="dotfile-manager",
+Topic(
+    name="video-player",
     recipes=[
-        PackageRecipe("stow", Repo.OFFICIAL),
-        # PackageRecipe("chemzmoi", Repo.OFFICIAL),
+        Package("mpv", Repo.OFFICIAL, single_user_config=["~/.config/mpv"]),
+        Package("vlc", Repo.OFFICIAL, single_user_config=["~/.config/vlc"]),
+        # Package("clapper", Repo.OFFICIAL),
     ]
 )
 
-TopicRecipe(
+Topic(
+    name="image-viewer",
+    recipes=[
+        Package("mpv", Repo.OFFICIAL, single_user_config=["~/.config/mpv"]),
+        # Package("imv", Repo.OFFICIAL),
+        # Package("feh", Repo.OFFICIAL),
+        # Package("gthumb", Repo.OFFICIAL),
+        # Package("swayimg", Repo.OFFICIAL),
+    ]
+)
+
+Topic(
+    name="screen-shot",
+    recipes=[
+        # Topic(
+        #     name="capture",
+        #     recipes=[
+        #         Package("grim", Repo.OFFICIAL)
+        #     ]
+        # ),
+        # Topic(
+        #     name="crop",
+        #     recipes=[
+        #         Package("slurp", Repo.OFFICIAL)
+        #     ]
+        # ),
+        # Topic(
+        #     name="annotate",
+        #     recipes=[
+        #         Package("swappy", Repo.OFFICIAL),
+        #         Package("satty", Repo.OFFICIAL)
+        #     ]
+        # ),
+        Topic(
+            name="full",
+            recipes=[
+                # Package("flameshot", Repo.OFFICIAL),
+                Package("hyprshot", Repo.OFFICIAL, supporters=[Package("hyprpicker", Repo.OFFICIAL)]),
+            ]
+        )
+    ]
+)
+
+Topic(
+    name="screen-recorder",
+    recipes=[
+        # Package("wl-screenrec", Repo.AUR),
+        # Package("obs-studio", Repo.OFFICIAL),
+        # Package("wf-recorder", Repo.OFFICIAL),
+        Package("gpu-screen-recorder", Repo.AUR, supporters=[Package("gpu-screen-recorder-ui", Repo.AUR)]),
+    ]
+)
+
+Topic(
     name="browser",
     recipes=[
-        TopicRecipe(
+        Topic(
             name="gui",
             recipes=[
-                PackageRecipe("firefox", Repo.OFFICIAL, supporters=[PackageRecipe("speech-dispatcher", Repo.OFFICIAL)]),
-                PackageRecipe("brave-bin", Repo.AUR),
-                PackageRecipe("zen-browser-bin", Repo.AUR),
-                PackageRecipe("google-chrome-bin", Repo.AUR),
-                PackageRecipe("helium-browser-bin", Repo.AUR),
-                PackageRecipe("thorium-browser-bin", Repo.AUR),
-                PackageRecipe("microsoft-edge-stable-bin", Repo.AUR)
+                Package("firefox", Repo.OFFICIAL, supporters=[Package("speech-dispatcher", Repo.OFFICIAL)]),
+                Package("brave-bin", Repo.AUR),
+                Package("zen-browser-bin", Repo.AUR),
+                Package("google-chrome-bin", Repo.AUR, single_user_config=["~/.config/chrome-flags.conf"]),
+                Package("helium-browser-bin", Repo.AUR, single_user_config=["~/.config/helium-flags.conf"]),
+                Package("thorium-browser-bin", Repo.AUR, single_user_config=["~/.config/thorium-flags.conf"]),
+                Package("microsoft-edge-stable-bin", Repo.AUR)
             ]
         ),
-        TopicRecipe(
-            name="keyboard-driven",
-            recipes=[
-                PackageRecipe("nyxt", Repo.OFFICIAL),
-                PackageRecipe("luakit", Repo.OFFICIAL),
-                PackageRecipe("lynx", Repo.OFFICIAL),
-                PackageRecipe("browsh", Repo.AUR),
-            ]
-        )
+        # Topic(
+        #     name="keyboard-driven",
+        #     recipes=[
+        #         Package("nyxt", Repo.OFFICIAL),
+        #         Package("luakit", Repo.OFFICIAL),
+        #         Package("lynx", Repo.OFFICIAL),
+        #         Package("browsh", Repo.AUR),
+        #     ]
+        # )
     ]
 )
 
-TopicRecipe(
-    name="social",
+Topic(
+    name="misc",
     recipes=[
-        TopicRecipe(
-            name="telegram",
-            recipes=[
-                PackageRecipe("telegram-desktop", Repo.OFFICIAL),
-            ]
-        ),
-        TopicRecipe(
-            name="discord",
-            recipes=[PackageRecipe("vesktop-bin", Repo.AUR)]
-        ),
-        TopicRecipe(
-            name="matrix",
-            recipes=[
-                PackageRecipe("fractal", Repo.OFFICIAL),
-                PackageRecipe("fluffychat-bin", Repo.AUR),
-            ]
-        ),
+        Package("hugo", Repo.AUR),
+        Package("anki-bin", Repo.AUR),
+        Package("okular", Repo.OFFICIAL),
+        Package("mediawriter", Repo.OFFICIAL),
+        Package("cava", Repo.OFFICIAL, single_user_config=["~/.config/cava"]),
+        Package("electron", Repo.OFFICIAL, single_user_config=["~/.config/electron-flags.conf"])
     ]
 )
 
-
-TopicRecipe(
-    name="ai",
-    recipes=[
-        # PackageRecipe("aider-chat", Repo.AUR),
-        PackageRecipe("gemini-cli", Repo.OFFICIAL),
-        PackageRecipe("openai-codex", Repo.OFFICIAL),
-    ]
-)
-
-TopicRecipe(
-    name="utils",
-    recipes=[
-        PackageRecipe("okular", Repo.OFFICIAL),
-        PackageRecipe("mediawriter", Repo.OFFICIAL),
-        PackageRecipe("anki-bin", Repo.AUR),
-        PackageRecipe("hugo", Repo.AUR),
-        PackageRecipe("tree", Repo.AUR),
-        PackageRecipe("aria2", Repo.AUR),
-        PackageRecipe("dust", Repo.AUR),
-        PackageRecipe("dua-cli", Repo.AUR),
-        PackageRecipe("progress", Repo.AUR),
-        PackageRecipe("fastfetch", Repo.AUR),
-    ]
-)
-
-TopicRecipe(
-    name="monitor",
-    recipes=[
-        PackageRecipe("atop", Repo.OFFICIAL),
-        PackageRecipe("btop", Repo.OFFICIAL),
-        PackageRecipe("htop", Repo.OFFICIAL),
-        PackageRecipe("nvtop", Repo.OFFICIAL),
-        PackageRecipe("glances", Repo.OFFICIAL),
-        PackageRecipe("bottom", Repo.OFFICIAL),
-        PackageRecipe("hyperfine", Repo.OFFICIAL),
-    ]
+#TODO: this recipes need extension too, how to write
+Topic(
+    name="firefox-theme",
+    recipes=[Package("python-pywalfox", Repo.AUR)]
 )

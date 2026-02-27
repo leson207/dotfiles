@@ -28,6 +28,12 @@ class Recipe:
     env_variable: list
     modify: list #like ucode wil modify 1 line on entry file
 
+class Recipe:
+    packages: list
+    scripts: list
+    units: list
+    files: list
+
 class PackageTopic:
     name: str
     l: list

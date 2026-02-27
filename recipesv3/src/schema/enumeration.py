@@ -5,7 +5,6 @@ class Repo(str, Enum):
     OFFICIAL = "official"
     AUR = "aur"
     UNKNOWN = "unknown"
-    GITHUB = "github"
 
 class Scope(str, Enum):
     MULTI_USER = "multi-user"
@@ -19,13 +18,3 @@ class Shell(str, Enum):
     ZSH = "zsh"
     FISH = "fish"
     NUSHELL = "nushell"
-
-class Relationship(str, Enum):
-    NONE = "none"
-    ALTERNATIVE = "alternative"
-    ASSOCIATED = "associated" # related, counterpart, facet
-    SUPPORT = "support"
-
-    # depend_on, optional, provides, variant_of, integrated_with, conflicts_with, replaces
-
-    # interchange

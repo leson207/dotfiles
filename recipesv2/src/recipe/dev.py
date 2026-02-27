@@ -1,139 +1,203 @@
-from re import Pattern
-from src.schema.enumeration import Repo, Scope
-from src.schema.atomic import Unit, PackageRecipe, TopicRecipe
+from src.schema.enumeration import Relationship, Repo, Scope
+from src.schema.atomic import Unit, Package, Topic
 
 
 map = {}
 
-TopicRecipe(
+Topic(
     name="version-control",
     recipes=[
-        PackageRecipe(
+        Package(
             name="git",
             repo=Repo.OFFICIAL,
+            single_user_config=["~/.gitconfig"],
             supporters=[
-                PackageRecipe("less", Repo.OFFICIAL),
-                PackageRecipe("git-delta", Repo.OFFICIAL),
+                Package("less", Repo.OFFICIAL),
+                Package("git-delta", Repo.OFFICIAL),
             ]
         ),
-        PackageRecipe("jujutsu", Repo.OFFICIAL),
-        PackageRecipe("cvs", Repo.OFFICIAL),
-        PackageRecipe("mercurial", Repo.OFFICIAL),
+        # Package("jujutsu", Repo.OFFICIAL),
     ]
 )
 
-TopicRecipe(
+Topic(
     name="c++",
     recipes=[
-        PackageRecipe("xmake", Repo.OFFICIAL),
-        PackageRecipe("meson", Repo.OFFICIAL),
-        PackageRecipe("bazel", Repo.OFFICIAL),
-        PackageRecipe("buck2-bin", Repo.AUR),
-        PackageRecipe("cmake", Repo.OFFICIAL),
-
-        PackageRecipe("ninja", Repo.OFFICIAL),
-
-        PackageRecipe("ccache", Repo.OFFICIAL),
-        PackageRecipe("sccache", Repo.OFFICIAL),
-        PackageRecipe("conan-bin", Repo.AUR),
-
-        PackageRecipe("gcc", Repo.OFFICIAL),
-        PackageRecipe("clang", Repo.OFFICIAL),
-
-        PackageRecipe("gdb", Repo.OFFICIAL),
-        PackageRecipe("lldb", Repo.OFFICIAL),
-
-        PackageRecipe("clangd", Repo.OFFICIAL),
-
-        PackageRecipe("ld", Repo.OFFICIAL),
-        PackageRecipe("lld", Repo.OFFICIAL),
-        PackageRecipe("mold", Repo.OFFICIAL),
-
-        PackageRecipe("libstdc++", Repo.OFFICIAL),
-        PackageRecipe("libstdc++abi", Repo.OFFICIAL),
-        PackageRecipe("libc++", Repo.OFFICIAL),
-        PackageRecipe("libc++abi", Repo.OFFICIAL),
-    ]
-)
-
-TopicRecipe(
-    name="go",
-    recipes=[PackageRecipe("go", Repo.OFFICIAL)]
-)
-
-TopicRecipe(
-    name="python",
-    recipes=[PackageRecipe("uv", Repo.OFFICIAL)]
-)
-TopicRecipe(
-    name="rust",
-    recipes=[PackageRecipe("rustup", Repo.OFFICIAL)]
-)
-
-TopicRecipe(
-    name="keyboard-driven editor",
-    recipes=[
-        PackageRecipe("neovim", Repo.OFFICIAL, supporters=[PackageRecipe("luarocks", Repo.OFFICIAL)]),
-        PackageRecipe("vim", Repo.OFFICIAL),
-        PackageRecipe("helix", Repo.OFFICIAL),
-        PackageRecipe("kakoune", Repo.OFFICIAL),
-        PackageRecipe("emacs", Repo.OFFICIAL),
-    ]
-)
-
-TopicRecipe(
-    name="gui editor",
-    recipes=[
-        PackageRecipe("zed", Repo.OFFICIAL),
-        PackageRecipe("code", Repo.OFFICIAL),
-        PackageRecipe("typst", Repo.OFFICIAL),
-        PackageRecipe("lapce", Repo.OFFICIAL),
-        PackageRecipe("xi-editor", Repo.OFFICIAL),
-        PackageRecipe("fresh-editor-bin", Repo.AUR),
-        PackageRecipe("micro", Repo.OFFICIAL),
-    ]
-)
-
-TopicRecipe(
-    name="note-taking",
-    recipes=[
-        PackageRecipe("memos", Repo.AUR),
-        PackageRecipe("zettlr ", Repo.AUR),
-        PackageRecipe("obsidian", Repo.OFFICIAL),
-    ]
-)
-
-TopicRecipe(
-    name="office",
-    recipes=[
-        PackageRecipe("onlyoffice", Repo.AUR),
-        PackageRecipe("libreoffice-fresh", Repo.OFFICIAL),
-        PackageRecipe("openoffice", Repo.OFFICIAL),
-    ]
-)
-
-TopicRecipe(
-    name="container",
-    recipes=[
-        PackageRecipe(
-            name="podman",
-            repo=Repo.OFFICIAL,
-            supporters=[
-                PackageRecipe("podman-tui", Repo.OFFICIAL),
-                PackageRecipe("podman-desktop", Repo.OFFICIAL),
+        Topic(
+            name="build-generator",
+            recipes=[
+                # Package("xmake", Repo.OFFICIAL),
+                # Package("meson", Repo.OFFICIAL),
+                # Package("bazel", Repo.OFFICIAL),
+                # Package("buck2-bin", Repo.AUR),
+                Package("cmake", Repo.OFFICIAL),
+            ]
+        ),
+        Topic(
+            name="build system",
+            recipes=[Package("ninja", Repo.OFFICIAL)]
+        ),
+        Topic(
+            name="compiler cache",
+            recipes=[
+                Package("ccache", Repo.OFFICIAL),
+                # Package("sccache", Repo.OFFICIAL),
+            ]
+        ),
+        Topic(
+            name="package manager",
+            recipes=[Package("conan-bin", Repo.AUR)]
+        ),
+        # Topic(
+        #     name="language-server",
+        #     recipes=[Package("clangd-bin", Repo.AUR)]
+        # ),
+        Topic(
+            name="compiler",
+            recipes=[
+                Package("gcc", Repo.OFFICIAL),
+                Package("clang", Repo.OFFICIAL),
+            ]
+        ),
+        Topic(
+            name="debugger",
+            recipes=[
+                Package("gdb", Repo.OFFICIAL),
+                Package("lldb", Repo.OFFICIAL),
+            ]
+        ),
+        Topic(
+            name="linker",
+            recipes=[
+                Package("ld", Repo.OFFICIAL),
+                Package("lld", Repo.OFFICIAL),
+                Package("mold", Repo.OFFICIAL),
+            ]
+        ),
+        Topic(
+            name="standard library",
+            recipes=[
+                Package("libc++", Repo.OFFICIAL, supporters=[Package("libc++abi", Repo.OFFICIAL)]),
+                Package("libstdc++", Repo.OFFICIAL, supporters=[Package("libstdc++abi", Repo.OFFICIAL)]),
             ]
         )
     ]
 )
 
-TopicRecipe(
-    name="virtual-machine-misc",
+Topic(
+    name="python",
+    recipes=[Package("uv", Repo.OFFICIAL)]
+)
+
+# Topic(
+#     name="go",
+#     recipes=[Package("go", Repo.OFFICIAL)]
+# )
+
+# Topic(
+#     name="rust",
+#     recipes=[Package("rustup", Repo.OFFICIAL)]
+# )
+
+Topic(
+    name="editor",
     recipes=[
-        PackageRecipe("dnsmasq", Repo.OFFICIAL),
-        PackageRecipe("libvirt", Repo.OFFICIAL, units=[Unit("libvirtd.service", scope=Scope.MULTI_USER)]),
-        PackageRecipe("qemu-full", Repo.OFFICIAL),
-        PackageRecipe("virt-viewer", Repo.OFFICIAL),
-        PackageRecipe("virt-manager", Repo.OFFICIAL),
-        PackageRecipe("bridge-utils", Repo.OFFICIAL),
+        Topic(
+            name="keyboard-driven editor",
+            recipes=[
+                # Package("vim", Repo.OFFICIAL),
+                Package("neovim", Repo.OFFICIAL, supporters=[Package("luarocks", Repo.OFFICIAL)]),
+                # Package("helix", Repo.OFFICIAL),
+                # Package("kakoune", Repo.OFFICIAL),
+                # Package("emacs", Repo.OFFICIAL),
+            ]
+        ),
+        Topic(
+            name="gui editor",
+            recipes=[
+                Package("zed", Repo.OFFICIAL),
+                Package("code", Repo.OFFICIAL, single_user_config=["~/.config/code-flags.conf"]),
+                # Package("typst", Repo.OFFICIAL),
+                # Package("lapce", Repo.OFFICIAL),
+                # Package("xi-editor", Repo.GITHUB),
+                # Package("fresh-editor-bin", Repo.AUR),
+                # Package("micro", Repo.OFFICIAL),
+            ]
+        )
     ]
+)
+
+Topic(
+    name="monitor",
+    recipes=[
+        # Package("atop", Repo.OFFICIAL),
+        Package("btop", Repo.OFFICIAL, single_user_config=["~/.config/btop"]),
+        # Package("htop", Repo.OFFICIAL),
+        # Package("nvtop", Repo.OFFICIAL),
+        # Package("glances", Repo.OFFICIAL),
+        # Package("bottom", Repo.OFFICIAL),
+        # Package("hyperfine", Repo.OFFICIAL),
+    ]
+)
+
+# Topic(
+#     name="container",
+#     recipes=[
+#         Package(
+#             name="podman",
+#             repo=Repo.OFFICIAL,
+#             single_user_config=["~/.config/containers"],
+#             supporters=[
+#                 Package("podman-tui", Repo.AUR),
+#                 Package("podman-desktop", Repo.OFFICIAL),
+#                 Package("podman-compose", Repo.OFFICIAL),
+#             ]
+#         )
+#     ]
+# )
+
+Topic(
+    name="virtualization-misc",
+    relationship=Relationship.ASSOCIATED,
+    recipes=[
+        Package(
+            name="libvirt",
+            repo=Repo.OFFICIAL,
+            units=[Unit("libvirtd.service", scope=Scope.MULTI_USER)],
+            supporters=[
+                # hyprvisor
+                Package("qemu-desktop", Repo.OFFICIAL),
+                # NET DHCP
+                Package("dnsmasq", Repo.OFFICIAL),
+            ]
+        ),
+        # GUI config?
+        Package("virt-manager", Repo.OFFICIAL),
+        # GUI display VM?
+        Package("virt-viewer", Repo.OFFICIAL),
+    ]
+)
+
+Topic(
+    name="misc",
+    relationship=Relationship.ASSOCIATED,
+    recipes=[
+        # Package("broot", Repo.OFFICIAL),
+        Package("tree", Repo.OFFICIAL),
+        # Package("aria2", Repo.OFFICIAL),
+        # Package("dust", Repo.OFFICIAL),
+        # Package("dua-cli", Repo.OFFICIAL),
+        # Package("progress", Repo.OFFICIAL),
+        Package("fastfetch", Repo.OFFICIAL),
+
+        Package("fd", Repo.OFFICIAL),
+        Package("fzf", Repo.OFFICIAL),
+        Package("bat", Repo.OFFICIAL),
+        Package("eza", Repo.OFFICIAL),
+        Package("zoxide", Repo.OFFICIAL),
+        Package("ripgrep", Repo.OFFICIAL),
+        Package("rsync", Repo.OFFICIAL),
+        Package("7zip", Repo.OFFICIAL),
+    ]
+
 )

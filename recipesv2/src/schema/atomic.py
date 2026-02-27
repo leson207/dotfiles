@@ -1,13 +1,8 @@
-from src.schema.enumeration import Scope, Repo, Shell
+from src.schema.enumeration import Relationship, Scope, Repo, Shell
 
-from typing import Literal, Optional
+from typing import Optional
 from pydantic import BaseModel, Field
 
-
-class Package(BaseModel):
-    name: str
-    repo: Repo
-    version: Optional[str]=None
 
 class Unit(BaseModel):
     name: str
@@ -26,26 +21,9 @@ class Script(BaseModel):
     remove: list[list[str]] # ["systemctl", "--user", "disable", "pipewire.service"]
     # disable may not true since it initial state of it(preset) may "enable"
     description: Optional[str]=None
+    succress_state: Optional[str]=None
 
-# package in action
-class PackageConfig(BaseModel):
-    package: Package
-    units: list[Unit] = Field(default_factory=list)
-    scripts: list[Script] = Field(default_factory=list)
-    multi_user_config: list[str] = Field(default_factory=list)
-    single_user_config: list[str] = Field(default_factory=list)
-
-    @classmethod
-    def short(
-        cls,
-        name: str,
-        repo: Repo,
-    ) -> "PackageConfig":
-
-        return cls(package=Package(name=name, repo=repo))
-
-
-class PackageRecipe(BaseModel):
+class Package(BaseModel):
     name: str
     repo: Repo
     version: Optional[str]=None
@@ -55,7 +33,11 @@ class PackageRecipe(BaseModel):
     multi_user_config: list[str] = Field(default_factory=list)
     single_user_config: list[str] = Field(default_factory=list)
 
-    supporters: Optional[list[PackageRecipe]] = Field(default_factory=list)
+    users: list[str] = Field(default_factory=list)
+    groups: list[str] = Field(default_factory=list)
+    environment_variable: list[str] = Field(default_factory=list)
+
+    supporters: Optional[list[Package]] = Field(default_factory=list)
 
     def __init__(
         self,
@@ -67,7 +49,7 @@ class PackageRecipe(BaseModel):
         scripts: Optional[list[Script]] = None,
         multi_user_config: Optional[list[str]] = None,
         single_user_config: Optional[list[str]] = None,
-        supporters: Optional[list[PackageRecipe]] = None
+        supporters: Optional[list[Package]] = None
     ):
         super().__init__(
             name=name,
@@ -80,21 +62,7 @@ class PackageRecipe(BaseModel):
             supporters=supporters or []
         )
 
-class TopicRecipe(BaseModel):
+class Topic(BaseModel):
     name: str
-    recipes: list[PackageRecipe] | list[TopicRecipe]
-    # relationship: Optional[Literal["alternative", "coexist"]]
-
-    # list[PackageRecipe] show alternative relationship, recipes of same use case, only 1 have effect at a time
-    # list[TopicRecipe] show equal relationship, recipes that can coexist
-
-    # @field_validator("recipes")
-    # def unique_recipes(cls, v: list["PackageRecipe"]) -> list["PackageRecipe"]:
-    #     seen = set()
-    #     for recipe in v:
-    #         name = recipe.core.package.name
-    #         if name in seen:
-    #             raise ValueError(f"Duplicate PackageRecipe for package: {name}")
-    #         seen.add(name)
-    #     return v
-
+    relationship: Relationship = Relationship.ALTERNATIVE
+    recipes: list[Package] | list[Topic]
