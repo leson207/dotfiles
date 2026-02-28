@@ -7,8 +7,8 @@ map = {}
 Topic(
     name="dotfile-manager",
     recipes=[
-        Package("stow", Repo.OFFICIAL),
-        # Package("chemzmoi", Repo.OFFICIAL),
+        Package("stow", Repo.AOR),
+        # Package("chemzmoi", Repo.AOR),
     ]
 )
 
@@ -17,15 +17,15 @@ map["window-compositor"]=Topic(
     recipes=[
         Package(
             name="hyprland",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             single_user_config=[
                 "~/.config/hypr/hyprland",
                 "~/.config/hypr/hyprland.conf",
             ],
         ),
-        # Package("river", Repo.OFFICIAL),
-        # Package("niri", Repo.OFFICIAL),
-        # Package("mangowc", Repo.OFFICIAL)
+        # Package("river", Repo.AOR),
+        # Package("niri", Repo.AOR),
+        # Package("mangowc", Repo.AOR)
     ]
 )
 
@@ -36,24 +36,24 @@ Topic(
         Package("app2unit", Repo.AUR),
         Package(
             name="uwsm",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             single_user_config=["~./config/uwsm"],
-            supporters=[Package("libnewt", Repo.OFFICIAL)]
+            supporters=[Package("libnewt", Repo.AOR)]
         )
     ]
 )
 
 Topic(
     name="display-manager",
-    recipes=[Package(name="sddm", repo=Repo.OFFICIAL, units=[Unit("sddm.service", Scope.MULTI_USER)])]
+    recipes=[Package(name="sddm", repo=Repo.AOR, units=[Unit("sddm.service", Scope.MULTI_USER)])]
 )
 
 Topic(
     name="screen-share",
     relationship=Relationship.ASSOCIATED,
     recipes=[
-        Package("xdg-desktop-portal-gtk", Repo.OFFICIAL),
-        Package("xdg-desktop-portal-hyprland", Repo.OFFICIAL),
+        Package("xdg-desktop-portal-gtk", Repo.AOR),
+        Package("xdg-desktop-portal-hyprland", Repo.AOR),
     ]
 )
 
@@ -62,7 +62,7 @@ Topic(
     recipes=[
         Package(
             name="waybar",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             units=[Unit("waybar.service", Scope.SINGLE_USER)],
             single_user_config=["~/.config/waybar"]
         ),
@@ -79,8 +79,8 @@ Topic(
         # Package("pywall", Repo.AUR),
         # Package("wallust", Repo.AUR),
         # Package("hellwal", Repo.AUR),
-        Package("matugen", Repo.OFFICIAL, single_user_config=["~/.config/matugen"]),
-        # Package("python-colorthief", Repo.OFFICIAL),
+        Package("matugen", Repo.AOR, single_user_config=["~/.config/matugen"]),
+        # Package("python-colorthief", Repo.AOR),
         # Package("kde-material-you-colors", Repo.AUR),
     ]
 )
@@ -89,10 +89,10 @@ Topic(
     name="qt-theming",
     relationship=Relationship.ASSOCIATED,
     recipes=[
-        Package("qt5ct", Repo.OFFICIAL, single_user_config=["~/.config/qt5ct"]),
-        Package("qt6ct", Repo.OFFICIAL, single_user_config=["~/.config/qt5ct"]),
+        Package("qt5ct", Repo.AOR, single_user_config=["~/.config/qt5ct"]),
+        Package("qt6ct", Repo.AOR, single_user_config=["~/.config/qt5ct"]),
         Package("hyprqt6engine", Repo.AUR),
-        Package("kvantum", Repo.OFFICIAL, single_user_config=["~/.config/Kvantum"]),
+        Package("kvantum", Repo.AOR, single_user_config=["~/.config/Kvantum"]),
     ]
 )
 
@@ -102,22 +102,22 @@ Topic(
     recipes=[
         Package(
             name="",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             single_user_config=[
                 "~/.config/gtk-3.0",
                 "~/.config/gtk-4.0"
             ]
         ),
-        Package("nwglook", Repo.OFFICIAL, single_user_config=["~/.config/nwg-look"]),
+        Package("nwglook", Repo.AOR, single_user_config=["~/.config/nwg-look"]),
         Package(
             name="orchis-theme",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             supporters=[
-                Package("vimix-cursors", Repo.OFFICIAL),
-                Package("tela-circle-icon-theme", Repo.OFFICIAL),
+                Package("vimix-cursors", Repo.AOR),
+                Package("tela-circle-icon-theme", Repo.AOR),
             ]
         ),
-        Package("gnome-themes-extra", Repo.OFFICIAL),
+        Package("gnome-themes-extra", Repo.AOR),
     ]
 )
 
@@ -127,13 +127,13 @@ Topic(
         Topic(
             name="setter",
             recipes=[
-                # Package("swww", Repo.OFFICIAL),
+                # Package("swww", Repo.AOR),
                 # Package("awww-bin", Repo.AUR),
-                # Package("swaybg", Repo.OFFICIAL),
+                # Package("swaybg", Repo.AOR),
                 # Package("mpvpaper", Repo.AUR),
                 Package(
                     name="hyprpaper",
-                    repo=Repo.OFFICIAL,
+                    repo=Repo.AOR,
                     units=[Unit("hyprpaper.service", Scope.SINGLE_USER)],
                     single_user_config=["~/.config/hypr/hyprpaper.conf"]
                 ),
@@ -142,7 +142,7 @@ Topic(
         Topic(
             name="picker",
             recipes=[
-                Package("rofi", Repo.OFFICIAL, single_user_config=["~/.config/rofi"]),
+                Package("rofi", Repo.AOR, single_user_config=["~/.config/rofi"]),
                 # Package("waypaper", Repo.AUR),
                 # Package("waytrogen-bin", Repo.AUR),
             ]
@@ -156,20 +156,19 @@ Topic(
         Topic(
             name="screen-lock",
             recipes=[
-                Package("hyprlock", Repo.OFFICIAL, single_user_config=["~/.config/hypr/hyprlock.conf"]),
-                # Package("quickshell", Repo.OFFICIAL),
+                Package("hyprlock", Repo.AOR, single_user_config=["~/.config/hypr/hyprlock.conf"]),
             ]
         ),
         Topic(
             name="polkit",
-            recipes=[Package("hyprpolkitagent", Repo.OFFICIAL, units=[Unit("hyprpolkitagent.service", Scope.SINGLE_USER)])]
+            recipes=[Package("hyprpolkitagent", Repo.AOR, units=[Unit("hyprpolkitagent.service", Scope.SINGLE_USER)])]
         ),
         Topic(
             name="idle",
             recipes=[
                 Package(
                     name="hypridle",
-                    repo=Repo.OFFICIAL,
+                    repo=Repo.AOR,
                     units=[Unit("hypridle.service", Scope.SINGLE_USER)],
                     single_user_config=["~/.config/hypr/hypridle.conf"]
                 )
@@ -180,7 +179,7 @@ Topic(
             recipes=[
                 Package(
                     name="hyprsunset",
-                    repo=Repo.OFFICIAL,
+                    repo=Repo.AOR,
                     units=[Unit("hyprsunset.service", Scope.SINGLE_USER)],
                     single_user_config=["~/.config/hypr/hyprsunset.conf"]
                 )
@@ -192,20 +191,20 @@ Topic(
 Topic(
     name="launcher",
     recipes=[
-        Package("fuzzel", Repo.OFFICIAL, single_user_config=["~/.config/fuzzel"]),
-        Package("hyprlauncher", Repo.OFFICIAL, single_user_config=["~/.config/hypr/hyprlauncher.conf"]),
+        Package("fuzzel", Repo.AOR, single_user_config=["~/.config/fuzzel"]),
+        Package("hyprlauncher", Repo.AOR, single_user_config=["~/.config/hypr/hyprlauncher.conf"]),
     ]
 )
 
 Topic(
     name="notification",
     recipes=[
-        # Package("fnott", Repo.OFFICIAL),
-        # Package("dunst", Repo.OFFICIAL, single_user_config=["~/.config/dunst"]),
-        # Package("mako", Repo.OFFICIAL, units=[Unit("mako.service", Scope.SINGLE_USER)], single_user_config=["~/.config/mako"]),
+        # Package("fnott", Repo.AOR),
+        # Package("dunst", Repo.AOR, single_user_config=["~/.config/dunst"]),
+        # Package("mako", Repo.AOR, units=[Unit("mako.service", Scope.SINGLE_USER)], single_user_config=["~/.config/mako"]),
         Package(
             name="swaync",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             units=[Unit("swaync.service", Scope.SINGLE_USER)],
             single_user_config=["~/.config/swaync"]
         )
@@ -217,15 +216,15 @@ Topic(
     recipes=[
         Topic(
             name="copy-paste",
-            recipes=[Package("wl-clipboard", Repo.OFFICIAL)]
+            recipes=[Package("wl-clipboard", Repo.AOR)]
         ),
         Topic(
             name="history",
             recipes=[
-                # Package("copyq", Repo.OFFICIAL),
-                Package("cliphist", Repo.OFFICIAL),
-                # Package("nwg-clipman", Repo.OFFICIAL),
-                # Package("wl-clip-persist", Repo.OFFICIAL),
+                # Package("copyq", Repo.AOR),
+                Package("cliphist", Repo.AOR),
+                # Package("nwg-clipman", Repo.AOR),
+                # Package("wl-clip-persist", Repo.AOR),
             ]
         )
     ]
@@ -239,14 +238,14 @@ Topic(
             recipes=[
                 Package(
                     name="fcitx5",
-                    repo=Repo.OFFICIAL,
+                    repo=Repo.AOR,
                     single_user_config=[
                         "~/.config/fcitx5/config"
                         "~/.config/fcitx5/profile"
                     ],
                     supporters=[
-                        Package("fcitx5-unikey", Repo.OFFICIAL),
-                        Package("fcitx5-configtool", Repo.OFFICIAL)
+                        Package("fcitx5-unikey", Repo.AOR),
+                        Package("fcitx5-configtool", Repo.AOR)
                     ]
                 )
             ]
@@ -270,25 +269,25 @@ Topic(
             name="noto-fonts",
             relationship=Relationship.ASSOCIATED,
             recipes=[
-                Package("noto-fonts", Repo.OFFICIAL),
-                Package("noto-fonts-cjk", Repo.OFFICIAL),
-                Package("noto-fonts-emoji", Repo.OFFICIAL)
+                Package("noto-fonts", Repo.AOR),
+                Package("noto-fonts-cjk", Repo.AOR),
+                Package("noto-fonts-emoji", Repo.AOR)
             ]
         ),
         Topic(
             name="ttf",
             relationship=Relationship.ASSOCIATED,
             recipes=[
-                Package("ttf-opensans", Repo.OFFICIAL),
-                Package("ttf-fira-code", Repo.OFFICIAL),
-                Package("ttf-cascadia-code-nerd", Repo.OFFICIAL),
-                Package("ttf-jetbrains-mono-nerd", Repo.OFFICIAL)
+                Package("ttf-opensans", Repo.AOR),
+                Package("ttf-fira-code", Repo.AOR),
+                Package("ttf-cascadia-code-nerd", Repo.AOR),
+                Package("ttf-jetbrains-mono-nerd", Repo.AOR)
             ]
         ),
         Topic(
             name="tex-gyre",
             relationship=Relationship.ASSOCIATED,
-            recipes=[Package("tex-gyre-fonts", Repo.OFFICIAL)]
+            recipes=[Package("tex-gyre-fonts", Repo.AOR)]
         )
     ]
 )
@@ -296,12 +295,12 @@ Topic(
 Topic(
     name="shell",
     recipes=[
-        # Package("zsh", Repo.OFFICIAL),
-        # Package("fish", Repo.OFFICIAL),
-        Package("bash", Repo.OFFICIAL, single_user_config=["~/.bashrc", "~/.bash_profile"]),
+        # Package("zsh", Repo.AOR),
+        # Package("fish", Repo.AOR),
+        Package("bash", Repo.AOR, single_user_config=["~/.bashrc", "~/.bash_profile"]),
         Package(
             name="nushell",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             single_user_config=[
                 # "~/.config/nushell",
                 "~/.config/nushell/config.nu",
@@ -313,12 +312,12 @@ Topic(
 
 Topic(
     name="shell-history",
-    recipes=[Package("atuin", Repo.OFFICIAL)]
+    recipes=[Package("atuin", Repo.AOR)]
 )
 
 Topic(
     name="shell-promt",
-    recipes=[Package("starship", Repo.OFFICIAL, single_user_config=["~/.config/starship.toml"])]
+    recipes=[Package("starship", Repo.AOR, single_user_config=["~/.config/starship.toml"])]
 )
 
 Topic(
@@ -326,7 +325,7 @@ Topic(
     recipes=[
         Package(
             name="foot",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             units=[Unit("foot-server.service", Scope.SINGLE_USER)],
             single_user_config=["~/.config/foot"]
         ),
@@ -335,17 +334,17 @@ Topic(
             repo=Repo.AUR,
             single_user_config=["~/.config/wezterm"]
         ),
-        Package("kitty", Repo.OFFICIAL, single_user_config=["~/.config/kitty"]),
-        # Package("aclacritty", Repo.OFFICIAL),
-        # Package("ghostty", Repo.OFFICIAL, units=[Unit("app-com.mitchellh.ghostty.service", Scope.SINGLE_USER)]),
+        Package("kitty", Repo.AOR, single_user_config=["~/.config/kitty"]),
+        # Package("aclacritty", Repo.AOR),
+        # Package("ghostty", Repo.AOR, units=[Unit("app-com.mitchellh.ghostty.service", Scope.SINGLE_USER)]),
     ]
 )
 
 Topic(
     name="terminal-multiplexer",
     recipes=[
-        Package("tmux", Repo.OFFICIAL, single_user_config=["~/.tmux.conf"]),
-        Package("zellij", Repo.OFFICIAL),
+        Package("tmux", Repo.AOR, single_user_config=["~/.tmux.conf"]),
+        Package("zellij", Repo.AOR),
     ]
 )
 
@@ -357,41 +356,41 @@ Topic(
             recipes=[
                 Package(
                     name="thunar",
-                    repo=Repo.OFFICIAL,
+                    repo=Repo.AOR,
                     supporters=[
-                        Package("thunar-volman", Repo.OFFICIAL),
-                        Package("thunar-archive-plugin", Repo.OFFICIAL),
-                        Package("thunar-media-tags-plugin", Repo.OFFICIAL),
-                        # Package("catfish", Repo.OFFICIAL),
-                        # Package("plocate", Repo.OFFICIAL),
-                        # Package("zeitgeist", Repo.OFFICIAL),
+                        Package("thunar-volman", Repo.AOR),
+                        Package("thunar-archive-plugin", Repo.AOR),
+                        Package("thunar-media-tags-plugin", Repo.AOR),
+                        # Package("catfish", Repo.AOR),
+                        # Package("plocate", Repo.AOR),
+                        # Package("zeitgeist", Repo.AOR),
                     ]
                 ),
                 Package(
                     name="yazi",
-                    repo=Repo.OFFICIAL,
+                    repo=Repo.AOR,
                     single_user_config=["~/.config/yazi"],
                     supporters=[
-                        Package("7zip", Repo.OFFICIAL),
-                        Package("chafa", Repo.OFFICIAL),
-                        Package("ffmpeg", Repo.OFFICIAL),
-                        Package("jq", Repo.OFFICIAL),
-                        Package("poppler", Repo.OFFICIAL),
-                        Package("resvg", Repo.OFFICIAL),
+                        Package("7zip", Repo.AOR),
+                        Package("chafa", Repo.AOR),
+                        Package("ffmpeg", Repo.AOR),
+                        Package("jq", Repo.AOR),
+                        Package("poppler", Repo.AOR),
+                        Package("resvg", Repo.AOR),
                         Package(
                             name="imagemagick",
-                            repo=Repo.OFFICIAL,
-                            supporters=[Package("libjpeg-turbo", Repo.OFFICIAL)]
+                            repo=Repo.AOR,
+                            supporters=[Package("libjpeg-turbo", Repo.AOR)]
                         )
                     ]
                 ),
-                # Package("superfile", Repo.OFFICIAL)
+                # Package("superfile", Repo.AOR)
             ]
         ),
         Topic(
             name="misc",
             recipes=[
-                Package("xdg-user-dirs", Repo.OFFICIAL, units=[Unit("xdg-user-dirs-update.service", Scope.SINGLE_USER)]),
+                Package("xdg-user-dirs", Repo.AOR, units=[Unit("xdg-user-dirs-update.service", Scope.SINGLE_USER)]),
                 Package("czkawka-gui-bin", Repo.AUR),
             ]
         )
@@ -403,18 +402,18 @@ Topic(
     recipes=[
         Package(
             name="tumbler",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             units=[Unit("tumblerd.service", Scope.SINGLE_USER)],
             supporters=[
-                Package("ffmpegthumbnailer", Repo.OFFICIAL),
-                Package("freetype2", Repo.OFFICIAL),
-                Package("libgepub", Repo.OFFICIAL),
-                Package("libgsf", Repo.OFFICIAL),
-                Package("libopenraw", Repo.OFFICIAL),
-                Package("poppler-glib", Repo.OFFICIAL),
-                Package("libarchive", Repo.OFFICIAL),
+                Package("ffmpegthumbnailer", Repo.AOR),
+                Package("freetype2", Repo.AOR),
+                Package("libgepub", Repo.AOR),
+                Package("libgsf", Repo.AOR),
+                Package("libopenraw", Repo.AOR),
+                Package("poppler-glib", Repo.AOR),
+                Package("libarchive", Repo.AOR),
 
-                # Package("ueberzugpp", Repo.OFFICIAL),
+                # Package("ueberzugpp", Repo.AOR),
             ]
         )
     ]
@@ -423,20 +422,20 @@ Topic(
 Topic(
     name="video-player",
     recipes=[
-        Package("mpv", Repo.OFFICIAL, single_user_config=["~/.config/mpv"]),
-        Package("vlc", Repo.OFFICIAL, single_user_config=["~/.config/vlc"]),
-        # Package("clapper", Repo.OFFICIAL),
+        Package("mpv", Repo.AOR, single_user_config=["~/.config/mpv"]),
+        # Package("vlc", Repo.AOR),
+        # Package("clapper", Repo.AOR),
     ]
 )
 
 Topic(
     name="image-viewer",
     recipes=[
-        Package("mpv", Repo.OFFICIAL, single_user_config=["~/.config/mpv"]),
-        # Package("imv", Repo.OFFICIAL),
-        # Package("feh", Repo.OFFICIAL),
-        # Package("gthumb", Repo.OFFICIAL),
-        # Package("swayimg", Repo.OFFICIAL),
+        Package("mpv", Repo.AOR, single_user_config=["~/.config/mpv"]),
+        # Package("imv", Repo.AOR),
+        # Package("feh", Repo.AOR),
+        # Package("gthumb", Repo.AOR),
+        # Package("swayimg", Repo.AOR),
     ]
 )
 
@@ -446,27 +445,27 @@ Topic(
         # Topic(
         #     name="capture",
         #     recipes=[
-        #         Package("grim", Repo.OFFICIAL)
+        #         Package("grim", Repo.AOR)
         #     ]
         # ),
         # Topic(
         #     name="crop",
         #     recipes=[
-        #         Package("slurp", Repo.OFFICIAL)
+        #         Package("slurp", Repo.AOR)
         #     ]
         # ),
         # Topic(
         #     name="annotate",
         #     recipes=[
-        #         Package("swappy", Repo.OFFICIAL),
-        #         Package("satty", Repo.OFFICIAL)
+        #         Package("swappy", Repo.AOR),
+        #         Package("satty", Repo.AOR)
         #     ]
         # ),
         Topic(
             name="full",
             recipes=[
-                # Package("flameshot", Repo.OFFICIAL),
-                Package("hyprshot", Repo.OFFICIAL, supporters=[Package("hyprpicker", Repo.OFFICIAL)]),
+                # Package("flameshot", Repo.AOR),
+                Package("hyprshot", Repo.AOR, supporters=[Package("hyprpicker", Repo.AOR)]),
             ]
         )
     ]
@@ -476,9 +475,9 @@ Topic(
     name="screen-recorder",
     recipes=[
         # Package("wl-screenrec", Repo.AUR),
-        # Package("obs-studio", Repo.OFFICIAL),
-        # Package("wf-recorder", Repo.OFFICIAL),
-        Package("gpu-screen-recorder", Repo.AUR, supporters=[Package("gpu-screen-recorder-ui", Repo.AUR)]),
+        # Package("obs-studio", Repo.AOR),
+        # Package("wf-recorder", Repo.AOR),
+        Package("gpu-screen-recorder", Repo.AOR, supporters=[Package("gpu-screen-recorder-ui", Repo.AOR)]),
     ]
 )
 
@@ -488,7 +487,7 @@ Topic(
         Topic(
             name="gui",
             recipes=[
-                Package("firefox", Repo.OFFICIAL, supporters=[Package("speech-dispatcher", Repo.OFFICIAL)]),
+                Package("firefox", Repo.AOR, supporters=[Package("speech-dispatcher", Repo.AOR)]),
                 Package("brave-bin", Repo.AUR),
                 Package("zen-browser-bin", Repo.AUR),
                 Package("google-chrome-bin", Repo.AUR, single_user_config=["~/.config/chrome-flags.conf"]),
@@ -500,10 +499,10 @@ Topic(
         # Topic(
         #     name="keyboard-driven",
         #     recipes=[
-        #         Package("nyxt", Repo.OFFICIAL),
-        #         Package("luakit", Repo.OFFICIAL),
-        #         Package("lynx", Repo.OFFICIAL),
         #         Package("browsh", Repo.AUR),
+        #         Package("nyxt", Repo.AOR),
+        #         Package("lynx", Repo.AOR),
+        #         Package("luakit", Repo.AOR),
         #     ]
         # )
     ]
@@ -514,10 +513,10 @@ Topic(
     recipes=[
         Package("hugo", Repo.AUR),
         Package("anki-bin", Repo.AUR),
-        Package("okular", Repo.OFFICIAL),
-        Package("mediawriter", Repo.OFFICIAL),
-        Package("cava", Repo.OFFICIAL, single_user_config=["~/.config/cava"]),
-        Package("electron", Repo.OFFICIAL, single_user_config=["~/.config/electron-flags.conf"])
+        Package("okular", Repo.AOR),
+        Package("mediawriter", Repo.AOR),
+        Package("cava", Repo.AOR, single_user_config=["~/.config/cava"]),
+        Package("electron", Repo.AOR, single_user_config=["~/.config/electron-flags.conf"])
     ]
 )
 

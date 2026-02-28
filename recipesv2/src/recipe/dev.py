@@ -9,14 +9,14 @@ Topic(
     recipes=[
         Package(
             name="git",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             single_user_config=["~/.gitconfig"],
             supporters=[
-                Package("less", Repo.OFFICIAL),
-                Package("git-delta", Repo.OFFICIAL),
+                Package("less", Repo.AOR),
+                Package("git-delta", Repo.AOR),
             ]
         ),
-        # Package("jujutsu", Repo.OFFICIAL),
+        # Package("jujutsu", Repo.AOR),
     ]
 )
 
@@ -26,22 +26,22 @@ Topic(
         Topic(
             name="build-generator",
             recipes=[
-                # Package("xmake", Repo.OFFICIAL),
-                # Package("meson", Repo.OFFICIAL),
-                # Package("bazel", Repo.OFFICIAL),
+                # Package("xmake", Repo.AOR),
+                # Package("meson", Repo.AOR),
+                # Package("bazel", Repo.AOR),
                 # Package("buck2-bin", Repo.AUR),
-                Package("cmake", Repo.OFFICIAL),
+                Package("cmake", Repo.AOR),
             ]
         ),
         Topic(
             name="build system",
-            recipes=[Package("ninja", Repo.OFFICIAL)]
+            recipes=[Package("ninja", Repo.AOR)]
         ),
         Topic(
             name="compiler cache",
             recipes=[
-                Package("ccache", Repo.OFFICIAL),
-                # Package("sccache", Repo.OFFICIAL),
+                Package("ccache", Repo.AOR),
+                # Package("sccache", Repo.AOR),
             ]
         ),
         Topic(
@@ -55,30 +55,30 @@ Topic(
         Topic(
             name="compiler",
             recipes=[
-                Package("gcc", Repo.OFFICIAL),
-                Package("clang", Repo.OFFICIAL),
+                Package("gcc", Repo.AOR),
+                Package("clang", Repo.AOR),
             ]
         ),
         Topic(
             name="debugger",
             recipes=[
-                Package("gdb", Repo.OFFICIAL),
-                Package("lldb", Repo.OFFICIAL),
+                Package("gdb", Repo.AOR),
+                Package("lldb", Repo.AOR),
             ]
         ),
         Topic(
             name="linker",
             recipes=[
-                Package("ld", Repo.OFFICIAL),
-                Package("lld", Repo.OFFICIAL),
-                Package("mold", Repo.OFFICIAL),
+                Package("ld", Repo.AOR),
+                Package("lld", Repo.AOR),
+                Package("mold", Repo.AOR),
             ]
         ),
         Topic(
             name="standard library",
             recipes=[
-                Package("libc++", Repo.OFFICIAL, supporters=[Package("libc++abi", Repo.OFFICIAL)]),
-                Package("libstdc++", Repo.OFFICIAL, supporters=[Package("libstdc++abi", Repo.OFFICIAL)]),
+                Package("libc++", Repo.AOR, supporters=[Package("libc++abi", Repo.AOR)]),
+                Package("libstdc++", Repo.AOR, supporters=[Package("libstdc++abi", Repo.AOR)]),
             ]
         )
     ]
@@ -86,17 +86,17 @@ Topic(
 
 Topic(
     name="python",
-    recipes=[Package("uv", Repo.OFFICIAL)]
+    recipes=[Package("uv", Repo.AOR)]
 )
 
 # Topic(
 #     name="go",
-#     recipes=[Package("go", Repo.OFFICIAL)]
+#     recipes=[Package("go", Repo.AOR)]
 # )
 
 # Topic(
 #     name="rust",
-#     recipes=[Package("rustup", Repo.OFFICIAL)]
+#     recipes=[Package("rustup", Repo.AOR)]
 # )
 
 Topic(
@@ -105,23 +105,23 @@ Topic(
         Topic(
             name="keyboard-driven editor",
             recipes=[
-                # Package("vim", Repo.OFFICIAL),
-                Package("neovim", Repo.OFFICIAL, supporters=[Package("luarocks", Repo.OFFICIAL)]),
-                # Package("helix", Repo.OFFICIAL),
-                # Package("kakoune", Repo.OFFICIAL),
-                # Package("emacs", Repo.OFFICIAL),
+                # Package("vim", Repo.AOR),
+                Package("neovim", Repo.AOR, supporters=[Package("luarocks", Repo.AOR)]),
+                # Package("helix", Repo.AOR),
+                # Package("kakoune", Repo.AOR),
+                # Package("emacs", Repo.AOR),
             ]
         ),
         Topic(
             name="gui editor",
             recipes=[
-                Package("zed", Repo.OFFICIAL),
-                Package("code", Repo.OFFICIAL, single_user_config=["~/.config/code-flags.conf"]),
-                # Package("typst", Repo.OFFICIAL),
-                # Package("lapce", Repo.OFFICIAL),
+                Package("zed", Repo.AOR),
+                Package("code", Repo.AOR, single_user_config=["~/.config/code-flags.conf"]),
+                # Package("typst", Repo.AOR),
+                # Package("lapce", Repo.AOR),
                 # Package("xi-editor", Repo.GITHUB),
                 # Package("fresh-editor-bin", Repo.AUR),
-                # Package("micro", Repo.OFFICIAL),
+                # Package("micro", Repo.AOR),
             ]
         )
     ]
@@ -130,13 +130,13 @@ Topic(
 Topic(
     name="monitor",
     recipes=[
-        # Package("atop", Repo.OFFICIAL),
-        Package("btop", Repo.OFFICIAL, single_user_config=["~/.config/btop"]),
-        # Package("htop", Repo.OFFICIAL),
-        # Package("nvtop", Repo.OFFICIAL),
-        # Package("glances", Repo.OFFICIAL),
-        # Package("bottom", Repo.OFFICIAL),
-        # Package("hyperfine", Repo.OFFICIAL),
+        # Package("atop", Repo.AOR),
+        Package("btop", Repo.AOR, single_user_config=["~/.config/btop"]),
+        # Package("htop", Repo.AOR),
+        # Package("nvtop", Repo.AOR),
+        # Package("glances", Repo.AOR),
+        # Package("bottom", Repo.AOR),
+        # Package("hyperfine", Repo.AOR),
     ]
 )
 
@@ -145,12 +145,12 @@ Topic(
 #     recipes=[
 #         Package(
 #             name="podman",
-#             repo=Repo.OFFICIAL,
+#             repo=Repo.AOR,
 #             single_user_config=["~/.config/containers"],
 #             supporters=[
 #                 Package("podman-tui", Repo.AUR),
-#                 Package("podman-desktop", Repo.OFFICIAL),
-#                 Package("podman-compose", Repo.OFFICIAL),
+#                 Package("podman-desktop", Repo.AOR),
+#                 Package("podman-compose", Repo.AOR),
 #             ]
 #         )
 #     ]
@@ -162,19 +162,19 @@ Topic(
     recipes=[
         Package(
             name="libvirt",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             units=[Unit("libvirtd.service", scope=Scope.MULTI_USER)],
             supporters=[
                 # hyprvisor
-                Package("qemu-desktop", Repo.OFFICIAL),
+                Package("qemu-desktop", Repo.AOR),
                 # NET DHCP
-                Package("dnsmasq", Repo.OFFICIAL),
+                Package("dnsmasq", Repo.AOR),
             ]
         ),
         # GUI config?
-        Package("virt-manager", Repo.OFFICIAL),
+        Package("virt-manager", Repo.AOR),
         # GUI display VM?
-        Package("virt-viewer", Repo.OFFICIAL),
+        Package("virt-viewer", Repo.AOR),
     ]
 )
 
@@ -182,22 +182,22 @@ Topic(
     name="misc",
     relationship=Relationship.ASSOCIATED,
     recipes=[
-        # Package("broot", Repo.OFFICIAL),
-        Package("tree", Repo.OFFICIAL),
-        # Package("aria2", Repo.OFFICIAL),
-        # Package("dust", Repo.OFFICIAL),
-        # Package("dua-cli", Repo.OFFICIAL),
-        # Package("progress", Repo.OFFICIAL),
-        Package("fastfetch", Repo.OFFICIAL),
+        # Package("broot", Repo.AOR),
+        Package("tree", Repo.AOR),
+        # Package("aria2", Repo.AOR),
+        # Package("dust", Repo.AOR),
+        # Package("dua-cli", Repo.AOR),
+        # Package("progress", Repo.AOR),
+        Package("fastfetch", Repo.AOR),
 
-        Package("fd", Repo.OFFICIAL),
-        Package("fzf", Repo.OFFICIAL),
-        Package("bat", Repo.OFFICIAL),
-        Package("eza", Repo.OFFICIAL),
-        Package("zoxide", Repo.OFFICIAL),
-        Package("ripgrep", Repo.OFFICIAL),
-        Package("rsync", Repo.OFFICIAL),
-        Package("7zip", Repo.OFFICIAL),
+        Package("fd", Repo.AOR),
+        Package("fzf", Repo.AOR),
+        Package("bat", Repo.AOR),
+        Package("eza", Repo.AOR),
+        Package("zoxide", Repo.AOR),
+        Package("ripgrep", Repo.AOR),
+        Package("rsync", Repo.AOR),
+        Package("7zip", Repo.AOR),
     ]
 
 )

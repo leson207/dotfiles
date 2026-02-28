@@ -15,6 +15,7 @@ class Unit(BaseModel):
         )
 
 class Script(BaseModel):
+    # do we need this or just save all kind of find
     shell: Shell
     # should we use list[list[str]] instead of list[str]
     apply: list[list[str]] # ["systemctl", "--user", "enable", "pipewire.service"]
@@ -30,6 +31,8 @@ class Package(BaseModel):
 
     units: list[Unit] = Field(default_factory=list)
     scripts: list[Script] = Field(default_factory=list)
+
+    # separate shared and owned file?
     multi_user_config: list[str] = Field(default_factory=list)
     single_user_config: list[str] = Field(default_factory=list)
 
@@ -63,6 +66,11 @@ class Package(BaseModel):
         )
 
 class Topic(BaseModel):
+    name: str
+    relationship: Relationship = Relationship.ALTERNATIVE
+    recipes: list[Package] | list[Topic]
+
+class Module(BaseModel):
     name: str
     relationship: Relationship = Relationship.ALTERNATIVE
     recipes: list[Package] | list[Topic]

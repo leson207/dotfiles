@@ -1,6 +1,12 @@
-/boot/loader/entries/arch.conf
-/boot/loader/entries/arch-zen.conf
+/boot/loader/entries/linux.conf
+/boot/loader/entries/linux-zen.conf
+
 /etc/pacman.conf
-/etc/locale.conf
 /etc/hostname
 /etc/sudoers
+
+/etc/locale.gen
+/etc/locale.conf
+/etc/vconsole.conf
+
+/etc/udev/rules.d/90-uinput.rules

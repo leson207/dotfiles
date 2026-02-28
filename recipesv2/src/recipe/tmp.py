@@ -8,8 +8,8 @@ Topic(
     name="misc",
     recipes=[
         Package("espanso-wayland", Repo.UNKNOWN),
-        Package("zenity", Repo.OFFICIAL),
-        Package("papirus-icon-theme", Repo.OFFICIAL),
+        Package("zenity", Repo.AOR),
+        Package("papirus-icon-theme", Repo.AOR),
         Package("glance-bin", Repo.AUR),
         Package("gh-dash-bin", Repo.AUR),
         Package("witr-bin", Repo.AUR),
@@ -19,26 +19,26 @@ Topic(
         Package("uutils-coreutils", Repo.AUR),
         Package("pake", Repo.AUR),
         Package("sing-box-bin", Repo.AUR),
-        Package("qbittorrent", Repo.OFFICIAL)
+        Package("qbittorrent", Repo.AOR)
     ]
 )
 
 Topic(
     name="time",
     recipes=[
-        Package("task", Repo.OFFICIAL),
-        Package("timew", Repo.OFFICIAL),
+        Package("task", Repo.AOR),
+        Package("timew", Repo.AOR),
 
         Package("watson", Repo.AUR),
         Package("activitywatch-bin", Repo.AUR),
-        Package("hamster-time-tracker", Repo.OFFICIAL),
+        Package("hamster-time-tracker", Repo.AOR),
     ]
 )
 
 Topic(
     name="email",
     recipes=[
-        Package("thunderbird", Repo.OFFICIAL),
+        Package("thunderbird", Repo.AOR),
         Package("betterbird-bin", Repo.AUR),
         Package("stalwart-mail", Repo.AUR),
         Package("stalwart-cli", Repo.AUR),
@@ -48,8 +48,8 @@ Topic(
 Topic(
     name="ai",
     recipes=[
-        Package("gemini-cli", Repo.OFFICIAL),
-        Package("openai-codex", Repo.OFFICIAL),
+        Package("gemini-cli", Repo.AOR),
+        Package("openai-codex", Repo.AOR),
 
         Package("jan-bin", Repo.AUR),
         Package("cc-switch-bin", Repo.AUR),
@@ -69,16 +69,16 @@ Topic(
     recipes=[
         Package(
             name="seahorse",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             supporters=[
-                Package("gnome-keyring", Repo.OFFICIAL, units=[Unit("gnome-keyring-daemon.service", scope=Scope.SINGLE_USER)])
+                Package("gnome-keyring", Repo.AOR, units=[Unit("gnome-keyring-daemon.service", scope=Scope.SINGLE_USER)])
             ]
         ),
         Package(
             name="bitwardern",
-            repo=Repo.OFFICIAL,
+            repo=Repo.AOR,
             supporters=[
-                Package("gnome-keyring", Repo.OFFICIAL, units=[Unit("gnome-keyring-daemon.service", scope=Scope.SINGLE_USER)])]
+                Package("gnome-keyring", Repo.AOR, units=[Unit("gnome-keyring-daemon.service", scope=Scope.SINGLE_USER)])]
         ),
     ]
 )
@@ -86,33 +86,33 @@ Topic(
 Topic(
     name="backup",
     recipes=[
-        Package("borg", Repo.OFFICIAL),
-        Package("restic", Repo.OFFICIAL),
-        Package("timeshift", Repo.OFFICIAL),
+        Package("borg", Repo.AOR),
+        Package("restic", Repo.AOR),
+        Package("timeshift", Repo.AOR),
     ]
 )
 
-Topic(name="disk-remote-mount", recipes=[Package("sshfs", Repo.OFFICIAL)])
+Topic(name="disk-remote-mount", recipes=[Package("sshfs", Repo.AOR)])
 
 Topic(
     name="audio-gui",
     recipes=[
-        Package("pavucontrol", Repo.OFFICIAL),
-        Package("easyeffects", Repo.OFFICIAL),
-        Package("qpwgraph", Repo.OFFICIAL),
+        Package("pavucontrol", Repo.AOR),
+        Package("easyeffects", Repo.AOR),
+        Package("qpwgraph", Repo.AOR),
     ]
 )
 
 Topic(
     name="firewall",
-    recipes=[Package("ufw", Repo.OFFICIAL, supporters=[Package("gufw", Repo.OFFICIAL)]) ]
+    recipes=[Package("ufw", Repo.AOR, supporters=[Package("gufw", Repo.AOR)]) ]
 )
 
 Topic(
     name="git-server",
     recipes=[
-        Package("gitea", Repo.OFFICIAL),
-        Package("forgejo", Repo.OFFICIAL)
+        Package("gitea", Repo.AOR),
+        Package("forgejo", Repo.AOR)
     ]
 )
 
@@ -120,8 +120,8 @@ Topic(
     name="office",
     recipes=[
         Package("onlyoffice", Repo.AUR),
-        Package("libreoffice-fresh", Repo.OFFICIAL),
-        Package("openoffice", Repo.OFFICIAL),
+        Package("libreoffice-fresh", Repo.AOR),
+        Package("openoffice", Repo.AOR),
     ]
 )
 
@@ -130,7 +130,7 @@ Topic(
     recipes=[
         # Package("memos", Repo.AUR),
         # Package("zettlr ", Repo.AUR),
-        Package("obsidian", Repo.OFFICIAL),
+        Package("obsidian", Repo.AOR),
 
         # Package("appflowy-bin", Repo.AUR),
         # Package("logseq-desktop-bin", Repo.AUR),
@@ -144,13 +144,13 @@ Topic(
     name="social",
     recipes=[
         # telegram
-        Package("telegram-desktop", Repo.OFFICIAL),
+        Package("telegram-desktop", Repo.AOR),
 
         # discord
         Package("vesktop-bin", Repo.AUR),
 
         # matrix
-        Package("fractal", Repo.OFFICIAL),
+        Package("fractal", Repo.AOR),
         Package("fluffychat-bin", Repo.AUR),
 
         # spotify
@@ -160,6 +160,6 @@ Topic(
             single_user_config=["~/.config/spotify"],
             supporters=[Package("spicetify-cli", Repo.AUR, single_user_config=["~/.config/spicetify"])]
         ),
-        Package("spotify-tui", Repo.OFFICIAL),
+        Package("spotify-tui", Repo.AOR),
     ]
 )
