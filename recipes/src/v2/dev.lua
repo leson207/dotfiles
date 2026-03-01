@@ -112,14 +112,14 @@ m.virtualization={
 }
 
 m.misc={
-    broot=aor,
+    -- broot=aor,
     tree=aor,
 
     aria2=aor,
 
-    dust=aor,
-    dua_cli=aor,
-    progress=aor,
+    -- dust=aor,
+    -- dua_cli=aor,
+    -- progress=aor,
 
     fastfetch=aor,
 

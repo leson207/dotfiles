@@ -17,6 +17,10 @@ m.window_compositor={
         single_user_config={
             "~/.config/hypr/hyprland",
             "~/.config/hypr/hyprland.conf",
+        },
+        scripts={
+            "sh ~/.config/hypr/hyprland/scripts/first_intel_gpu.sh",
+            "sh ~/.config/hypr/hyprland/scripts/first_amd_gpu.sh",
         }
     }
 }
@@ -47,6 +51,10 @@ m.display_manager.sddm={
     scripts={
         "sudo git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme",
         "sudo cp -r /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/",
+    },
+    order={
+        "scripts",
+        "config",
     }
 }
 
@@ -103,6 +111,7 @@ m.gtk_theme={
     gnome_themes_extra=aor,
 }
 
+m.wallpaper.resources={"https://wiki.hypr.land/Useful-Utilities/Wallpapers/"}
 m.wallpaper.setter={
     -- swww=aor,
     -- swaybg=aor,
@@ -225,15 +234,51 @@ m.shell={
     nushell={
         Repo.AOR,
         single_user_config={
-            "~/.config/nushell",
-            "~/.config/nushell/config.nu",
             "~/.config/nushell/env.nu",
+            "~/.config/nushell/config.nu",
+        },
+        personalized_data={
+            "~/.config/nushell/history.txt",
+            "~/.config/nushell/history.sqlite3"
         }
     }
 }
 
-m.shell.history.atuin=aor
-m.shell.prompt.starship={Repo.AOR, single_user_config={"~/.config/starship.toml"}}
+m.shell.history.atuin={
+    Repo.AOR,
+    supporters={
+        nushell={
+            Repo.AOR,
+            single_user_config={
+                "~/.config/nushell/config.nu",
+            },
+            personalized_data={
+                "~/.config/nushell/history.txt",
+                "~/.config/nushell/history.sqlite3"
+            }
+        }
+    },
+    scripts={
+        "mkdir ~/.local/share/atuin/",
+        "atuin init nu | save ~/.local/share/atuin/init.nu"
+    }
+}
+
+m.shell.prompt.starship={
+    Repo.AOR,
+    single_user_config={"~/.config/starship.toml"},
+    scripts={
+        -- "mkdir ($nu.data-dir | path join "vendor/autoload")",
+        -- "starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")"
+    },
+    supporters={
+        nushell={
+            Repo.AOR,
+            single_user_config={"~/.config/nushell/config.nu"},
+        }
+    },
+
+}
 
 m.terminal.emulator={
     foot={
@@ -351,7 +396,7 @@ m.browser.keyboard_driven={
 
 m.misc={
     hugo=aor,
-    anki_bin=aur,
+    anki=aor,
     okular=aor,
     mediawriter=aor,
     cava={Repo.AOR, single_user_config={"~/.config/cava"}},

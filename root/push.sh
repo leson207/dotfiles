@@ -1,9 +1,3 @@
-push.sh --all | destinations path1, path2, path3, ...
-
-list of file=[
-
-]
-
 #!/usr/bin/env bash
 set -euo pipefail
 

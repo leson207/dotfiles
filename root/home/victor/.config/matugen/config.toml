@@ -91,8 +91,6 @@ post_hook = 'pywalfox update'
 # output_path = "~/.config/spicetify/Themes/Onepunch/color.ini"
 # post_hook = "spicetify config current_theme Matugen; spicetify config color_scheme base; spicetify apply -n; spicetify refresh -n"
 
-
-
 # [templates.cava]
 # input_path = '~/.config/matugen/templates/cava/color.ini'
 # output_path = '~/.config/cava/themes/matugen'

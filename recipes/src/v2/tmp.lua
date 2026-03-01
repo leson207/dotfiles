@@ -5,10 +5,15 @@ local m={}
 
 m.misc={
     espanso_wayland={Repo.UNKNOWN},
+    dotter={Repo.GITHUB},
+    markdown_oxide=aor,
     zenity=aor,
     papirus_icon_theme=aor,
     glance_bin=aur,
+
+    github_cli=aor,
     gh_dash_bin=aur,
+
     witr_bin=aur,
     zerobrew_bin=aur,
 
@@ -18,6 +23,7 @@ m.misc={
     sing_box_bin=aur,
     qbittorrent=aur,
 }
+
 m.time={
     task=aor,
     timew=aor,
