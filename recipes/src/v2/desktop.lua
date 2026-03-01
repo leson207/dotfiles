@@ -48,6 +48,7 @@ m.display_manager.sddm={
         "/etc/sddm.conf.d/virtualkbd.conf",
         "/usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop"
     },
+    -- should i move this to file section since it create file
     scripts={
         "sudo git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme",
         "sudo cp -r /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/",

@@ -91,12 +91,11 @@
         ]
       }
     }
-  },
-
-  "scripts": {
-    "example-script": {
-      "exec": "echo 'Example script executed'",
-      "urgency": "Normal"
-    }
   }
+  // "scripts": {
+  //   "example-script": {
+  //     "exec": "echo 'Example script executed'",
+  //     "urgency": "Normal"
+  //   }
+  // }
 }
