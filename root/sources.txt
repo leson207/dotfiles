@@ -10,3 +10,4 @@
 /etc/vconsole.conf
 
 /etc/udev/rules.d/90-uinput.rules
+/etc/udev/rules.d/99-amd-disable.rules

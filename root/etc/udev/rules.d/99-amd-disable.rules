@@ -1,0 +1,1 @@
+SUBSYSTEM=="pci", ATTR{vendor}=="0x1002", ATTR{power/control}="auto"

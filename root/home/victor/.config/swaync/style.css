@@ -8,22 +8,22 @@
      ============================================ */
 
   /* Primary background (main notification bg, control center) */
-  --bg-primary: #f8f9ff;
+  --bg-primary: #fff8f6;
 
   /* Secondary background (widgets, alternate sections) */
-  --bg-secondary: #ededf4;
+  --bg-secondary: #fceae6;
 
   /* Tertiary background (deepest level) */
-  --bg-tertiary: #f2f3fa;
+  --bg-tertiary: #fff0ee;
 
   /* Notification card background */
-  --bg-notification: #f8f9ff;
+  --bg-notification: #fff8f6;
 
   /* Hover state background */
-  --bg-hover: #e7e8ee;
+  --bg-hover: #f7e4e1;
 
   /* Active/pressed state background */
-  --bg-active: #e1e2e8;
+  --bg-active: #f1dfdb;
 
 
   /* ============================================
@@ -31,16 +31,16 @@
      ============================================ */
 
   /* Primary text (headings, important text) */
-   --text-primary: #24292e;
+   --text-primary: #322422;
 
   /* Secondary text (body text, descriptions) */
-  --text-secondary: #43474e;
+  --text-secondary: #534340;
 
   /* Tertiary text (less important text) */
-  --text-tertiary: #73777f;
+  --text-tertiary: #857370;
 
   /* Dimmed text (timestamps, subtle info) */
-  --text-dim: #c3c6cf;
+  --text-dim: #d8c2be;
 
 
   /* ============================================
@@ -48,16 +48,16 @@
      ============================================ */
 
   /* Primary accent (normal priority, toggles, links) */
-  --accent-primary: #3a608f;
+  --accent-primary: #904b3e;
 
   /* Secondary accent (low priority, info) */
-  --accent-secondary: #6d5677;
+  --accent-secondary: #6f5c2e;
 
   /* Success/positive actions */
-  --accent-success: #6d5677;
+  --accent-success: #6f5c2e;
 
   /* Warning/caution */
-  --accent-warning: #545f70;
+  --accent-warning: #775650;
 
   /* Error/critical/destructive actions */
   --accent-error: #ba1a1a;
@@ -68,13 +68,13 @@
      ============================================ */
 
   /* Primary border (main borders, separators) */
-  --border-primary: #c3c6cf;
+  --border-primary: #d8c2be;
 
   /* Secondary border (subtle borders) */
-  --border-secondary: #73777f;
+  --border-secondary: #857370;
 
   /* Subtle border (barely visible) */
-  --border-subtle: #e1e2e8;
+  --border-subtle: #f1dfdb;
 
 
   /* ============================================
@@ -93,10 +93,10 @@
      ============================================ */
 
   /* Overlay surfaces (semi-transparent) */
-  --surface-overlay: #f8f9ff;
+  --surface-overlay: #fff8f6;
 
   /* Tooltip backgrounds */
-  --surface-tooltip: #e7e8ee;
+  --surface-tooltip: #f7e4e1;
 
 
   /* ============================================
@@ -104,13 +104,13 @@
      ============================================ */
 
   /* Button background (default state) */
-  --button-bg: #e7e8ee;
+  --button-bg: #f7e4e1;
 
   /* Button background (hover state) */
-  --button-bg-hover: #e1e2e8;
+  --button-bg-hover: #f1dfdb;
 
   /* Button text color */
-  --button-text: #191c20;
+  --button-text: #231918;
 
 
   /* ============================================
@@ -124,7 +124,7 @@
   --close-button-hover: #ba1a1a;
 
   /* Close button text/icon color */
-  --close-button-text: #73777f;
+  --close-button-text: #857370;
 
 
   /* ============================================
@@ -162,8 +162,8 @@
    SOURCE COLOR INFO (for reference)
    ============================================
 
-   Wallpaper: /home/victor/.config/hypr/wallpaper/mashu.jpg
-   Source Color: #5582bb
+   Wallpaper: /home/victor/.config/hypr/wallpaper/ubw.png
+   Source Color: #d72109
    Mode: light
 
    ============================================ */
