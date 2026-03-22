@@ -1,0 +1,23 @@
+(deflayer base
+    `       1       2       3    4    5    6    7    8       9       0       -        =     bspc
+    tab     y       u       o    p    q    z    f    m       g       w       x        '     S-2
+    caps    i       e       a    n    b    v    s    r       t       d       ,       ret
+    lsft    .       ;      spc   /    \    j    h    l       k       c       rsft
+    lctl    lmet    lalt            @magic           ralt    rmet    rctl
+)
+
+(deflayer base
+    `       1       2       3    4    5    6    7    8       9       0       -        =     bspc
+    tab     y       u       h    o    q    x    c    d       w       f       ,        '     S-2
+    caps    i       e       l    a    z    b    s    t       r       n       .       ret
+    lsft    ;       k       j    /    \    v   spc   g       m       p       rsft
+    lctl    lmet    lalt            @magic           ralt    rmet    rctl
+)
+
+(deflayer base
+    `       1       2       3    4    5    6    7    8       9       0       -        =     bspc
+    tab     y       u       h    o    ,    v    c    d       m       p       x        '     S-2
+    caps    i       e       l    a    .    b    s    t       r       n       z       ret
+    lsft    ;       k       j    q    /    \   spc   g       w       f       rsft
+    lctl    lmet    lalt            @magic           ralt    rmet    rctl
+)

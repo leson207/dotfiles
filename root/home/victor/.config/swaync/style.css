@@ -8,22 +8,22 @@
      ============================================ */
 
   /* Primary background (main notification bg, control center) */
-  --bg-primary: #fff8f6;
+  --bg-primary: #fcfaec;
 
   /* Secondary background (widgets, alternate sections) */
-  --bg-secondary: #fceae6;
+  --bg-secondary: #f1eee1;
 
   /* Tertiary background (deepest level) */
-  --bg-tertiary: #fff0ee;
+  --bg-tertiary: #f7f4e7;
 
   /* Notification card background */
-  --bg-notification: #fff8f6;
+  --bg-notification: #fcfaec;
 
   /* Hover state background */
-  --bg-hover: #f7e4e1;
+  --bg-hover: #ebe8db;
 
   /* Active/pressed state background */
-  --bg-active: #f1dfdb;
+  --bg-active: #e5e3d6;
 
 
   /* ============================================
@@ -31,16 +31,16 @@
      ============================================ */
 
   /* Primary text (headings, important text) */
-   --text-primary: #322422;
+   --text-primary: #2b2b1f;
 
   /* Secondary text (body text, descriptions) */
-  --text-secondary: #534340;
+  --text-secondary: #47473b;
 
   /* Tertiary text (less important text) */
-  --text-tertiary: #857370;
+  --text-tertiary: #787869;
 
   /* Dimmed text (timestamps, subtle info) */
-  --text-dim: #d8c2be;
+  --text-dim: #c9c7b6;
 
 
   /* ============================================
@@ -48,16 +48,16 @@
      ============================================ */
 
   /* Primary accent (normal priority, toggles, links) */
-  --accent-primary: #904b3e;
+  --accent-primary: #5e621b;
 
   /* Secondary accent (low priority, info) */
-  --accent-secondary: #6f5c2e;
+  --accent-secondary: #3c6659;
 
   /* Success/positive actions */
-  --accent-success: #6f5c2e;
+  --accent-success: #3c6659;
 
   /* Warning/caution */
-  --accent-warning: #775650;
+  --accent-warning: #5f6044;
 
   /* Error/critical/destructive actions */
   --accent-error: #ba1a1a;
@@ -68,13 +68,13 @@
      ============================================ */
 
   /* Primary border (main borders, separators) */
-  --border-primary: #d8c2be;
+  --border-primary: #c9c7b6;
 
   /* Secondary border (subtle borders) */
-  --border-secondary: #857370;
+  --border-secondary: #787869;
 
   /* Subtle border (barely visible) */
-  --border-subtle: #f1dfdb;
+  --border-subtle: #e5e3d6;
 
 
   /* ============================================
@@ -93,10 +93,10 @@
      ============================================ */
 
   /* Overlay surfaces (semi-transparent) */
-  --surface-overlay: #fff8f6;
+  --surface-overlay: #fcfaec;
 
   /* Tooltip backgrounds */
-  --surface-tooltip: #f7e4e1;
+  --surface-tooltip: #ebe8db;
 
 
   /* ============================================
@@ -104,13 +104,13 @@
      ============================================ */
 
   /* Button background (default state) */
-  --button-bg: #f7e4e1;
+  --button-bg: #ebe8db;
 
   /* Button background (hover state) */
-  --button-bg-hover: #f1dfdb;
+  --button-bg-hover: #e5e3d6;
 
   /* Button text color */
-  --button-text: #231918;
+  --button-text: #1c1c14;
 
 
   /* ============================================
@@ -124,7 +124,7 @@
   --close-button-hover: #ba1a1a;
 
   /* Close button text/icon color */
-  --close-button-text: #857370;
+  --close-button-text: #787869;
 
 
   /* ============================================
@@ -162,8 +162,8 @@
    SOURCE COLOR INFO (for reference)
    ============================================
 
-   Wallpaper: /home/victor/.config/hypr/wallpaper/ubw.png
-   Source Color: #d72109
+   Wallpaper: /home/victor/.config/hypr/wallpaper/enkidu_2.png
+   Source Color: #d7df59
    Mode: light
 
    ============================================ */
