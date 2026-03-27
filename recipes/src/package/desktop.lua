@@ -25,33 +25,17 @@ local M={
                     single_user_config={
                         "~/.config/hypr/hyprland",
                         "~/.config/hypr/hyprland.conf",
+                        "~/.config/uwsm/env-hyprland",
                         {"sh", "~/.config/hypr/hyprland/scripts/first_intel_gpu.sh"},
                         {"sh", "~/.config/hypr/hyprland/scripts/first_amd_gpu.sh"},
                     },
+                    env={
+                        HYPRCURSOR_SIZE="24",
+                        AQ_DRM_DEVICES="/dev/dri/first-intel-gpu:/dev/dri/first-amd-gpu"
+                    }
                 }
             }
         },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"niri", Repo.AOR},
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"river", Repo.AOR},
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"mangowc", Repo.AOR},
-        --         }
-        --     }
-        -- },
     },
     session_manager={
         {
@@ -65,6 +49,9 @@ local M={
                 },
                 {
                     package={"app2unit", Repo.AUR},
+                    env={
+                        APP2UNIT_SLICES="a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice"
+                    }
                 },
             }
         }
@@ -137,51 +124,8 @@ local M={
         --     }
         -- },
     },
-    -- widget_system={
-    --     {
-    --         sub_recipes={
-    --             {
-    --                 package={"quickshell", Repo.AOR}
-    --             }
-    --         }
-    --     },
-    --     {
-    --         sub_recipes={
-    --             {
-    --                 package={"eww", Repo.AOR}
-    --             }
-    --         }
-    --     },
-    --     {
-    --         sub_recipes={
-    --             {
-    --                 package={"ags", Repo.AOR}
-    --             }
-    --         }
-    --     },
-    -- }
+
     color_extractor={
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"python-pywal", Repo.AOR},
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"wallust", Repo.AUR},
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"hellwall", Repo.AUR},
-        --         }
-        --     }
-        -- },
         {
             sub_recipes={
                 {
@@ -190,15 +134,18 @@ local M={
                 }
             }
         },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"kde-material-you-colors", Repo.AUR},
-        --         }
-        --     }
-        -- },
     },
     qt={
+        misc={
+            {
+                env={
+                    QT_QPA_PLATFORM="wayland;xcb",
+                    QT_ENABLE_HIGHDPI_SCALING=1,
+                    QT_AUTO_SCREEN_SCALE_FACTOR=1,
+                    QT_WAYLAND_DISABLE_WINDOWDECORATION=1,
+                }
+            }
+        },
         theme_config={
             {
                 sub_recipes={
@@ -209,6 +156,9 @@ local M={
                     {
                         package={"qt6ct", Repo.AOR},
                         single_user_config={"~/.config/qt6ct"},
+                        env={
+                            QT_QPA_PLATFORMTHEME="qt6ct"
+                        }
                     },
                     -- {
                     --     package={"hyprqt6engine", Repo.AUR},
@@ -216,12 +166,24 @@ local M={
                     {
                         package={"kvantum", Repo.AOR},
                         single_user_config={"~/.config/Kvantum"},
+                        env={
+                            QT_STYLE_OVERRIDE="kvantum"
+                        }
                     }
                 }
             }
         },
     },
     gtk={
+        misc={
+            {
+                env={
+                    GDK_SCALE=1,
+                    GDK_DPI_SCALE=1,
+                    GDK_BACKEND="wayland,x11",
+                }
+            }
+        },
         theme_config={
             {
                 sub_recipes={
@@ -257,34 +219,6 @@ local M={
 
     wallpaper={
         setter={
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"awww-bin", Repo.AUR}
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"swaybg", Repo.AOR}
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"mpvpaper", Repo.AUR}
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"wpaperd", Repo.AOR}
-            --         }
-            --     }
-            -- },
             {
                 sub_recipes={
                     {
@@ -292,9 +226,7 @@ local M={
                         units={"hyprpaper.service", Scope.SINGLE_USER},
                         single_user_config={"~/.config/hypr/hyprpaper.conf"}
                     }
-                }
-            }
-
+                } }
         },
         picker={
             {
@@ -305,27 +237,6 @@ local M={
                     }
                 }
             },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"waypaper", Repo.AUR}
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"wallrizz", Repo.GITHUB}
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"waytrogen-bin", Repo.AUR}
-            --         }
-            --     }
-            -- },
         }
     },
 
@@ -380,30 +291,6 @@ local M={
     },
 
     notification={
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"fnott", Repo.AOR},
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"dunst", Repo.AOR},
-        --             single_user_config={"~/.config/dunst"},
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"mako", Repo.AOR},
-        --             units={"mako.service", Scope.SINGLE_USER},
-        --             single_user_config={"~/.config/mako"},
-        --         }
-        --     }
-        -- },
         {
             sub_recipes={
                 {
@@ -423,7 +310,8 @@ local M={
                         package={"wl-clipboard", Repo.AOR}
                     },
                     {
-                        package={"wl-clip-persist", Repo.AOR}
+                        package={"wl-clip-persist", Repo.AOR},
+                        auto_start={{"wl-clip-persist", "--clipboard regular"}}
                     }
                 }
             }
@@ -433,7 +321,14 @@ local M={
                 sub_recipes={
                     {
                         -- TODO: how and should i declate it config in hyprland?
-                        package={"cliphist", Repo.AOR}
+                        package={"cliphist", Repo.AOR},
+                        units={"cliphist.service", Scope.SINGLE_USER},
+                        auto_start={
+                            {"wl-paste", "--type", "text", "watch", "cliphist", "store"},
+                            {"wl-paste", "--type", "image", "watch", "cliphist", "store"},
+                        }
+
+
                     }
                 }
             },
@@ -466,49 +361,48 @@ local M={
                         },
                     },
                     {
+                        package={"fcitx5-gtk", Repo.AOR}
+                    },
+                    {
+                        package={"fcitx5-qt", Repo.AOR}
+                    },
+                    {
                         package={"fcitx5-configtool", Repo.AOR}
                     },
                     {
                         package={"fcitx5-unikey", Repo.AOR}
                     },
-                    {
-                        package={"fcitx5-lotus", Repo.AUR}
-                    },
+                    -- {
+                    --     package={"fcitx5-bamboo", Repo.AOR}
+                    -- },
+                    -- {
+                    --     package={"fcitx5-lotus", Repo.AUR}
+                    -- },
+                },
+                env={
+                    QT_IM_MODULE="fcitx",
+                    -- GTK_IM_MODULE="fcitx",
+                    XMODIFIERS="@im=fcitx"
                 }
             }
         }
     },
     remapper={
-        {
-            sub_recipes={
-                {
-                    package={"kanata-bin", Repo.AUR},
-                    multiple_user_config={
-                        "/etc/udev/rules.d/90-uinput.rules",
-                        -- ACTION=="add", KERNEL=="uinput", RUN+="/usr/bin/setfacl -m u:victor:rw /dev/uinput"
-                        {"sudo" ,"udevadm", "control", "--reload-rules"},
-                        {"sudo", "udevadm", "trigger"},
-                        {"sudo", "modprobe", "-r", "uinput"},
-                        {"sudo", "modprobe", "uinput"}
-                    },
-                    groups={
-                        "input",
-                        "uinput",
-                    }
-                }
-            }
-        },
         -- {
         --     sub_recipes={
         --         {
         --             package={"kanata-bin", Repo.AUR},
         --             multiple_user_config={
-        --                 "/etc/udev/rules.d/99-uinput.rules",
-        --                 -- KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
-        --                 {"sudo", "udevadm", "control", "--reload"},
-        --                 {"sudo", "udevadm", "trigger", "--verbose", "--sysname-match=uinput"},
+        --                 "/etc/udev/rules.d/90-uinput.rules",
+        --                 -- ACTION=="add", KERNEL=="uinput", RUN+="/usr/bin/setfacl -m u:victor:rw /dev/uinput"
+        --                 {"sudo" ,"udevadm", "control", "--reload-rules"},
+        --                 {"sudo", "udevadm", "trigger"},
+        --                 {"sudo", "modprobe", "-r", "uinput"},
         --                 {"sudo", "modprobe", "uinput"}
         --             },
+        --             -- sudo groupadd uinput
+        --             -- sudo usermod -aG input $USER
+        --             -- sudo usermod -aG uinput $USER
         --             groups={
         --                 "input",
         --                 "uinput",
@@ -516,48 +410,28 @@ local M={
         --         }
         --     }
         -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"wlr-which-key", Repo.AUR}
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"xremap-hypr-bin", Repo.AUR}
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"xremap-wlroots-bin", Repo.AUR}
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"input-remapper-bin", Repo.AUR}
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"keyd", Repo.AOR}
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"kmonad", Repo.AOR}
-        --         }
-        --     }
-        -- },
+        {
+            sub_recipes={
+                {
+                    package={"kanata-bin", Repo.AUR},
+                    multiple_user_config={
+                        "/etc/udev/rules.d/99-uinput.rules",
+                        -- KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+                        {"sudo", "udevadm", "control", "--reload"},
+                        {"sudo", "udevadm", "trigger", "--verbose", "--sysname-match=uinput"},
+                        {"sudo", "modprobe", "-r", "uinput"},
+                        {"sudo", "modprobe", "uinput"}
+                    },
+                    -- sudo groupadd uinput
+                    -- sudo usermod -aG input $USER
+                    -- sudo usermod -aG uinput $USER
+                    groups={
+                        "input",
+                        "uinput",
+                    }
+                }
+            }
+        },
     },
 
     fonts={
@@ -600,20 +474,20 @@ local M={
     },
 
     shell={
-        {
-            sub_recipes={
-                {
-                    package={"zsh", Repo.AOR}
-                }
-            }
-        },
-        {
-            sub_recipes={
-                {
-                    package={"fish", Repo.AOR}
-                }
-            }
-        },
+        -- {
+        --     sub_recipes={
+        --         {
+        --             package={"zsh", Repo.AOR}
+        --         }
+        --     }
+        -- },
+        -- {
+        --     sub_recipes={
+        --         {
+        --             package={"fish", Repo.AOR}
+        --         }
+        --     }
+        -- },
         {
             sub_recipes={
                 {
@@ -661,8 +535,11 @@ local M={
                 sub_recipes={
                     {
                         package={"foot", Repo.AOR},
-                        units={"foot-server.service", Scope.SINGLE_USER},
-                        single_user_config={"~/.config/foot"}
+                        -- look like we shouldn't manually enable this
+                        -- units={"foot-server.service", Scope.SINGLE_USER},
+                        units={"foot-server.socket", Scope.SINGLE_USER},
+                        single_user_config={"~/.config/foot"},
+                        auto_start={{"foot", "--server"}}
                     }
                 }
             },
@@ -674,29 +551,6 @@ local M={
                     }
                 }
             },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"kitty", Repo.AOR},
-            --             single_user_config={"~/.config/kitty"},
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"aclacritty", Repo.AOR}
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"ghostty", Repo.AOR},
-            --             units={"app-com.mitchellh.ghostty.service", Scope.SINGLE_USER},
-            --         }
-            --     }
-            -- }
         },
         multiplexer={
             {
@@ -733,6 +587,7 @@ local M={
                     {
                         package={"thunar-media-tags-plugin", Repo.AOR},
                     },
+
                     -- {
                     --     package={"catfish", Repo.AOR},
                     -- },
@@ -742,7 +597,8 @@ local M={
                     -- {
                     --     package={"zeitgeist", Repo.AOR},
                     -- },
-                }
+                },
+                auto_start={{"thunar", "--daemon"}}
             },
             {
                 sub_recipes={
@@ -756,9 +612,6 @@ local M={
                         package={"chafa", Repo.AOR}
                     },
                     {
-                        package={"ffmpeg", Repo.AOR}
-                    },
-                    {
                         package={"jq", Repo.AOR}
                     },
                     {
@@ -770,18 +623,15 @@ local M={
                     {
                         package={"imagemagick", Repo.AOR}
                     },
-                    {
-                        package={"libjpeg-turbo", Repo.AOR}
-                    },
                 }
             },
-            {
-                sub_recipes={
-                    {
-                        package={"superfile", Repo.AOR}
-                    }
-                }
-            }
+            -- {
+            --     sub_recipes={
+            --         {
+            --             package={"superfile", Repo.AOR}
+            --         }
+            --     }
+            -- }
         },
         misc={
             {
@@ -792,13 +642,13 @@ local M={
                     }
                 }
             },
-            {
-                sub_recipes={
-                    {
-                        package={"czkawka-gui-bin", Repo.AUR}
-                    }
-                }
-            },
+            -- {
+            --     sub_recipes={
+            --         {
+            --             package={"czkawka-gui-bin", Repo.AUR}
+            --         }
+            --     }
+            -- },
             {
                 sub_recipes={
                     {
@@ -813,7 +663,7 @@ local M={
                 sub_recipes={
                     {
                         {
-                            package={"tumblerd", Repo.AOR},
+                            package={"tumbler", Repo.AOR},
                             units={"tumblerd.service", Scope.SINGLE_USER},
                         },
                         {
@@ -833,12 +683,6 @@ local M={
                         },
                         {
                             package={"poppler-glib", Repo.AOR},
-                        },
-                        {
-                            package={"libarchive", Repo.AOR},
-                        },
-                        {
-                            package={"ueberzugpp", Repo.AOR},
                         },
                     }
                 }
@@ -876,46 +720,114 @@ local M={
             {
                 sub_recipes={
                     {
+                        -- gui
                         package={"mpv", Repo.AOR},
                         single_user_config={"~/.config/mpv"},
-                    }
+                    },
+                    {
+                        -- tui
+                        package={"ueberzugpp", Repo.AOR},
+                    },
+                }
+            },
+        },
+
+        office={
+            {
+                sub_recipes={
+                    {
+                        package={"libreoffice-fresh", Repo.AOR},
+                    },
+                    {
+                        package={"libreoffice-fresh-en-gb", Repo.AOR},
+                    },
+                    {
+                        package={"libreoffice-fresh-vi", Repo.AOR},
+                    },
                 }
             },
             {
                 sub_recipes={
                     {
-                        package={"imv", Repo.AOR}
+                        package={"onlyoffice-bin", Repo.AUR}
                     }
                 }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"feh", Repo.AOR}
-                    }
-                }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"gthumb", Repo.AOR}
-                    }
-                }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"swayimg", Repo.AOR}
-                    }
-                }
-            },
+            }
         },
 
         text={
             {
                 sub_recipes={
                     {
-                        package={"okular", Repo.AOR}
+                        package={"mousepad", Repo.AOR}
+                    },
+                    {
+                        package={"xed", Repo.AOR}
+                    }
+                }
+            }
+        },
+
+        pdf={
+            {
+                sub_recipes={
+                    {
+                        package={"zathura", Repo.AOR}
+                    },
+                    {
+                        package={"zathura-pdf-poppler", Repo.AOR}
+                    },
+                }
+            }
+        },
+
+        archive={
+            compress={
+                {
+                    sub_recipes={
+                        {
+                            package={"tar", Repo.AOR}
+                        },
+                        {
+                            package={"gzip", Repo.AOR}
+                        },
+                        {
+                            package={"bzip2", Repo.AOR}
+                        },
+                        {
+                            package={"xz", Repo.AOR}
+                        },
+                        {
+                            package={"zstd", Repo.AOR}
+                        },
+                    }
+                }
+            },
+            package_compress={
+                {
+                    sub_recipes={
+                        {
+                            package={"libarchive", Repo.AOR}
+                        },
+                        {
+                            package={"unrar", Repo.AOR}
+                        },
+                        {
+                            package={"unzip", Repo.AOR}
+                        },
+                        {
+                            package={"7zip", Repo.AOR}
+                        },
+                        {
+                            package={"zip", Repo.AOR}
+                        },
+                    }
+                }
+            },
+            {
+                sub_recipes={
+                    {
+                        package={"xarchiver", Repo.AOR}
                     },
                 }
             }
@@ -924,20 +836,6 @@ local M={
 
     screen={
         capture={
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"grim", Repo.AOR}
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"flameshot", Repo.AOR}
-            --         }
-            --     }
-            -- },
             {
                 sub_recipes={
                     {
@@ -946,58 +844,16 @@ local M={
                 }
             }
         },
-        crop={
-            sub_recipes={
-                {
-                    package={"slurp", Repo.AOR}
-                }
-            }
-        },
-        annotate={
-            {
-                sub_recipes={
-                    {
-                        package={"swappy", Repo.AOR},
-                    }
-                }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"satty", Repo.AOR},
-                    }
-                }
-            }
-        },
         record={
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"wl-screenrec", Repo.AUR}
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"obs-studio", Repo.AOR}
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"wf-recorder", Repo.AOR}
-            --         }
-            --     }
-            -- },
             {
                 sub_recipes={
                     {
-                        package={"gpu-screen-recorder", Repo.AOR}
+                        package={"gpu-screen-recorder", Repo.AOR},
+                        units={"gpu-screen-recorder.service", Scope.SINGLE_USER}
                     },
                     {
-                        package={"gpu-screen-recorder-ui", Repo.AOR}
+                        package={"gpu-screen-recorder-ui", Repo.AOR},
+                        units={"gpu-screen-recorder-ui.service", Scope.SINGLE_USER}
                     }
                 }
             },
@@ -1068,13 +924,7 @@ local M={
     misc={
         {
             sub_recipes={
-                -- {
-                --     package={"hugo", Repo.AOR}
-                -- },
-                -- {
-                --     package={"cava", Repo.AOR},
-                --     single_user_config={"~/.config/cava"},
-                -- },
+
                 {
                     package={"anki", Repo.AOR}
                 },
@@ -1084,6 +934,9 @@ local M={
                 {
                     package={"electron", Repo.AOR},
                     single_user_config={"~/.config/electron-flags.conf"},
+                    env={
+                        ELECTRON_OZONE_PLATFORM_HINT="auto"
+                    }
                 },
                 {
                     --TODO: this recipes need extension too, how to write

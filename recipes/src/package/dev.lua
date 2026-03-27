@@ -16,13 +16,13 @@ local M={
                 },
             }
         },
-        {
-            sub_recipes={
-                {
-                    package={"jujutsu", Repo.AOR}
-                }
-            }
-        }
+        -- {
+        --     sub_recipes={
+        --         {
+        --             package={"jujutsu", Repo.AOR}
+        --         }
+        --     }
+        -- }
     },
 
     cpp={
@@ -38,16 +38,16 @@ local M={
 
                 }
             },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"meson", Repo.AOR},
-            --         },
-            --         {
-            --             package={"ninja", Repo.AOR}
-            --         }
-            --     }
-            -- },
+            {
+                sub_recipes={
+                    {
+                        package={"meson", Repo.AOR},
+                    },
+                    {
+                        package={"ninja", Repo.AOR}
+                    }
+                }
+            },
             -- {
             --     sub_recipes={
             --         {
@@ -179,44 +179,8 @@ local M={
         }
     },
 
-    -- python={
-    --     {
-    --         sub_recipes={
-    --             {
-    --                 package={"uv", Repo.AOR}
-    --             }
-    --         }
-    --     }
-    -- },
-    --
-    -- rust={
-    --     {
-    --         sub_recipes={
-    --             {
-    --                 package={"rustup", Repo.AOR}
-    --             }
-    --         }
-    --     }
-    -- },
-    --
-    -- go={
-    --     {
-    --         sub_recipes={
-    --             {
-    --                 package={"go", Repo.AOR}
-    --             }
-    --         }
-    --     }
-    -- },
     editor={
         tui={
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"vim", Repo.AOR}
-            --         }
-            --     }
-            -- },
             {
                 sub_recipes={
                     {
@@ -227,146 +191,9 @@ local M={
                     }
                 }
             },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"helix", Repo.AOR}
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"kakoune", Repo.AOR}
-            --         }
-            --     }
-            -- },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"emacs", Repo.AOR}
-            --         }
-            --     }
-            -- },
-
-        },
-        gui={
-            {
-                sub_recipes={
-                    {
-                        package={"zed", Repo.AOR}
-                    }
-                }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"code", Repo.AOR}
-                    }
-                }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"typst", Repo.AOR}
-                    }
-                }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"micro", Repo.AOR}
-                    }
-                }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"xi-editor", Repo.GITHUB}
-                    }
-                }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"fresh-editor-bin", Repo.AUR}
-                    }
-                }
-            },
-        }
-    },
-
-    monitor={
-        {
-            sub_recipes={
-                {
-                    package={"atop", Repo.AOR},
-                }
-            }
-        },
-        {
-            sub_recipes={
-                {
-                    package={"btop", Repo.AOR},
-                }
-            }
-        },
-        {
-            sub_recipes={
-                {
-                    package={"htop", Repo.AOR},
-                }
-            }
-        },
-        {
-            sub_recipes={
-                {
-                    package={"nvtop", Repo.AOR},
-                }
-            }
-        },
-        {
-            sub_recipes={
-                {
-                    package={"glances", Repo.AOR},
-                }
-            }
-        },
-        {
-            sub_recipes={
-                {
-                    package={"bottom", Repo.AOR},
-                }
-            }
-        },
-        {
-            sub_recipes={
-                {
-                    package={"hyperfine", Repo.AOR},
-                }
-            }
         },
     },
 
-    container={
-        {
-            sub_recipes={
-                {
-                    package={"podmand", Repo.AOR},
-                    single_user_config={"~/.config/containers"},
-                },
-                {
-                    package={"podman-compose", Repo.AOR}
-                },
-                {
-                    package={"podman-tui", Repo.AUR}
-                },
-                {
-                    package={"podman-desktop", Repo.AOR}
-                },
-            }
-        }
-    },
 
     virtual_machine={
         {

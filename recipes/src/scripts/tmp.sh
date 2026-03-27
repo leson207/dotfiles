@@ -2,6 +2,12 @@ bash -c 'sudo pacman -Rns $(pacman -Qdtq)'
 sudo rm -rf /var/cache/pacman/pkg/download-*
 sudo pacman -Sc
 
+# reload all service
+systemctl daemon-reload
+systemctl --user daemon-reload
+
+# sudo pacman -Qo /etc/hostname
+
 # systemctl preset sddm.service
 
 # - name: Disable root SSH login
@@ -16,18 +22,14 @@ sudo pacman -Sc
 
 # chromium --disable-backgrounding-occluded-windows --disable-background-timer-throttling --disable-renderer-backgrounding
 
-# reload all service
-systemctl daemon-reload
-systemctl --user daemon-reload
-
 # turn amd gpu off
 sudo modprobe acpi_call
 echo '\_SB.PCI0.RP01.PEGP._OFF' | sudo tee /proc/acpi/call
 cat /sys/bus/pci/devices/0000:01:00.0/power/control
 
 # check gpu
-# lspci | grep -E "VGA|3D"
-# glxinfo | grep renderer
-# lspci -k | grep -A3 VGA
-# glxinfo | grep "OpenGL renderer"
-# DRI_PRIME=1 glxinfo | grep "OpenGL renderer"
+lspci | grep -E "VGA|3D"
+glxinfo | grep renderer
+lspci -k | grep -A3 VGA
+glxinfo | grep "OpenGL renderer"
+DRI_PRIME=1 glxinfo | grep "OpenGL renderer"

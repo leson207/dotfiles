@@ -26,12 +26,12 @@ m.misc={
     mise=aor,
     just=aor,
     direnv=aor,
+
     entr=aor,
     watchexec=aor,
-    bear=aor,
+
     ctags=aor,
     compiledb=aur,
-    freetube_bin=aur,
 }
 
 m.download={

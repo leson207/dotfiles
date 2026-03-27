@@ -123,6 +123,83 @@ local FunctionSettingRecipes={
 }
 
 local RoleRecipes={
+    misc={
+        {
+            env={
+                XCURSOR_SIZE=24,
+
+                _JAVA_AWT_WM_NONREPARENTING=1,
+            }
+        }
+    },
+
+    bus={
+        {
+            sub_recipes={
+                {
+                    package={"dbus", Repo.AOR},
+                    auto_start={
+                        {"dbus-update-activation-environment", "--systemd", "WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"}
+                    }
+                }
+            }
+        }
+    },
+
+    disk={
+        device_management={
+            {
+                sub_recipes={
+                    {
+                        package={"udisks2", Repo.AOR},
+                        units={name="udisks2.service", scope=Scope.MULTI_USER},
+                    },
+                }
+            }
+        },
+        fs_support={
+            {
+                sub_recipes={
+                    {
+                        package={"exfatprogs", Repo.AOR}
+                    },
+                    {
+                        package={"ntfs-3g", Repo.AOR}
+                    }
+                }
+            }
+        },
+        user_integration={
+            {
+                sub_recipes={
+                    {
+                        package={"udiskie", Repo.AOR},
+                        auto_start={{"udiskie", "--daemon"}}
+                    },
+                    {
+                        package={"gvfs", Repo.AOR},
+                    },
+                    {
+                        package={"gvfs-mtp", Repo.AOR},
+                    },
+                    -- {
+                    --     package={"gvfs-smb", Repo.AOR},
+                    -- }
+                }
+            }
+        },
+        maintenance={
+            {
+                sub_recipes={
+                    {
+                        package={"util-linux", Repo.AOR},
+                        units={"fstrim.timer", Scope.MULTI_USER}
+                    }
+                }
+            }
+        }
+    },
+
     kernel={
         {
             sub_recipes={
@@ -254,7 +331,12 @@ local RoleRecipes={
         {
             sub_recipes={
                 {
-                    package={"wayland", Repo.AOR}
+                    package={"wayland", Repo.AOR},
+                    env={
+                        SDL_VIDEODRIVER="wayland",
+                        CLUTTER_BACKEND="wayland",
+
+                    }
                 }
             }
         }
@@ -310,57 +392,6 @@ local RoleRecipes={
         }
     },
 
-    disk={
-        driver={
-            {
-                sub_recipes={
-                    {
-                        package={"ntfs-3g", Repo.AOR},
-                    }
-                }
-            }
-        },
-        mount={
-            {
-                sub_recipes={
-                    {
-                        package={"udisks2", Repo.AOR},
-                        units={name="udisks2.service", scope=Scope.MULTI_USER},
-                        -- auto start here? udiskie &
-                    },
-                    {
-                        package={"udiskie", Repo.AOR}
-                    }
-                }
-            }
-        },
-        virtual_file_system={
-            {
-                sub_recipes={
-                    {
-                        package={"gvfs", Repo.AOR},
-                    },
-                    {
-                        package={"gvfs-mtp", Repo.AOR},
-                    },
-                    -- {
-                    --     package={"gvfs-smb", Repo.AOR},
-                    -- }
-                }
-            }
-        },
-        trim={
-            {
-                sub_recipes={
-                    {
-                        package={"util-linux", Repo.AOR},
-                        units={"fstrim.service", Scope.MULTI_USER}
-                    }
-                }
-            }
-        }
-    },
-
     audio={
         processor={
             {
@@ -405,14 +436,41 @@ local RoleRecipes={
                         units={"dnsmasq.service", Scope.MULTI_USER},
                     }
                 }
-            }
+            },
+            -- {
+            --     sub_recipes={
+            --         {
+            --             package={"systemd-networkd", Repo.AOR},
+            --             units={
+            --                 {"systemd-networkd.service", Scope.MULTI_USER},
+            --                 {"systemd-resolved.service", Scope.MULTI_USER},
+            --             },
+            --             multi_user_config={
+            --                 "sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf",
+            --                 "/etc/systemd/network/20-wired.network"
+            --             }
+            --         },
+            --         -- {
+            --         --     package={"iwd", Repo.AOR},
+            --         --     units={"iwd.service", Scope.MULTI_USER},
+            --         -- },
+            --         {
+            --             package={"wpa_supplicant", Repo.AOR},
+            --             units={"wpa_supplicant@wlp2s0.service", Scope.MULTI_USER},
+            --             multi_user_config={
+            --                 "/etc/systemd/network/25-wireless.network"
+            --             }
+            --         },
+            --     }
+            -- }
         },
         ssh={
             {
                 sub_recipes={
                     {
                         package={"openssh", Repo.AOR},
-                        units={"sshd.service", Scope.MULTI_USER}
+                        units={"sshd.service", Scope.MULTI_USER},
+                        -- units={"sshdgenkeys.service", Scope.MULTI_USER}
                     }
                 }
             }
@@ -439,34 +497,6 @@ local RoleRecipes={
                 }
             }
         },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"ananicy-cpp", Repo.AOR},
-        --             units={"ananicy-cpp.service", Scope.MULTI_USER},
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"tunned", Repo.AOR},
-        --             units={"tunned.service", Scope.MULTI_USER},
-        --         },
-        --         {
-        --             package={"tunned-ppd", Repo.AOR},
-        --             units={"tunned-ppd.service", Scope.MULTI_USER},
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"auto-cpufreq", Repo.AUR},
-        --             units={"auto-cpufreq.service", Scope.MULTI_USER},
-        --         }
-        --     }
-        -- },
         {
             sub_recipes={
                 {
@@ -531,8 +561,8 @@ local RoleRecipes={
                     multi_user_config={"/etc/pacman.conf"}
                 },
                 {
-                    package={"refector", Repo.AUR},
-                    units={"refector.timer", Scope.MULTI_USER},
+                    package={"reflector", Repo.AUR},
+                    units={"reflector.timer", Scope.MULTI_USER},
                 }
             }
         }

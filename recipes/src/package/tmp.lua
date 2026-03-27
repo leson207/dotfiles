@@ -50,9 +50,19 @@ m.image.editor={
     lazpaint_bin=aur,
 }
 
+m.pdf={
+    zathura=aor,
+    zathura_pdf_mupdf=aor,
+    zathura_pdf_poppler=aor,
+    evince=aor,
+    okular=aor,
+    mupdf=aor
+}
+
 m.archive={
     xarchiver=aor,
     file_roller=aor,
+    -- engrampa=aor,
     backend={
         unzip=aor,
         seven_zip=aor,
@@ -137,7 +147,10 @@ m.git_server={
 m.office={
     onlyoffice=aur,
     openoffice=aur,
-    libreoffice_fresh=aur,
+    libreoffice_fresh=aor,
+
+    abiword=aor,
+    gnumeric=aor,
 }
 
 m.social={
