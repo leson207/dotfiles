@@ -388,28 +388,6 @@ local M={
         }
     },
     remapper={
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"kanata-bin", Repo.AUR},
-        --             multiple_user_config={
-        --                 "/etc/udev/rules.d/90-uinput.rules",
-        --                 -- ACTION=="add", KERNEL=="uinput", RUN+="/usr/bin/setfacl -m u:victor:rw /dev/uinput"
-        --                 {"sudo" ,"udevadm", "control", "--reload-rules"},
-        --                 {"sudo", "udevadm", "trigger"},
-        --                 {"sudo", "modprobe", "-r", "uinput"},
-        --                 {"sudo", "modprobe", "uinput"}
-        --             },
-        --             -- sudo groupadd uinput
-        --             -- sudo usermod -aG input $USER
-        --             -- sudo usermod -aG uinput $USER
-        --             groups={
-        --                 "input",
-        --                 "uinput",
-        --             }
-        --         }
-        --     }
-        -- },
         {
             sub_recipes={
                 {
@@ -428,6 +406,9 @@ local M={
                     groups={
                         "input",
                         "uinput",
+                    },
+                    resource={
+                        "https://shom.dev/start/using-kanata-to-remap-any-keyboard/"
                     }
                 }
             }
@@ -642,13 +623,6 @@ local M={
                     }
                 }
             },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"czkawka-gui-bin", Repo.AUR}
-            --         }
-            --     }
-            -- },
             {
                 sub_recipes={
                     {

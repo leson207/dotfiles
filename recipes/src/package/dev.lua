@@ -35,7 +35,6 @@ local M={
                     {
                         package={"ninja", Repo.AOR}
                     }
-
                 }
             },
             {
@@ -108,7 +107,7 @@ local M={
             {
                 sub_recipes={
                     {
-                        package={"clangb-bin", Repo.AUR},
+                        package={"clangd-bin", Repo.AUR},
                     },
                     {
                         package={"bear", Repo.AOR},
