@@ -17,6 +17,31 @@ local M={
         --     }
         -- }
     },
+
+    xdg={
+        {
+            sub_recipes={
+                {
+                    package={"xdg-desktop-portal-gtk", Repo.AOR},
+                },
+                {
+                    package={"xdg-desktop-portal-hyprland", Repo.AOR},
+                    env={
+                        -- XDG_CURRENT_DESKTOP="Hyprland",
+                        -- XDG_SESSION_TYPE="wayland"
+                    }
+                },
+                {
+                    package={"xdg-user-dirs", Repo.AOR},
+                    units={"xdg-user-dirs.service", Scope.SINGLE_USER},
+                },
+                {
+                    package={"xdg-utils", Repo.AOR},
+                },
+            }
+        }
+    },
+
     window_compositor={
         {
             sub_recipes={
@@ -37,6 +62,7 @@ local M={
             }
         },
     },
+
     session_manager={
         {
             sub_recipes={
@@ -56,6 +82,7 @@ local M={
             }
         }
     },
+
     display_manager={
         {
             sub_recipes={
@@ -87,6 +114,7 @@ local M={
             }
         }
     },
+
     screen_sharing={
         {
             sub_recipes={
@@ -95,10 +123,17 @@ local M={
                 },
                 {
                     package={"xdg-desktop-portal-hyprland", Repo.AOR}
-                }
+                },
+                {
+                    package={"grim", Repo.AOR}
+                },
+                {
+                    package={"slurp", Repo.AOR}
+                },
             }
         }
     },
+
     bar={
         {
             sub_recipes={
@@ -135,6 +170,7 @@ local M={
             }
         },
     },
+
     qt={
         misc={
             {
@@ -174,6 +210,7 @@ local M={
             }
         },
     },
+
     gtk={
         misc={
             {
@@ -327,8 +364,6 @@ local M={
                             {"wl-paste", "--type", "text", "watch", "cliphist", "store"},
                             {"wl-paste", "--type", "image", "watch", "cliphist", "store"},
                         }
-
-
                     }
                 }
             },
@@ -350,7 +385,7 @@ local M={
     },
 
     input={
-        mothod={
+        method={
             {
                 sub_recipes={
                     {
@@ -387,6 +422,7 @@ local M={
             }
         }
     },
+
     remapper={
         {
             sub_recipes={
@@ -516,8 +552,6 @@ local M={
                 sub_recipes={
                     {
                         package={"foot", Repo.AOR},
-                        -- look like we shouldn't manually enable this
-                        -- units={"foot-server.service", Scope.SINGLE_USER},
                         units={"foot-server.socket", Scope.SINGLE_USER},
                         single_user_config={"~/.config/foot"},
                         auto_start={{"foot", "--server"}}
@@ -577,6 +611,12 @@ local M={
                     -- },
                     -- {
                     --     package={"zeitgeist", Repo.AOR},
+                    -- },
+                    -- {
+                    --     package={"clamav", Repo.AOR},
+                    -- },
+                    -- {
+                    --     package={"clamtk", Repo.AOR},
                     -- },
                 },
                 auto_start={{"thunar", "--daemon"}}
@@ -733,11 +773,8 @@ local M={
             {
                 sub_recipes={
                     {
-                        package={"mousepad", Repo.AOR}
+                        package={"featherpad", Repo.AOR}
                     },
-                    {
-                        package={"xed", Repo.AOR}
-                    }
                 }
             }
         },
@@ -798,7 +835,7 @@ local M={
                     }
                 }
             },
-            {
+            gui={
                 sub_recipes={
                     {
                         package={"xarchiver", Repo.AOR}
@@ -823,11 +860,11 @@ local M={
                 sub_recipes={
                     {
                         package={"gpu-screen-recorder", Repo.AOR},
-                        units={"gpu-screen-recorder.service", Scope.SINGLE_USER}
+                        -- units={"gpu-screen-recorder.service", Scope.SINGLE_USER}
                     },
                     {
                         package={"gpu-screen-recorder-ui", Repo.AOR},
-                        units={"gpu-screen-recorder-ui.service", Scope.SINGLE_USER}
+                        -- units={"gpu-screen-recorder-ui.service", Scope.SINGLE_USER}
                     }
                 }
             },
@@ -844,7 +881,11 @@ local M={
                     },
                     {
                         package={"speech-dispatcher", Repo.AOR}
-                    }
+                    },
+                    {
+                        --TODO: this recipes need extension too, how to write
+                        package={"python-pywalfox", Repo.AUR}
+                    },
                 }
             },
             {
@@ -911,10 +952,6 @@ local M={
                     env={
                         ELECTRON_OZONE_PLATFORM_HINT="auto"
                     }
-                },
-                {
-                    --TODO: this recipes need extension too, how to write
-                    package={"python-pywalfox", Repo.AUR}
                 },
             }
         }

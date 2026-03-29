@@ -85,6 +85,22 @@ local FunctionSettingRecipes={
                 multi_user_config={
                     "/boot/loader/entries/linux-zen.conf",
                 },
+            },
+            {
+                sub_recipes={
+                    {
+                        package={"linux-cachyos-bore", Repo.AUR},
+                    },
+                    {
+                        package={"systemd", Repo.AOR},
+                    },
+                    {
+                        package={"intel-ucode", Repo.AOR},
+                    },
+                },
+                multi_user_config={
+                    "/boot/loader/entries/linux-cachyos-bore.conf",
+                },
             }
         },
     },
@@ -174,7 +190,7 @@ local RoleRecipes={
                 sub_recipes={
                     {
                         package={"udiskie", Repo.AOR},
-                        auto_start={{"udiskie", "--daemon"}}
+                        auto_start={{"udiskie", "&"}}
                     },
                     {
                         package={"gvfs", Repo.AOR},
@@ -220,7 +236,18 @@ local RoleRecipes={
                     package={"linux-zen-headers", Repo.AOR}
                 }
             }
+        },
+        {
+            sub_recipes={
+                {
+                    package={"linux-cachyos-bore", Repo.AUR}
+                },
+                {
+                    package={"linux-cachyos-bore-headers", Repo.AUR}
+                }
+            }
         }
+
     },
 
     c_library={
