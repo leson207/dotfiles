@@ -13,6 +13,13 @@ dofile("utils.lua")
 -- category->recipe_option->recipes_package
 
 local FunctionSettingRecipes={
+    -- user={
+    --     {
+    --         name="victor",
+    --         groups={"wheel"}
+    --     }
+    -- },
+
     locale={
         {
             sub_recipes={
@@ -65,6 +72,12 @@ local FunctionSettingRecipes={
                     {
                         package={"intel-ucode", Repo.AOR},
                     },
+                    {
+                        package={"mkinitcpio", Repo.AOR},
+                        multi_user_config={
+                            "/etc/mkinitcpio.conf"
+                        }
+                    }
                 },
                 multi_user_config={
                     "/boot/loader/entries/linux.conf",
@@ -81,6 +94,12 @@ local FunctionSettingRecipes={
                     {
                         package={"intel-ucode", Repo.AOR},
                     },
+                    {
+                        package={"mkinitcpio", Repo.AOR},
+                        multi_user_config={
+                            "/etc/mkinitcpio.conf"
+                        }
+                    }
                 },
                 multi_user_config={
                     "/boot/loader/entries/linux-zen.conf",
@@ -97,6 +116,12 @@ local FunctionSettingRecipes={
                     {
                         package={"intel-ucode", Repo.AOR},
                     },
+                    {
+                        package={"mkinitcpio", Repo.AOR},
+                        multi_user_config={
+                            "/etc/mkinitcpio.conf"
+                        }
+                    }
                 },
                 multi_user_config={
                     "/boot/loader/entries/linux-cachyos-bore.conf",
@@ -114,13 +139,11 @@ local FunctionSettingRecipes={
                         "~/.config/nushell/env.nu",
                         "~/.config/nushell/config.nu",
                     },
-                    personalized_data={
-                        "~/.config/nushell/history.txt",
-                        "~/.config/nushell/history.sqlite3"
-                    }
                 },
                 {
                     package={"atuin", Repo.AOR},
+                    single_user_config={"~/.config/atuin"},
+                    auto_start={{"atuin", "daemon", "start"}}
                 },
                 {
                     package={"starship", Repo.AOR},
@@ -139,15 +162,14 @@ local FunctionSettingRecipes={
 }
 
 local RoleRecipes={
-    misc={
-        {
-            env={
-                XCURSOR_SIZE=24,
-
-                _JAVA_AWT_WM_NONREPARENTING=1,
-            }
-        }
-    },
+    -- misc={
+    --     {
+    --         env={
+    --             XCURSOR_SIZE=24,
+    --             _JAVA_AWT_WM_NONREPARENTING=1,
+    --         }
+    --     }
+    -- },
 
     bus={
         {
@@ -173,9 +195,12 @@ local RoleRecipes={
                 }
             }
         },
-        fs_support={
+        fs_utility={
             {
                 sub_recipes={
+                    {
+                        package={"e2fsprogs", Repo.AOR}
+                    },
                     {
                         package={"exfatprogs", Repo.AOR}
                     },
@@ -216,6 +241,34 @@ local RoleRecipes={
         }
     },
 
+    initramfs_image_creator={
+        {
+            sub_recipes={
+                {
+                    package={"mkinitcpio", Repo.AOR},
+                    multi_user_config={
+                        "/etc/mkinitcpio.conf",
+                        "/etc/mkinitcpio.conf.d"
+                    }
+                }
+            }
+        },
+        -- {
+        --     sub_recipes={
+        --         {
+        --             package={"dracut", Repo.AOR},
+        --         }
+        --     }
+        -- },
+        -- {
+        --     sub_recipes={
+        --         {
+        --             package={"booster", Repo.AOR},
+        --         }
+        --     }
+        -- },
+    },
+
     kernel={
         {
             sub_recipes={
@@ -247,18 +300,17 @@ local RoleRecipes={
                 }
             }
         }
-
     },
 
-    c_library={
-        {
-            sub_recipes={
-                {
-                    package={"glibc", Repo.AOR}
-                }
-            }
-        }
-    },
+    -- c_library={
+    --     {
+    --         sub_recipes={
+    --             {
+    --                 package={"glibc", Repo.AOR}
+    --             }
+    --         }
+    --     }
+    -- },
 
     core_tools={
         {
@@ -275,17 +327,15 @@ local RoleRecipes={
             sub_recipes={
                 {
                     package={"systemd", Repo.AOR},
-
                     single_user_config={"~/.config/systemd"},
+                    multi_user_config={
+                        -- "/etc/hostname",
+                        -- "/etc/vconsole.conf",
+                        -- "/etc/systemd/journald.conf"
+                        -- #MaxRetentionSec=7day
+                    },
                 },
-                multi_user_config={
-                    -- is this really systemd config or just general thing use by systemd
-                    -- "/etc/hostname",
-                    -- "/etc/vconsole.conf",
-                    -- "/etc/systemd/journald.conf"
-                    -- #MaxRetentionSec=7day
-                },
-        }
+            }
         }
     },
 
@@ -362,7 +412,6 @@ local RoleRecipes={
                     env={
                         SDL_VIDEODRIVER="wayland",
                         CLUTTER_BACKEND="wayland",
-
                     }
                 }
             }
@@ -410,9 +459,7 @@ local RoleRecipes={
             {
                 sub_recipes={
                     {
-                        package={
-                            {"vulkan-radeon", Repo.AOR},
-                        }
+                        package={"vulkan-radeon", Repo.AOR}
                     }
                 }
             }
@@ -464,32 +511,6 @@ local RoleRecipes={
                     }
                 }
             },
-            -- {
-            --     sub_recipes={
-            --         {
-            --             package={"systemd-networkd", Repo.AOR},
-            --             units={
-            --                 {"systemd-networkd.service", Scope.MULTI_USER},
-            --                 {"systemd-resolved.service", Scope.MULTI_USER},
-            --             },
-            --             multi_user_config={
-            --                 "sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf",
-            --                 "/etc/systemd/network/20-wired.network"
-            --             }
-            --         },
-            --         -- {
-            --         --     package={"iwd", Repo.AOR},
-            --         --     units={"iwd.service", Scope.MULTI_USER},
-            --         -- },
-            --         {
-            --             package={"wpa_supplicant", Repo.AOR},
-            --             units={"wpa_supplicant@wlp2s0.service", Scope.MULTI_USER},
-            --             multi_user_config={
-            --                 "/etc/systemd/network/25-wireless.network"
-            --             }
-            --         },
-            --     }
-            -- }
         },
         ssh={
             {
@@ -510,10 +531,6 @@ local RoleRecipes={
                 {
                     package={"tlp", Repo.AOR},
                     units={"tlp.service", Scope.MULTI_USER},
-                    multi_user_config={
-                        "/etc/tlp.conf"
-                        -- CPU_ENERGY_PERF_POLICY_ON_BAT=power
-                    }
                 },
                 {
                     package={"tlp-rdw", Repo.AOR}
@@ -596,4 +613,4 @@ local RoleRecipes={
     }
 }
 
-return RoleRecipes, FunctionSettingRecipes
+return {FunctionSettingRecipes, RoleRecipes}

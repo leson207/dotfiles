@@ -193,27 +193,6 @@ local M={
                     }
                 }
             },
-            {
-                sub_recipes={
-                    {
-                        package={"fresh-editor-bin", Repo.AUR}
-                    }
-                }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"micro", Repo.AOR}
-                    }
-                }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"xi-editor", Repo.GITHUB}
-                    }
-                }
-            },
         },
         gui={
             {
@@ -625,5 +604,38 @@ local M={
         --         }
         --     }
         -- },
+    },
+
+    network={
+        internet={
+            -- {
+            --     sub_recipes={
+            --         {
+            --             package={"systemd-networkd", Repo.AOR},
+            --             units={
+            --                 {"systemd-networkd.service", Scope.MULTI_USER},
+            --                 {"systemd-resolved.service", Scope.MULTI_USER},
+            --             },
+            --             multi_user_config={
+            --                 "sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf",
+            --                 "/etc/systemd/network/20-wired.network"
+            --             }
+            --         },
+            --         -- {
+            --         --     package={"iwd", Repo.AOR},
+            --         --     units={"iwd.service", Scope.MULTI_USER},
+            --         -- },
+            --         {
+            --             package={"wpa_supplicant", Repo.AOR},
+            --             units={"wpa_supplicant@wlp2s0.service", Scope.MULTI_USER},
+            --             multi_user_config={
+            --                 "/etc/systemd/network/25-wireless.network"
+            --             }
+            --         },
+            --     }
+            -- }
+
+        }
     }
+
 }

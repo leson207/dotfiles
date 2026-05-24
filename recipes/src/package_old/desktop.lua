@@ -89,7 +89,7 @@ local M={
                 {
                     package={"sddm", Repo.AOR},
                     units={"sddm.service", Scope.MULTI_USER},
-                    multiple_user_setting={
+                    multiple_user_config={
                         "/etc/sddm.conf",
                         "/etc/sddm.conf.d/virtualkbd.conf",
                     }
@@ -107,7 +107,7 @@ local M={
                     package={"qt6-multimedia-ffmpeg", Repo.AOR}
                 },
             },
-            multiple_user_setting={
+            multiple_user_config={
                 {"sudo", "git", "clone", "-b", "master", "--depth", "1", "https://github.com/keyitdev/sddm-astronaut-theme.git", "/usr/share/sddm/themes/sddm-astronaut-theme"},
                 {"sudo", "cp", "-r", "/usr/share/sddm/themes/sddm-astronaut-theme/Fonts/*", "/usr/share/fonts/"},
                 "/usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop"
@@ -212,28 +212,22 @@ local M={
     },
 
     gtk={
-        misc={
-            {
-                env={
-                    GDK_SCALE=1,
-                    GDK_DPI_SCALE=1,
-                    GDK_BACKEND="wayland,x11",
-                }
-            }
-        },
         theme_config={
             {
                 sub_recipes={
                     {
-                        single_user_config={
-                            "~/.config/gtk-3.0",
-                            "~/.config/gtk-4.0"
-                        }
-                    },
-                    {
                         package={"nwg-look", Repo.AOR},
                         single_user_config={"~/.config/nwg-look"},
                     },
+                },
+                single_user_config={
+                    "~/.config/gtk-3.0",
+                    "~/.config/gtk-4.0"
+                },
+                env={
+                    GDK_SCALE=1,
+                    GDK_DPI_SCALE=1,
+                    GDK_BACKEND="wayland,x11",
                 }
             }
         },
@@ -263,7 +257,8 @@ local M={
                         units={"hyprpaper.service", Scope.SINGLE_USER},
                         single_user_config={"~/.config/hypr/hyprpaper.conf"}
                     }
-                } }
+                }
+            }
         },
         picker={
             {
@@ -357,7 +352,6 @@ local M={
             {
                 sub_recipes={
                     {
-                        -- TODO: how and should i declate it config in hyprland?
                         package={"cliphist", Repo.AOR},
                         units={"cliphist.service", Scope.SINGLE_USER},
                         auto_start={
@@ -410,14 +404,42 @@ local M={
                     -- {
                     --     package={"fcitx5-bamboo", Repo.AOR}
                     -- },
-                    -- {
-                    --     package={"fcitx5-lotus", Repo.AUR}
-                    -- },
                 },
                 env={
                     QT_IM_MODULE="fcitx",
                     -- GTK_IM_MODULE="fcitx",
                     XMODIFIERS="@im=fcitx"
+                }
+            },
+            {
+                sub_recipes={
+                    {
+                        package={"fcitx5", Repo.AOR},
+                        single_user_config={
+                            "~/.config/fcitx5/config",
+                            "~/.config/fcitx5/profile"
+                        },
+                    },
+                    {
+                        package={"fcitx5-gtk", Repo.AOR}
+                    },
+                    {
+                        package={"fcitx5-qt", Repo.AOR}
+                    },
+                    {
+                        package={"fcitx5-configtool", Repo.AOR}
+                    },
+                    {
+                        package={"fcitx5-lotus", Repo.AUR}
+                    },
+                },
+                units={"fcitx5-lotus-server@$(whoami).service", Scope.MULTI_USER},
+                env={
+                    QT_IM_MODULE="fcitx",
+                    -- GTK_IM_MODULE="fcitx",
+                    XMODIFIERS="@im=fcitx",
+                    SDL_IM_MODULE="fcitx",
+                    GLFW_IM_MODULE="ibus"
                 }
             }
         }
@@ -488,62 +510,6 @@ local M={
                 }
             }
         }
-    },
-
-    shell={
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"zsh", Repo.AOR}
-        --         }
-        --     }
-        -- },
-        -- {
-        --     sub_recipes={
-        --         {
-        --             package={"fish", Repo.AOR}
-        --         }
-        --     }
-        -- },
-        {
-            sub_recipes={
-                {
-                    package={"bash", Repo.AOR},
-                    single_user_config={"~/.bashrc", "~/.bash_profile"},
-                }
-            }
-        },
-        {
-            sub_recipes={
-                {
-                    package={"nushell", Repo.AOR},
-                    single_user_config={
-                        "~/.config/nushell/env.nu",
-                        "~/.config/nushell/config.nu",
-                    },
-                    personalized_data={
-                        "~/.config/nushell/history.txt",
-                        "~/.config/nushell/history.sqlite3"
-                    }
-                },
-                {
-                    package={"atuin", Repo.AOR},
-                    single_user_config={
-                        "~/.config/atuin",
-                        {"mkdir", "~/.local/share/atuin/"},
-                        {"atuin", "init", "nu", "|", "save", "~/.local/share/atuin/init.nu"}
-                    }
-                },
-                {
-                    package={"starship", Repo.AOR},
-                    single_user_config={
-                        "~/.config/starship.toml",
-                        {"mkdir", "($nu.data-dir | path join \"vendor/autoload\")"},
-                        {"starship", "init", "nu", "|", "save", "-f", "($nu.data-dir | path join \"vendor/autoload/starship.nu\")"}
-                    },
-                }
-            }
-        },
     },
 
     teminal={
@@ -643,6 +609,9 @@ local M={
                     },
                     {
                         package={"imagemagick", Repo.AOR}
+                    },
+                    {
+                        package={"ueberzugpp", Repo.AOR}
                     },
                 }
             },
@@ -902,14 +871,14 @@ local M={
                     }
                 }
             },
-            {
-                sub_recipes={
-                    {
-                        package={"google-chrome-bin", Repo.AUR},
-                        single_user_config={"~/.config/chrome-flags.conf"},
-                    }
-                }
-            },
+            -- {
+            --     sub_recipes={
+            --         {
+            --             package={"google-chrome-bin", Repo.AUR},
+            --             single_user_config={"~/.config/chrome-flags.conf"},
+            --         }
+            --     }
+            -- },
             {
                 sub_recipes={
                     {
@@ -918,34 +887,42 @@ local M={
                     }
                 }
             },
-            {
-                sub_recipes={
-                    {
-                        package={"thorium-browser-bin", Repo.AUR},
-                        single_user_config={"~/.config/thorium-flags.conf"},
-                    }
-                }
-            },
-            {
-                sub_recipes={
-                    {
-                        package={"microsoft-edge-stable-bin", Repo.AUR}
-                    }
-                }
-            },
+            -- {
+            --     sub_recipes={
+            --         {
+            --             package={"thorium-browser-bin", Repo.AUR},
+            --             single_user_config={"~/.config/thorium-flags.conf"},
+            --         }
+            --     }
+            -- },
+            -- {
+            --     sub_recipes={
+            --         {
+            --             package={"microsoft-edge-stable-bin", Repo.AUR}
+            --         }
+            --     }
+            -- },
         }
     },
 
     misc={
         {
             sub_recipes={
-
                 {
                     package={"anki", Repo.AOR}
                 },
                 {
                     package={"mediawriter", Repo.AOR}
                 },
+                {
+                    package={"megasync-bin", Repo.AUR}
+                },
+                -- {
+                --     package={"megacmd", Repo.AUR}
+                -- },
+                -- {
+                --     package={"pcloud-drive", Repo.AUR}
+                -- },
                 {
                     package={"electron", Repo.AOR},
                     single_user_config={"~/.config/electron-flags.conf"},
