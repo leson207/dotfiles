@@ -8,9 +8,19 @@ local root={
             ewww={repo=Repo.AUR},
             ags={repo=Repo.AUR},
             noctalia_shell={repo=Repo.AUR},
-            dms_shell_niri={
-                repo=Repo.AOR,
-                units={"dms.service", Scope.SINGLE_USER},
+            dms={
+                dms_shell_niri={
+                    repo=Repo.AOR,
+                    units={"dms.service", Scope.SINGLE_USER},
+                },
+                kimageformats={repo=Repo.AOR},
+                cava={repo=Repo.AOR},
+                papirus_icon_theme={
+                    repo=Repo.AOR,
+                    env={
+                        "QS_ICON_THEME=Papirus"
+                    }
+                }
             }
         }
     },

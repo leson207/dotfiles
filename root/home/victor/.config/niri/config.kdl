@@ -313,24 +313,24 @@ environment {
     // Remove a variable by using null as the value:
     // DISPLAY null
 
-    XCURSOR_SIZE "24"
-
-    GDK_BACKEND "wayland,x11"
-    SDL_VIDEODRIVER "wayland"
-    CLUTTER_BACKEND "wayland"
-
-    QT_STYLE_OVERRIDE "Kvantum"
-    QT_QPA_PLATFORMTHEME "qt6ct"
-    QT_QPA_PLATFORM "wayland;xcb"
-    // QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-
-    QT_IM_MODULE "fcitx"
-    // GTK_IM_MODULE "fcitx"
-    XMODIFIERS "@im=fcitx"
-    SDL_IM_MODULE "fcitx"
-    GLFW_IM_MODULE "ibus"
-
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    // XCURSOR_SIZE "24"
+    //
+    // GDK_BACKEND "wayland,x11"
+    // SDL_VIDEODRIVER "wayland"
+    // CLUTTER_BACKEND "wayland"
+    //
+    // QT_STYLE_OVERRIDE "Kvantum"
+    // QT_QPA_PLATFORMTHEME "qt6ct"
+    // QT_QPA_PLATFORM "wayland;xcb"
+    // // QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    //
+    // QT_IM_MODULE "fcitx"
+    // // GTK_IM_MODULE "fcitx"
+    // XMODIFIERS "@im=fcitx"
+    // SDL_IM_MODULE "fcitx"
+    // GLFW_IM_MODULE "ibus"
+    //
+    // ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 cursor {
@@ -655,7 +655,8 @@ binds {
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
-    Mod+W { toggle-column-tabbed-display; }
+    // Mod+W { toggle-column-tabbed-display; }
+    Mod+W { spawn "sh" "-c" "$HOME/.config/custom_scripts/wallpaper-selector.sh"; }
 
     // Actions to switch layouts.
     // Note: if you uncomment these, make sure you do NOT have

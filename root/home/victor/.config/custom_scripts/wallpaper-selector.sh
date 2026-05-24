@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# chmod +x ~/.config/hypr/hyprland/scripts/wallpaper-selector.sh
+# chmod +x ~/.config/custom_scripts/wallpaper-selector.sh
 
-WALLDIR="$HOME/.config/hypr/wallpaper"
-SETWALL="$HOME/.config/hypr/hyprland/scripts/setwall.sh"
+WALLDIR="$HOME/Pictures/wallpaper/"
+SETWALL="$HOME/.config/custom_scripts/setwall.sh"
 THEME="$HOME/.config/rofi/wallpaper.rasi"
 
 entries=()
