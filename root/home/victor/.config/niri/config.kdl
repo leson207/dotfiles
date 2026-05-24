@@ -272,16 +272,14 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 
-spawn-at-startup "xwayland-satellite"
-spawn-at-startup "megasync"
-spawn-at-startup "udiskie"
 // spawn-at-startup "fcitx5 -d"
-spawn-at-startup "foot --server"
-spawn-at-startup "thunar --daemon"
-spawn-at-startup "atuin daemon start"
 
-spawn-at-startup "footclient"
-spawn-at-startup "fuzzel"
+spawn-sh-at-startup "udiskie"
+spawn-sh-at-startup "foot --server"
+spawn-sh-at-startup "thunar --daemon"
+spawn-sh-at-startup "atuin daemon start"
+
+spawn-sh-at-startup "fuzzel"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
