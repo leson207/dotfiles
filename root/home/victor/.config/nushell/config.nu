@@ -19,8 +19,12 @@
 
 if $nu.is-interactive { fastfetch }
 
-mkdir ($nu.data-dir | path join "vendor/autoload")
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+# mkdir ($nu.data-dir | path join "vendor/autoload")
+# starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+source ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 source ~/.local/share/atuin/init.nu
+
+# zoxide init nushell | save -f ~/.zoxide.nu
 source ~/.zoxide.nu

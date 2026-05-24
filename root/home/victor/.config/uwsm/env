@@ -6,7 +6,7 @@ export GDK_BACKEND="wayland,x11"
 export SDL_VIDEODRIVER="wayland"
 export CLUTTER_BACKEND="wayland"
 
-export QT_STYLE_OVERRIDE="kvantum"
+export QT_STYLE_OVERRIDE="Kvantum"
 export QT_QPA_PLATFORMTHEME="qt6ct"
 export QT_QPA_PLATFORM="wayland;xcb"
 export QT_ENABLE_HIGHDPI_SCALING=1
@@ -15,6 +15,8 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
 export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
+export SDL_IM_MODULE="fcitx"
+export GLFW_IM_MODULE="ibus"
 
 export ELECTRON_OZONE_PLATFORM_HINT="auto"
 export _JAVA_AWT_WM_NONREPARENTING=1

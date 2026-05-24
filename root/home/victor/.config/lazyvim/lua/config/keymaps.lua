@@ -6,9 +6,8 @@ vim.keymap.set({"n","t"}, "<c-/>", function() Snacks.terminal() end, { desc = "T
 
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
--- Alt+h moves cursor left in insert mode
+
 vim.keymap.set("i", "<A-h>", "<Left>", { desc = "Cursor Left", silent = true })
--- Alt+l moves cursor right in insert mode
 vim.keymap.set("i", "<A-l>", "<Right>", { desc = "Cursor Rightj", silent = true })
 
 vim.keymap.set('v', '<leader>y', function()
@@ -64,3 +63,9 @@ vim.keymap.set('t', '<leader>ty', function ()
 	print("Copy last command output to clipboard")
 end, { noremap = true, silent = true, desc = "Copy last command output to clipboard"})
 
+local dap    = require("dap")
+
+vim.keymap.set("n", "<F5>",       dap.continue,          { desc = "Debug: Continue" })
+vim.keymap.set("n", "<F10>",      dap.step_over,         { desc = "Debug: Step Over" })
+vim.keymap.set("n", "<F11>",      dap.step_into,         { desc = "Debug: Step Into" })
+vim.keymap.set("n", "<F12>",      dap.step_out,          { desc = "Debug: Step Out" })

@@ -7,7 +7,7 @@ reload_apps = true
 scheme = "vibrant"
 
 # 👁 Increase overall contrast (text, borders, selections)
-contrast = "high"
+contrast = 1.0
 
 # 🎨 Saturation boosts (safe but noticeable)
 [overrides.primary]

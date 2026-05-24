@@ -9,3 +9,6 @@ disabled = false
 time_format = "%H:%M"
 format = "[$time]($style)"
 
+[cmd_duration]
+min_time = 0
+show_milliseconds = true

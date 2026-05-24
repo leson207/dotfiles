@@ -8,22 +8,22 @@
      ============================================ */
 
   /* Primary background (main notification bg, control center) */
-  --bg-primary: #fcfaec;
+  --bg-primary: #fef7ff;
 
   /* Secondary background (widgets, alternate sections) */
-  --bg-secondary: #f1eee1;
+  --bg-secondary: #f2ecf4;
 
   /* Tertiary background (deepest level) */
-  --bg-tertiary: #f7f4e7;
+  --bg-tertiary: #fef7ff;
 
   /* Notification card background */
-  --bg-notification: #fcfaec;
+  --bg-notification: #fef7ff;
 
   /* Hover state background */
-  --bg-hover: #ebe8db;
+  --bg-hover: #ece6ee;
 
   /* Active/pressed state background */
-  --bg-active: #e5e3d6;
+  --bg-active: #e6e0e9;
 
 
   /* ============================================
@@ -31,16 +31,16 @@
      ============================================ */
 
   /* Primary text (headings, important text) */
-   --text-primary: #2b2b1f;
+   --text-primary: #2a272e;
 
   /* Secondary text (body text, descriptions) */
-  --text-secondary: #47473b;
+  --text-secondary: #49454e;
 
   /* Tertiary text (less important text) */
-  --text-tertiary: #787869;
+  --text-tertiary: #7a757f;
 
   /* Dimmed text (timestamps, subtle info) */
-  --text-dim: #c9c7b6;
+  --text-dim: #e7e0eb;
 
 
   /* ============================================
@@ -48,19 +48,19 @@
      ============================================ */
 
   /* Primary accent (normal priority, toggles, links) */
-  --accent-primary: #5e621b;
+  --accent-primary: #6750a4;
 
   /* Secondary accent (low priority, info) */
-  --accent-secondary: #3c6659;
+  --accent-secondary: #625b71;
 
   /* Success/positive actions */
-  --accent-success: #3c6659;
+  --accent-success: #625b71;
 
   /* Warning/caution */
-  --accent-warning: #5f6044;
+  --accent-warning: #625b71;
 
   /* Error/critical/destructive actions */
-  --accent-error: #ba1a1a;
+  --accent-error: #b3261e;
 
 
   /* ============================================
@@ -68,13 +68,13 @@
      ============================================ */
 
   /* Primary border (main borders, separators) */
-  --border-primary: #c9c7b6;
+  --border-primary: #e7e0eb;
 
   /* Secondary border (subtle borders) */
-  --border-secondary: #787869;
+  --border-secondary: #7a757f;
 
   /* Subtle border (barely visible) */
-  --border-subtle: #e5e3d6;
+  --border-subtle: #e6e0e9;
 
 
   /* ============================================
@@ -82,10 +82,10 @@
      ============================================ */
 
   /* Standard shadow color */
-  --shadow-color: #000000;
+  --shadow-color: #0000004D;
 
   /* Stronger shadow for emphasis */
-  --shadow-color-strong: #000000;
+  --shadow-color-strong: #00000080;
 
 
   /* ============================================
@@ -93,10 +93,10 @@
      ============================================ */
 
   /* Overlay surfaces (semi-transparent) */
-  --surface-overlay: #fcfaec;
+  --surface-overlay: #FEF7FFF2;
 
   /* Tooltip backgrounds */
-  --surface-tooltip: #ebe8db;
+  --surface-tooltip: #ECE6EEFA;
 
 
   /* ============================================
@@ -104,13 +104,13 @@
      ============================================ */
 
   /* Button background (default state) */
-  --button-bg: #ebe8db;
+  --button-bg: #ece6ee;
 
   /* Button background (hover state) */
-  --button-bg-hover: #e5e3d6;
+  --button-bg-hover: #e6e0e9;
 
   /* Button text color */
-  --button-text: #1c1c14;
+  --button-text: #1d1b20;
 
 
   /* ============================================
@@ -121,10 +121,10 @@
   --close-button-bg: transparent;
 
   /* Close button background (hover) */
-  --close-button-hover: #ba1a1a;
+  --close-button-hover: #b3261e;
 
   /* Close button text/icon color */
-  --close-button-text: #787869;
+  --close-button-text: #7a757f;
 
 
   /* ============================================
@@ -162,8 +162,8 @@
    SOURCE COLOR INFO (for reference)
    ============================================
 
-   Wallpaper: /home/victor/.config/hypr/wallpaper/enkidu_2.png
-   Source Color: #d7df59
+   Wallpaper: Null
+   Source Color: #6750a4
    Mode: light
 
    ============================================ */

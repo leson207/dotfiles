@@ -18,7 +18,7 @@ return {
 					"--header-insertion=never",
 					"--completion-parse=always",
 					"--completion-style=bundled",
-					"--function-arg-placeholders",
+					"--function-arg-placeholders=0",
 					"--experimental-modules-support",
 					"--fallback-style=llvm",
 				},

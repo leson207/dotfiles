@@ -17,8 +17,6 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 
-# if ("GTK_IM_MODULE" in $env) { hide-env GTK_IM_MODULE }
-# if ("QT_IM_MODULE" in $env)  { hide-env QT_IM_MODULE }
 
 $env.config.show_banner = false
 $env.EDITOR = 'nvim'
@@ -29,5 +27,3 @@ $env.config.history = {
     file_format: "sqlite"
     isolation: true
 }
-
-zoxide init nushell | save -f ~/.zoxide.nu

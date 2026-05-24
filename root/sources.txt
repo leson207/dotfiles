@@ -1,13 +1,12 @@
-/boot/loader/entries/linux.conf
-/boot/loader/entries/linux-zen.conf
+/boot/loader/entries
 
 /etc/pacman.conf
 /etc/hostname
-/etc/sudoers
+/etc/sudoers.d
 
 /etc/locale.gen
 /etc/locale.conf
 /etc/vconsole.conf
 
-/etc/udev/rules.d/90-uinput.rules
-/etc/udev/rules.d/99-amd-disable.rules
+/etc/udev/rules.d
+/etc/makepkg.conf

@@ -1,0 +1,32 @@
+-------------------------------
+---- ENVIRONMENT VARIABLES ----
+-------------------------------
+
+-- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
+
+-- hl.env("XCURSOR_SIZE", "24")
+-- hl.env("HYPRCURSOR_SIZE", "24")
+-- hl.env("GDK_SCALE", "2")
+-- hl.env("GTK_THEME", "Nord")
+--
+-- hl.env("GDK_SCALE", "1")
+-- hl.env("GDK_DPI_SCALE", "1")
+-- hl.env("GDK_BACKEND", "wayland")
+-- hl.env("SDL_VIDEODRIVER", "wayland")
+-- hl.env("CLUTTER_BACKEND", "wayland")
+--
+-- hl.env("QT_STYLE_OVERRIDE", "kvantum")
+-- hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+-- hl.env("QT_QPA_PLATFORM", "wayland")
+-- hl.env("QT_ENABLE_HIGHDPI_SCALING", "1")
+-- hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
+-- hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
+--
+-- hl.env("QT_IM_MODULE", "fcitx")
+-- hl.env("XMODIFIERS", "@im=fcitx")
+--
+-- hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+-- hl.env("_JAVA_AWT_WM_NONREPARENTING", "1")
+-- hl.env("AQ_DRM_DEVICES", "/dev/dri/first-intel-gpu:/dev/dri/first-amd-gpu")
+--
+-- hl.env("APP2UNIT_SLICES", "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice")
