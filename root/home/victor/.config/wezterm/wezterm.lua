@@ -2,6 +2,7 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
+
 config.enable_wayland = true
 config.hide_tab_bar_if_only_one_tab = true
 config.window_background_opacity = 0.8
@@ -11,5 +12,9 @@ config.window_content_alignment = {
   horizontal = 'Center',
   vertical = 'Center',
 }
+
+config.color_scheme_dirs = {os.getenv("HOME") .. "/.config/wezterm/colors"}
+
+config.color_scheme = "dank-theme"
 
 return config

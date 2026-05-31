@@ -39,13 +39,13 @@ output_path = '/home/victor/.config//gtk-3.0/gtk.css'
 # input_path = '/home/victor/.config/matugen/templates/gtk-4.0/color.css'
 # output_path = '/home/victor/.config/gtk-4.0/gtk.css'
 
-[templates.hyprland]
-input_path = '/home/victor/.config/matugen/templates/hypr/hyprland/color.conf'
-output_path = '/home/victor/.config/hypr/hyprland/color.conf'
+# [templates.hyprland]
+# input_path = '/home/victor/.config/matugen/templates/hypr/hyprland/color.conf'
+# output_path = '/home/victor/.config/hypr/hyprland/color.conf'
 
-[templates.hyprlock]
-input_path = '/home/victor/.config/matugen/templates/hypr/hyprlock/color.conf'
-output_path = '/home/victor/.config/hypr/hyprlock/color.conf'
+# [templates.hyprlock]
+# input_path = '/home/victor/.config/matugen/templates/hypr/hyprlock/color.conf'
+# output_path = '/home/victor/.config/hypr/hyprlock/color.conf'
 
 [templates.kitty]
 input_path = "/home/victor/.config/matugen/templates/kitty/color.conf"
@@ -59,10 +59,10 @@ output_path = "/home/victor/.config/rofi/color.rasi"
 input_path = "~/.config/matugen/templates/rofi/color-wall.rasi"
 output_path = "~/.config/rofi/color-wall.rasi"
 
-[templates.swaync]
-input_path = '/home/victor/.config/matugen/templates/swaync/style.css'
-output_path = '/home/victor/.config/swaync/style.css'
-post_hook = 'swaync-client -rs'
+# [templates.swaync]
+# input_path = '/home/victor/.config/matugen/templates/swaync/style.css'
+# output_path = '/home/victor/.config/swaync/style.css'
+# post_hook = 'swaync-client -rs'
 
 [templates.fuzzel]
 input_path = '/home/victor/.config/matugen/templates/fuzzel/theme.ini'

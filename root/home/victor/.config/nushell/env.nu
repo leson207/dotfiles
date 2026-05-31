@@ -17,7 +17,7 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 
-
+$env.PATH = ($env.PATH | prepend $"($env.HOME)/.config/emacs/bin")
 $env.config.show_banner = false
 $env.EDITOR = 'nvim'
 $env.NVIM_APPNAME = 'lazyvim'
@@ -27,3 +27,13 @@ $env.config.history = {
     file_format: "sqlite"
     isolation: true
 }
+
+$env.config.keybindings ++= [
+    {
+      name: accept_autosuggestion
+      modifier: none
+      keycode: tab
+      mode: [emacs vi_normal vi_insert]
+      event: { send: HistoryHintComplete }
+    }
+]

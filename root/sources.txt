@@ -1,12 +1,9 @@
 /boot/loader/entries
-
-/etc/pacman.conf
-/etc/hostname
-/etc/sudoers.d
-
-/etc/locale.gen
-/etc/locale.conf
-/etc/vconsole.conf
+/boot/loader/loader.conf
 
 /etc/udev/rules.d
-/etc/makepkg.conf
+/etc/sudoers.d/10-foo
+/etc/mkinitcpio.conf.d/10-foo.conf
+
+/etc/sddm.conf
+/etc/sddm.conf.d

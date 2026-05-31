@@ -8,22 +8,22 @@
      ============================================ */
 
   /* Primary background (main notification bg, control center) */
-  --bg-primary: #fef7ff;
+  --bg-primary: #141218;
 
   /* Secondary background (widgets, alternate sections) */
-  --bg-secondary: #f2ecf4;
+  --bg-secondary: #322f35;
 
   /* Tertiary background (deepest level) */
-  --bg-tertiary: #fef7ff;
+  --bg-tertiary: #211f24;
 
   /* Notification card background */
-  --bg-notification: #fef7ff;
+  --bg-notification: #141218;
 
   /* Hover state background */
-  --bg-hover: #ece6ee;
+  --bg-hover: #3d3a41;
 
   /* Active/pressed state background */
-  --bg-active: #e6e0e9;
+  --bg-active: #48464c;
 
 
   /* ============================================
@@ -31,16 +31,16 @@
      ============================================ */
 
   /* Primary text (headings, important text) */
-   --text-primary: #2a272e;
+   --text-primary: #ffffff;
 
   /* Secondary text (body text, descriptions) */
-  --text-secondary: #49454e;
+  --text-secondary: #ffffff;
 
   /* Tertiary text (less important text) */
-  --text-tertiary: #7a757f;
+  --text-tertiary: #f4eef9;
 
   /* Dimmed text (timestamps, subtle info) */
-  --text-dim: #e7e0eb;
+  --text-dim: #c6c0cb;
 
 
   /* ============================================
@@ -48,19 +48,19 @@
      ============================================ */
 
   /* Primary accent (normal priority, toggles, links) */
-  --accent-primary: #6750a4;
+  --accent-primary: #f5edff;
 
   /* Secondary accent (low priority, info) */
-  --accent-secondary: #625b71;
+  --accent-secondary: #ffebef;
 
   /* Success/positive actions */
-  --accent-success: #625b71;
+  --accent-success: #ffebef;
 
   /* Warning/caution */
-  --accent-warning: #625b71;
+  --accent-warning: #f5edff;
 
   /* Error/critical/destructive actions */
-  --accent-error: #b3261e;
+  --accent-error: #ffece9;
 
 
   /* ============================================
@@ -68,13 +68,13 @@
      ============================================ */
 
   /* Primary border (main borders, separators) */
-  --border-primary: #e7e0eb;
+  --border-primary: #c6c0cb;
 
   /* Secondary border (subtle borders) */
-  --border-secondary: #7a757f;
+  --border-secondary: #f4eef9;
 
   /* Subtle border (barely visible) */
-  --border-subtle: #e6e0e9;
+  --border-subtle: #48464c;
 
 
   /* ============================================
@@ -93,10 +93,10 @@
      ============================================ */
 
   /* Overlay surfaces (semi-transparent) */
-  --surface-overlay: #FEF7FFF2;
+  --surface-overlay: #141218F2;
 
   /* Tooltip backgrounds */
-  --surface-tooltip: #ECE6EEFA;
+  --surface-tooltip: #3D3A41FA;
 
 
   /* ============================================
@@ -104,13 +104,13 @@
      ============================================ */
 
   /* Button background (default state) */
-  --button-bg: #ece6ee;
+  --button-bg: #3d3a41;
 
   /* Button background (hover state) */
-  --button-bg-hover: #e6e0e9;
+  --button-bg-hover: #48464c;
 
   /* Button text color */
-  --button-text: #1d1b20;
+  --button-text: #ffffff;
 
 
   /* ============================================
@@ -121,10 +121,10 @@
   --close-button-bg: transparent;
 
   /* Close button background (hover) */
-  --close-button-hover: #b3261e;
+  --close-button-hover: #ffece9;
 
   /* Close button text/icon color */
-  --close-button-text: #7a757f;
+  --close-button-text: #f4eef9;
 
 
   /* ============================================
@@ -164,7 +164,7 @@
 
    Wallpaper: Null
    Source Color: #6750a4
-   Mode: light
+   Mode: dark
 
    ============================================ */
 /* ============================================

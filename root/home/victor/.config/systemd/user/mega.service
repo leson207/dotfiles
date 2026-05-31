@@ -1,9 +1,0 @@
-[Unit]
-After=dms.service
-
-[Service]
-ExecStart=/usr/bin/megasync
-Restart=on-failure
-
-[Install]
-WantedBy=default.target

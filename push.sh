@@ -1,1 +1,0 @@
-root/push.sh

@@ -39,8 +39,3 @@ eval "$(zoxide init bash)"
 # fi
 # unset rc
 
-# # ┌────────────────────────────────────────────────────────────┐
-# # │ Environment fixes                                          │
-# # └────────────────────────────────────────────────────────────┘
-# unset GTK_IM_MODULE
-# unset QT_IM_MODULE
