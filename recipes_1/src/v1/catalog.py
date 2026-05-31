@@ -1,7 +1,6 @@
-from email.policy import default
 from box import Box
-from src.enumeration import Repo, Scope, Tag
-from src.schema import Unit, PkgSpec, PkgVar, PkgRecipe, UsageRecipe
+from src.v1.enumeration import Repo, Scope, Tag
+from src.v1.schema import Unit, PkgSpec, PkgVar, PkgRecipe, UsageRecipe
 
 
 db = Box(
@@ -144,6 +143,11 @@ db = Box(
     #     repo=Repo.AOR,
     #     tags=[Tag.GRAPHIC, Tag.VULKAN, Tag.MESA]
     # ),
+    # vulkan_mesa_layers=PkgSpec(
+    #     name="vulkan-mesa-layers",
+    #     repo=Repo.AOR,
+    #     tags=[Tag.GRAPHIC, Tag.VULKAN, Tag.MESA]
+    # ),
     vulkan_intel=PkgSpec(
         name="vulkan-intel",
         repo=Repo.AOR,
@@ -255,6 +259,7 @@ db = Box(
         repo=Repo.AOR,
         tags=[Tag.DISK, Tag.GVFS, Tag.VIRTUAL_FILESYSTEM]
     ),
+
     util_linux=PkgSpec(
         name="util-linux",
         repo=Repo.AOR,
@@ -488,6 +493,11 @@ db = Box(
         repo=Repo.AOR,
         tags=[Tag.BUILD_SYSTEM, Tag.CXX, Tag.GNU]
     ),
+    ninja=PkgSpec(
+        name="ninja",
+        repo=Repo.AOR,
+        tags=[Tag.BUILD_SYSTEM, Tag.CXX]
+    ),
     gcc=PkgSpec(
         name="gcc",
         repo=Repo.AOR,
@@ -647,7 +657,7 @@ db = Box(
         tags=[Tag.FILE_MANAGER, Tag.THUNAR, Tag.GUI],
         auto_start=[["thunar", "--daemon"]],
     ),
-    
+
     thunar_volman=PkgSpec(
         name="thunar-volman",
         repo=Repo.AOR,
@@ -664,7 +674,7 @@ db = Box(
         repo=Repo.AOR,
         tags=[Tag.FILE_MANAGER],
     ),
-    
+
     seven_zip=PkgSpec(
         name="7zip",
         repo=Repo.AOR,

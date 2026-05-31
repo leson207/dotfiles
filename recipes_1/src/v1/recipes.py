@@ -1,6 +1,6 @@
 from box import Box
-from src.catalog import db
-from src.schema import Unit, PkgSpec, PkgVar, PkgRecipe, UsageRecipe
+from src.v1.catalog import db
+from src.v1.schema import Unit, PkgSpec, PkgVar, PkgRecipe, UsageRecipe
 
 
 recipes=Box(

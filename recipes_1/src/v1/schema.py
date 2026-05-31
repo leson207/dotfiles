@@ -1,4 +1,4 @@
-from src.enumeration import Repo, Scope, Tag
+from src.v1.enumeration import Repo, Scope, Tag
 from dataclasses import dataclass, field
 
 
