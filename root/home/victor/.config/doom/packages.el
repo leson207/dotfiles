@@ -54,3 +54,4 @@
 ;; (unpin! t)
 
 (package! key-chord)
+(package! jinx)

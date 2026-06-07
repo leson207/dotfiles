@@ -79,3 +79,18 @@
 (key-chord-mode 1)
 
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+
+; (add-hook 'org-mode-hook #'flyspell-mode)
+
+(use-package! jinx
+  :hook (text-mode . jinx-mode))
+
+(map! :leader
+      (:prefix ("s" . "spell")
+       :desc "Correct word" "c" #'jinx-correct))
+
+(after! evil
+  (evil-global-set-key 'motion "j" #'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" #'evil-previous-visual-line))
+
+(global-visual-line-mode 1)
