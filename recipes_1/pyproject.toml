@@ -1,9 +1,0 @@
-[project]
-name = "recipes-1"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.14"
-dependencies = [
-    "python-box>=7.4.1",
-]

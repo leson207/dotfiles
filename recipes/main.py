@@ -1,9 +1,9 @@
-from src.recipes.base import audio
+from src.catalog import db
 
 def main():
-    print(audio.name)
-    print("Hello from recipesv2!")
+    print("Hello from recipes-1!")
 
 
 if __name__ == "__main__":
     main()
+    print(db.sudo.name)

@@ -1,0 +1,34 @@
+[keys.viewer]
+h = prev
+l = next
+
+j = move down
+k = move up
+
+f = fullscreen
+g = gallery
+
+plus = zoom +10
+minus = zoom -10
+
+0 = zoom real
+9 = zoom fit
+
+space = next
+backspace = prev
+
+q = exit
+Escape = exit
+
+
+[keys.gallery]
+h = left
+j = down
+k = up
+l = right
+
+Return = open
+space = open
+
+q = exit
+Escape = exit
