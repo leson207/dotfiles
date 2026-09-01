@@ -1,6 +1,6 @@
 from box import Box
-from src.recipe.schema import Recipe, EXTRA, USER
 
+from src.recipe.schema import EXTRA, USER, Recipe
 
 opener=Box(
     pkgs=[
@@ -52,12 +52,8 @@ terminal_multiplexer=Recipe(
 
 text=Recipe(
     pkg=[
-        # ["vim", EXTRA],
-        ["gvim", EXTRA],
-
-        ["vis", EXTRA],
-        ["lua-lepg", EXTRA],
-        ["vis-lexers", EXTRA],
+        ["vim", EXTRA],
+        # ["gvim", EXTRA],
 
         ["neovim", EXTRA],
         ["featherpad", EXTRA],
@@ -65,15 +61,13 @@ text=Recipe(
     ],
     config=[
         "~/.vimrc",
-        "~/.config/vis",
         "~/.config/lazyvim",
-        # "~/.config/doom"
+        "~/.config/doom"
     ]
 )
 
 opener=Recipe(
     pkg=[
-        ["imv", EXTRA],
         ["chafa", EXTRA],
         ["swayimg", EXTRA],
 
@@ -119,7 +113,6 @@ file=Box(
 browser=Box(
     pkgs=[
         ["firefox", EXTRA],
-
         ["brave-bin", USER],
         ["brave-origin-bin", USER],
         ["zen-browser-bin", USER],

@@ -1,19 +1,15 @@
 /etc/fstab
 
+/etc/sudoers.d/10-foo
+
 /etc/booster.yaml
 /etc/pacman.d/hooks/90-booster.hook
+/etc/pacman.d/hooks/rate-mirrors.hook
 
 /boot/loader/loader.conf
 /boot/loader/entries/linux.conf
 /boot/loader/entries/linux-cachyos-bore.conf
 
-/etc/pacman.d/hooks/rate-mirrors.hook
-
-/etc/sudoers.d/10-foo
-
 /etc/systemd/resolved.conf
 /etc/NetworkManager/conf.d/dns.conf
 /etc/NetworkManager/conf.d/wifi_backend.conf
-
-/etc/sddm.conf
-/etc/sddm.conf.d

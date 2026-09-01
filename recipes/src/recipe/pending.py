@@ -1,6 +1,6 @@
 from box import Box
-from src.recipe.schema import Recipe
 
+from src.recipe.schema import Recipe
 
 USER="user"
 CORE="core"
@@ -27,14 +27,14 @@ limine_boot=Recipe(
 
         ["sudo", "mkdir", "-p", "/boot/EFI/arch-limine"],
         ["sudo", "cp", "/usr/share/limine/BOOTX64.EFI", "/boot/EFI/arch-limine/"],
-        ["sudo", "efibootmgr", "--create", "--disk", "/dev/sda", "--part", "1", "--label", "Arch Linux Limine Boot Loader", "--loader", "\EFI\arch-limine\BOOTX64.EFI", "--unicode"],
+        ["sudo", "efibootmgr", "--create", "--disk", "/dev/sda", "--part", "1", "--label", "Arch Linux Limine Boot Loader", "--loader", "\\EFI\arch-limine\\BOOTX64.EFI", "--unicode"],
 
         # /usr/share/libalpm/hooks
-        ["sudo" "ln" "-sf" "/dev/null" "/etc/pacman.d/hooks/90-mkinitcpio-install.hook"],
-        ["sudo" "ln" "-sf" "/dev/null" "/etc/pacman.d/hooks/60-mkinitcpio-remove.hook"],
+        ["sudo", "ln", "-sf", "/dev/null", "/etc/pacman.d/hooks/90-mkinitcpio-install.hook"],
+        ["sudo", "ln", "-sf", "/dev/null", "/etc/pacman.d/hooks/60-mkinitcpio-remove.hook"],
         ["/usr/lib/booster/regenerate_images"],
 
-        ["/usr/share/libalpm/scripts/mkinitcpio" "remove"]
+        ["/usr/share/libalpm/scripts/mkinitcpio", "remove"]
     ],
 )
 

@@ -1,7 +1,6 @@
-from src.v5.base import base
-
 from subprocess import run
 
+base={}
 
 def get_installed_pkgs() -> list[str]:
     return run(
@@ -13,7 +12,7 @@ def get_installed_pkgs() -> list[str]:
 
 def get_declared_pkgs() -> list[str]:
     L=[]
-    for _, val in base.items():
+    for val in base.values():
         for pkg in val.pkg:
             L.append(pkg[0])
 

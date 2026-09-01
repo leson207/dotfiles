@@ -1,14 +1,15 @@
 from box import Box
-from src.recipe.schema import Recipe, CORE, EXTRA
 
+from src.recipe.schema import CORE, EXTRA, Recipe
 
 x=Box()
 
 x.fs=Recipe(
+    manual=True,
     config=[
         "/etc/fstab",
-        "sudo", "systemctl", "daemon-reload",
-        "sudo", "mount", "-a",
+        ["sudo", "systemctl", "daemon-reload"],
+        ["sudo", "mount", "-a"],
     ]
 )
 
@@ -23,8 +24,7 @@ x.base=Recipe(
         ["pacman-contrib", EXTRA],
     ],
     config=[
-        # "~/.config/environment.d",
-        ["manual", "/etc/pacman.conf"] # use command here?
+        ["sudo", "sed", "-i", "s/^#Color$/Color/", "/etc/pacman.conf"]
     ]
 )
 

@@ -1,16 +1,10 @@
-from src.recipe.schema import Recipe, EXTRA, USER
-
+from src.recipe.schema import EXTRA, USER, Recipe
 
 display_manager=Recipe(
     pkg=[
         ["sddm", EXTRA],
         ["sddm-astronaut-theme", USER]
     ],
-    config=[
-        # TODO: we did not modify those yet
-        # "/etc/sddm.conf",
-        # "/etc/sddm.conf.d"
-    ]
 )
 
 window_compositor=Recipe(
@@ -20,14 +14,14 @@ window_compositor=Recipe(
         ["xdg-desktop-portal-gtk", EXTRA],
 
         ["dms-shell", EXTRA],
-        ["dankcalendar-bin", USER],
+        # ["dankcalendar-bin", USER],
         ["dsearch-bin", USER],
         ["dgop", EXTRA],
 
         ["wl-clip-persist", EXTRA],
 
-        # ["cava", EXTRA],
-        # ["matugen", EXTRA],
+        ["cava", EXTRA],
+        ["matugen", EXTRA],
 
         ["qt5-wayland", EXTRA],
         ["qt6-wayland", EXTRA],
@@ -41,7 +35,7 @@ window_compositor=Recipe(
         "~/.config/DankMaterialShell",
 
         ["systemctl", "--user", "add-wants", "niri.service", "dms"],
-        ["systemctl", "--user", "enable", "dcal.service"],
+        # ["systemctl", "--user", "enable", "dcal.service"],
         ["systemctl", "--user", "enable", "dsearch.service"],
     ],
     env=[
@@ -67,10 +61,9 @@ theme=Recipe(
 
         ["nwg-look", EXTRA],
 
-
-        ["orchis-theme", EXTRA],
+        # ["orchis-theme", EXTRA],
         ["adw-gtk-theme", EXTRA],
-        ["vimix-cursors", EXTRA],
+        # ["vimix-cursors", EXTRA],
         # ["papirus-icon-theme", EXTRA],
         ["tela-circle-icon-theme-standard", EXTRA],
     ],
