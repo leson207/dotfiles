@@ -24,7 +24,7 @@ if $nu.is-interactive { fastfetch }
 
 source ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
-source ~/.local/share/atuin/init.nu
+# source ~/.local/share/atuin/init.nu
 
 # zoxide init nushell | save -f ~/.zoxide.nu
 source ~/.zoxide.nu

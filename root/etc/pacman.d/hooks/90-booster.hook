@@ -1,0 +1,13 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = linux
+Target = linux-zen
+Target = linux-cachyos-bore
+Target = booster
+
+[Action]
+Description = Rebuilding Booster initramfs...
+When = PostTransaction
+Exec = /usr/lib/booster/regenerate_images

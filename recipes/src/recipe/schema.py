@@ -13,3 +13,4 @@ class Recipe:
     env: list = field(default_factory=list)
     group: list = field(default_factory=list)
     auto_start: list = field(default_factory=list)
+    update: list = field(default_factory=list)

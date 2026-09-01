@@ -8,7 +8,7 @@ return {
       cpp = { "clang_format" },
 
       -- Remove c from here entirely to prevent any formatter running
-      ["*"] = { "trim_whitespace" },
+      ["_"] = { "trim_whitespace" },
     },
   },
   init = function()

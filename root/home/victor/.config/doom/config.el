@@ -75,22 +75,41 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(require 'key-chord)
-(key-chord-mode 1)
+(global-tab-line-mode 1)
+(global-visual-line-mode 1)
 
-(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
-
-; (add-hook 'org-mode-hook #'flyspell-mode)
-
-(use-package! jinx
-  :hook (text-mode . jinx-mode))
-
-(map! :leader
-      (:prefix ("s" . "spell")
-       :desc "Correct word" "c" #'jinx-correct))
-
+(map! "C-s" #'save-buffer)
 (after! evil
   (evil-global-set-key 'motion "j" #'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" #'evil-previous-visual-line))
+  (evil-global-set-key 'motion "k" #'evil-previous-visual-line)
+  (evil-global-set-key 'motion "H" #'next-buffer)
+  (evil-global-set-key 'motion "L" #'previous-buffer)
+)
 
-(global-visual-line-mode 1)
+(setq evil-escape-key-sequence "jk")
+(setq evil-escape-delay 0.2)
+
+(after! org
+  (setq org-agenda-files
+        '("~/Desktop/ObsidianVault/Intend/"
+          "~/Desktop/ObsidianVault/Schedule.org")))
+
+(setq confirm-kill-emacs
+      (lambda (&rest _) (not (memq 'process-live-p (mapcar #'get-buffer-process (buffer-list))))))
+
+(after! projectile
+  (setq projectile-enable-caching nil)
+  (setq projectile-indexing-method 'alien))
+
+(setq scroll-margin 5
+      scroll-conservatively 101
+      scroll-preserve-screen-position t)
+
+(after! eglot
+  (dolist (mode '(markdown-mode
+                  gfm-mode
+                  org-mode
+                  text-mode
+                  git-commit-mode))
+    (add-to-list 'eglot-server-programs
+                 `(,mode . ("harper-ls" "--stdio")))))

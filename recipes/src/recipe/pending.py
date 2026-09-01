@@ -1,5 +1,5 @@
 from box import Box
-from src.v5.schema import Recipe
+from src.recipe.schema import Recipe
 
 
 USER="user"
@@ -14,7 +14,6 @@ limine_boot=Recipe(
         ["linux-headers", CORE],
         ["linux-cachyos-bore-headers", USER],
 
-        # ["zstd", EXTRA],
         ["booster", EXTRA],
         ["intel-ucode", EXTRA],
         ["linux-firmware", CORE],
@@ -39,23 +38,38 @@ limine_boot=Recipe(
     ],
 )
 
+core_utils=Recipe(
+    pkg=[
+        ["uutils-coreutils", EXTRA],
+    ],
+    config=[
+        "~/.config/scripts/uutils-coreutils.sh",
+        ["sh", "~/.config/scripts/uutils-coreutils.sh"],
+    ]
+)
+
 virtual_machine=Recipe(
     pkg=[
         ["qemu-desktop", EXTRA],
         ["libvirt", EXTRA],
         ["dnsmasq", EXTRA],
         ["virt-manager", EXTRA],
-        ["edk2-ovmf", EXTRA],
     ],
     config=[
+        # https://wiki.cachyos.org/virtualization/qemu_and_vmm_setup
         ["sudo", "systemctl", "enable", "--now", "libvirtd"],
 
-        ["sudo", "virsh", "net-define", "/usr/share/libvirt/networks/default.xml"],
         ["sudo", "virsh", "net-autostart", "default"],
         ["sudo", "virsh", "net-start", "default"],
 
         ["sudo", "usermod", "-aG", "libvirt", "$USER"],
     ]
+)
+
+grammar=Recipe(
+    pkg=[
+        ["harper", EXTRA],
+    ],
 )
 
 clipboard=Recipe(
@@ -103,44 +117,80 @@ screen_record=Box(
     ],
 )
 
-opener=Box(
-    pkgs=[
-        ["handlr-regex", EXTRA]
+zsh_shell=Recipe(
+    pkg=[
+        ["zsh", EXTRA],
+
+        ["atuin", EXTRA],
+        ["direnv", EXTRA],
+        ["starship", EXTRA],
+        ["fastfetch", EXTRA],
     ],
-    configs=[
-        "~/.config/handlr",
-        "~/.config/mimeapps.list",
-        "~/.local/bin/xdg-open",
-        ["chmod", "+x", "~/.local/bin/xdg-open"]
-        # ["type", "-a", "xdg-open"]
+    config=[
+        ".zshrc",
+        ["git", "clone", "https://github.com/zdharma-continuum/zinit.git", "~/.local/share/zinit/zinit.git"],
+        ["zcompile", "~/.local/share/zinit/zinit.git/zinit.zsh"]
     ],
+    update=[
+        ["zinit", "update", "--all"],
+        ["zcompile", "~/.local/share/zinit/zinit.git/zinit.zsh"]
+    ]
+)
+
+nushell=Recipe(
+    pkg=[
+        ["nushell", EXTRA],
+        ["atuin", EXTRA],
+        ["starship", EXTRA],
+        ["fastfetch", EXTRA],
+    ],
+    config=[
+        "~/.config/nushell",
+        ["chsh", "-s", "/bin/fish"],
+
+        "~/.config/starship.toml",
+        ["mkdir", "($nu.data-dir | path join \"vendor/autoload\")"],
+        ["starship", "init", "nu", "|", "save", "-f", "($nu.data-dir | path join \"vendor/autoload/starship.nu\")"],
+
+        "~/.config/atuin",
+        ["mkdir", "~/.local/share/atuin/"],
+        ["atuin", "init", "nu", "|", "save", "~/.local/share/atuin/init.nu"],
+    ],
+    auto_start=[["atuin", "daemon", "start"]]
+)
+
+bash=Recipe(
+    pkg=[
+        ["bash", CORE],
+        ["blesh", USER],
+    ],
+    config=[
+        "~/.bashrc",
+        "~/.bash_profile",
+    ]
 )
 
 misc=Box(
     pkgs=[
-        ["dms-shell", EXTRA],
-        ["dgop", EXTRA],
-        ["dsearch-bin", USER],
-
-        ["cava", EXTRA],
         ["matugen", EXTRA],
-        ["fastfetch", EXTRA],
-        ["papirus-icon-theme", EXTRA],
-        ["qt6-multimedia", EXTRA],
 
-        ["pamixer", EXTRA],
         ["playctl", EXTRA],
         ["brightnessctl", EXTRA],
         ["ddcutil", EXTRA],
         ["libpulse", EXTRA],
 
+        ["easyeffects", EXTRA],
+        ["qpwgraph", EXTRA],
+        ["pamixer", EXTRA],
         ["pavucontrol", EXTRA],
+
         ["blueman", EXTRA],
         ["nm-applet", EXTRA],
 
         ["aria2", EXTRA],
         ["yt-dlp", EXTRA],
         ["qbitorrent", EXTRA],
+
         ["hugo", EXTRA],
         ["skim", EXTRA],
         ["git-delta", EXTRA],
@@ -160,8 +210,6 @@ misc=Box(
         ["upower", EXTRA],
         ["evolution_data_server", EXTRA],
 
-        ["xsg-user-dirs", EXTRA],
-        ["xsg-utils", EXTRA],
         ["krokiet-bin", EXTRA],
         ["anki", EXTRA],
         ["mediawriter", EXTRA],
@@ -169,11 +217,19 @@ misc=Box(
         ["aspell-en", EXTRA],
 
         ["electron", EXTRA],
+        ["strace", EXTRA],
+        ["perf", EXTRA],
+        ["valgrind", EXTRA],
 
-        ["orchis-theme", EXTRA],
-        ["vimix-curors", EXTRA],
-        ["tela-circle-icon-theme", EXTRA],
+        # foot
+        ["libnotify", EXTRA],
+        ["xdg-utils", EXTRA],
+        ["harper", EXTRA],
+        ["hunspell-en_us", EXTRA],
     ],
+
+    config=["~/.config/electron-flags.conf"],
+
     env=[
         ["ELECTRON_OZONE_PLATFORM_HINT","auto"]
     ]

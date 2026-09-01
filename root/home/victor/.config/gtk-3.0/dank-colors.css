@@ -131,7 +131,6 @@
 @define-color content_view_bg @view_bg_color;
 @define-color text_view_bg @view_bg_color;
 * {
-  padding: 0;
   -GtkToolButton-icon-spacing: 4;
   -GtkTextView-error-underline-color: @error_bg_color;
   -GtkScrolledWindow-scrollbar-spacing: 0;
@@ -7804,19 +7803,19 @@ window.background:not(.solid-csd):not(.csd) > notebook > stack:not(:only-child) 
 
 /* Matugen Colors */
 
-@define-color accent_color #323500;
-@define-color accent_fg_color #ffffff;
-@define-color accent_bg_color #323500;
+@define-color accent_color #c7cc79;
+@define-color accent_fg_color #1b1d00;
+@define-color accent_bg_color #c7cc79;
 @define-color window_bg_color #fcfaec;
-@define-color window_fg_color #000000;
+@define-color window_fg_color #1c1c14;
 @define-color headerbar_bg_color #fcfaec;
-@define-color headerbar_fg_color #000000;
+@define-color headerbar_fg_color #1c1c14;
 @define-color popover_bg_color #fcfaec;
-@define-color popover_fg_color #000000;
+@define-color popover_fg_color #1c1c14;
 @define-color view_bg_color #fcfaec;
-@define-color view_fg_color #000000;
+@define-color view_fg_color #1c1c14;
 @define-color card_bg_color #fcfaec;
-@define-color card_fg_color #000000;
+@define-color card_fg_color #1c1c14;
 @define-color sidebar_bg_color @window_bg_color;
 @define-color sidebar_fg_color @window_fg_color;
 @define-color sidebar_border_color @window_bg_color;

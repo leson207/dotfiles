@@ -1,2 +1,0 @@
-ACTION=="add", KERNEL=="uinput", RUN+="/usr/bin/setfacl -m u:victor:rw /dev/uinput"
-

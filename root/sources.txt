@@ -1,9 +1,19 @@
-/boot/loader/entries
-/boot/loader/loader.conf
+/etc/fstab
 
-/etc/udev/rules.d
+/etc/booster.yaml
+/etc/pacman.d/hooks/90-booster.hook
+
+/boot/loader/loader.conf
+/boot/loader/entries/linux.conf
+/boot/loader/entries/linux-cachyos-bore.conf
+
+/etc/pacman.d/hooks/rate-mirrors.hook
+
 /etc/sudoers.d/10-foo
-/etc/mkinitcpio.conf.d/10-foo.conf
+
+/etc/systemd/resolved.conf
+/etc/NetworkManager/conf.d/dns.conf
+/etc/NetworkManager/conf.d/wifi_backend.conf
 
 /etc/sddm.conf
 /etc/sddm.conf.d

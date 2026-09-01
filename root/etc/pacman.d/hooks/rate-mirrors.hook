@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = pacman-mirrorlist
+
+[Action]
+Description = Updating mirrorlist using rate-mirrors...
+When = PostTransaction
+Depends = rate-mirrors
+Exec = /bin/sh -c "rate-mirrors --entry-country VN --allow-root --protocol https --save /etc/pacman.d/mirrorlist arch"

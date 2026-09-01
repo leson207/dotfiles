@@ -1,19 +1,16 @@
 from box import Box
-from src.v5.schema import Recipe, CORE, EXTRA, USER
+from src.recipe.schema import Recipe, CORE, EXTRA, USER
 
-base=Box()
+x=Box()
 
-base.sytemd_boot=Recipe(
+x.sytemd_boot=Recipe(
     pkg=[
-        # ["systemd", CORE],
-
         ["linux-headers", CORE],
         # ["linux-cachyos-bore-headers", USER],
 
         ["linux-firmware", CORE],
         ["intel-ucode", EXTRA],
 
-        # ["zstd", CORE],
         ["booster", EXTRA],
     ],
     config=[
@@ -29,13 +26,12 @@ base.sytemd_boot=Recipe(
         # /usr/share/libalpm/hooks
         ["sudo" "ln" "-sf" "/dev/null" "/etc/pacman.d/hooks/90-mkinitcpio-install.hook"],
         ["sudo" "ln" "-sf" "/dev/null" "/etc/pacman.d/hooks/60-mkinitcpio-remove.hook"],
+        ["/usr/share/libalpm/scripts/mkinitcpio" "remove"],
         ["/usr/lib/booster/regenerate_images"],
-
-        ["/usr/share/libalpm/scripts/mkinitcpio" "remove"]
     ]
 )
 
-base.time=Recipe(
+x.time=Recipe(
     pkg=[
         # ["glibc", CORE],
         # ["systemd", CORE],
@@ -50,7 +46,7 @@ base.time=Recipe(
     ],
 )
 
-base.locale=Recipe(
+x.locale=Recipe(
     pkg=[
         # ["glibc", CORE],
         # ["systemd", CORE],
@@ -61,7 +57,7 @@ base.locale=Recipe(
     ],
 )
 
-base.official_mirror=Recipe(
+x.official_mirror=Recipe(
     pkg=[
         ["rate-mirrors", EXTRA]
     ],
@@ -72,15 +68,18 @@ base.official_mirror=Recipe(
     ]
 )
 
-base.graphic=Recipe(
+x.graphic=Recipe(
     pkg=[
         ["mesa", EXTRA],
         ["vulkan-intel", EXTRA],
         ["intel-media-driver", EXTRA],
+    ],
+    env=[
+        ["LIBVA_DRIVER_NAME", "iHD"],
     ]
 )
 
-base.audio=Recipe(
+x.audio=Recipe(
     pkg=[
         ["pipewire", EXTRA],
         ["wireplumber", EXTRA],
@@ -94,13 +93,13 @@ base.audio=Recipe(
     ]
 )
 
-base.ssh=Recipe(
+x.ssh=Recipe(
     pkg=[
         ["openssh", EXTRA],
     ],
 )
 
-base.firewall=Recipe(
+x.firewall=Recipe(
     pkg=[
         ["ufw", EXTRA],
     ],
@@ -115,14 +114,17 @@ base.firewall=Recipe(
     ]
 )
 
-base.network=Recipe(
+x.network=Recipe(
     pkg=[
         # ["systemd", CORE],
+        ["iwd", EXTRA],
         ["networkmanager", EXTRA],
+        # ["networkmanager-iwd", USER],
     ],
     config=[
         "/etc/systemd/resolved.conf",
         "/etc/NetworkManager/conf.d/dns.conf",
+        "/etc/NetworkManager/conf.d/wifi_backend.conf",
 
         ["ln", "-sf", "/run/systemd/resolve/stub-resolv.conf", "/etc/resolv.conf"],
 
@@ -142,7 +144,28 @@ base.network=Recipe(
     ]
 )
 
-base.p2p=Recipe(
+x.secret=Recipe(
+    pkg=[
+        # ["oo7", EXTRA],
+        # ["libsecret", EXTRA],
+        ["gnome-keyring", EXTRA],
+    ],
+    config=[
+        "busctl --user list | grep Secret"
+        "busctl --user status org.freedesktop.secrets"
+    ]
+)
+
+x.disk=Recipe(
+    pkg=[
+        ["util-linux", CORE]
+    ],
+    config=[
+        ["sudo", "systemctl", "enable", "fstrim.timer"],
+    ]
+)
+
+x.p2p=Recipe(
     pkg=[
         ["tlp", EXTRA],
         ["tlp-pd", EXTRA],
@@ -165,16 +188,7 @@ base.p2p=Recipe(
     ]
 )
 
-base.disk=Recipe(
-    pkg=[
-        ["util-linux", CORE]
-    ],
-    config=[
-        ["sudo", "systemctl", "enable", "fstrim.timer"],
-    ]
-)
-
-base.input=Recipe(
+x.input=Recipe(
     pkg=[
         ["fcitx5", EXTRA],
         ["fcitx5-gtk", EXTRA],
@@ -182,8 +196,9 @@ base.input=Recipe(
         ["fcitx5-configtool", EXTRA],
     ],
     config=[
-        "~/.config/fcitx5/config",
-        "~/.config/fcitx5/profile"
+        "~/.config/fcitx5",
+        # "~/.config/fcitx5/config",
+        # "~/.config/fcitx5/profile"
     ],
     env=[
         ["QT_IM_MODULE", "fcitx"],
@@ -195,7 +210,7 @@ base.input=Recipe(
     auto_start=[["fcitx5", "-d"]]
 )
 
-base.font=Recipe(
+x.font=Recipe(
     pkg=[
         ["noto-fonts", EXTRA],
         ["noto-fonts-cjk", EXTRA],

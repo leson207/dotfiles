@@ -1,0 +1,21 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda3
+UUID=e45f170a-8a82-44f5-a4ab-6d9a6fe8ef91	/         	ext4      	noatime		0 1
+
+# /dev/sda1
+UUID=FCE7-3C97      	/boot     	vfat      	fmask=0022,dmask=0022,utf8,errors=remount-ro	0 2
+
+# /dev/sda2
+UUID=8df80c9e-2494-4c52-b8eb-b5caf6071684	none      	swap      	defaults  	0 0
+
+# nixos
+UUID=e18689fb-c946-4c5c-b55a-f835ce499513  /media/nixos  ext4  nofail,noatime,x-systemd.automount,x-systemd.idle-timeout=300  0  2
+
+# windows c
+UUID=D49298DD9298C600  /media/windows_c  ntfs3  uid=1000,gid=1000,dmask=022,fmask=133,windows_names,nofail,x-systemd.automount,x-systemd.idle-timeout=300  0  0
+
+# windows d
+UUID=308206F78206C0F8  /media/windows_d  ntfs3  uid=1000,gid=1000,dmask=022,fmask=133,windows_names,nofail,x-systemd.automount,x-systemd.idle-timeout=300  0  0

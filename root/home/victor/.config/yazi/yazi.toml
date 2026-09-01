@@ -2,23 +2,14 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 
-[manager]
+[mgr]
 ratio          = [ 1, 4, 3 ]
-sort_by        = "alphabetical"
-sort_reverse   = false
+sort_by        = "mtime"
+sort_reverse   = true
+
 
 [plugin]
 
 preloaders = [
     { mime = "video/*", run = "my-video" },
-]
-
-[opener]
-play = [
-	{ run = "mpv %s1",    desc = "Play", for = "linux", orphan = true },
-	{ run = "mediainfo %s1; echo 'Press enter to exit'; read _", block = true, desc = "Show media info", for = "unix" },
-]
-open = [
-    { run = "xdg-open %s1",    desc = "Open", for = "linux" },
-	# { run = "mpv %s1",    desc = "Open", for = "linux" },
 ]

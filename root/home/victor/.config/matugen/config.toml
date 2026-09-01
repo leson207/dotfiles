@@ -68,10 +68,10 @@ output_path = "~/.config/rofi/color-wall.rasi"
 input_path = '/home/victor/.config/matugen/templates/fuzzel/theme.ini'
 output_path = '~/.config/fuzzel/theme.ini'
 
-[templates.btop]
-input_path = '/home/victor/.config/matugen/templates/btop/matugen.theme'
-output_path = '/home/victor/.config/btop/themes/matugen.theme'
-post_hook = "sh -c 'pkill -USR2 btop || true'"
+# [templates.btop]
+# input_path = '/home/victor/.config/matugen/templates/btop/matugen.theme'
+# output_path = '/home/victor/.config/btop/themes/matugen.theme'
+# post_hook = "sh -c 'pkill -USR2 btop || true'"
 
 [templates.pywalfox]
 input_path = '/home/victor/.config/matugen/templates/pywalfox/color.json'

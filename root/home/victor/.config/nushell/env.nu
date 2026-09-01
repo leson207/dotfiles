@@ -17,10 +17,7 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 
-$env.PATH = ($env.PATH | prepend $"($env.HOME)/.config/emacs/bin")
 $env.config.show_banner = false
-$env.EDITOR = 'nvim'
-$env.NVIM_APPNAME = 'lazyvim'
 $env.config.history = {
     max_size: 100_000
     sync_on_enter: true
@@ -37,3 +34,10 @@ $env.config.keybindings ++= [
       event: { send: HistoryHintComplete }
     }
 ]
+
+$env.PATH = (
+    $env.PATH
+    | prepend $"($env.HOME)/.config/emacs/bin"
+    | prepend $"($env.HOME)/.local/bin"
+    | uniq
+)

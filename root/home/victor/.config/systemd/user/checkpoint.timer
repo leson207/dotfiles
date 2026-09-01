@@ -1,8 +1,0 @@
-[Timer]
-OnUnitActiveSec=25m
-AccuracySec=1s
-Unit=checkpoint.service
-
-[Install]
-WantedBy=timers.target
-

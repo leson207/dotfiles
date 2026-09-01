@@ -11,8 +11,8 @@ alias grep='grep --color=auto'
 export NVIM_APPNAME=lazyvim
 export HISTCONTROL=ignoredups:erasedups
 
-eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+eval "$(starship init bash)"
 # # ┌────────────────────────────────────────────────────────────┐
 # # │ Source system-wide settings                                │
 # # └────────────────────────────────────────────────────────────┘
@@ -39,3 +39,9 @@ eval "$(zoxide init bash)"
 # fi
 # unset rc
 
+# [[ $PS1 &&
+#   ! ${BASH_COMPLETION_VERSINFO:-} &&
+#   -f /usr/share/bash-completion/bash_completion ]] &&
+#     . /usr/share/bash-completion/bash_completion
+#
+# source /usr/share/blesh/ble.sh

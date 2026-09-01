@@ -1,3 +1,4 @@
+-- https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autoload.lua
 -- This script automatically loads playlist entries before and after the
 -- currently played file. It does so by scanning the directory a file is
 -- located in when starting playback. It sorts the directory entries
@@ -221,6 +222,16 @@ local function alphanumsort(filenames)
     return filenames
 end
 
+local function sort_by_mtime_desc(paths, prefix)
+    local with_mtime = {}
+    for _, p in ipairs(paths) do
+        local info = utils.file_info(prefix .. p)
+        with_mtime[#with_mtime + 1] = { name = p, mtime = info and info.mtime or 0 }
+    end
+    table.sort(with_mtime, function(a, b) return a.mtime > b.mtime end)
+    for i, v in ipairs(with_mtime) do paths[i] = v.name end
+end
+
 local autoloaded
 local added_entries = {}
 local autoloaded_dir
@@ -261,8 +272,12 @@ local function scan_dir(path, current_file, dir_mode, separator, dir_depth, tota
     filter(dirs, function(d)
         return not (o.ignore_hidden and d:match("^%."))
     end)
-    alphanumsort(files)
-    alphanumsort(dirs)
+
+    -- alphanumsort(files)
+    -- alphanumsort(dirs)
+
+    sort_by_mtime_desc(files, prefix)
+    sort_by_mtime_desc(dirs, prefix)
 
     for i, file in ipairs(files) do
         files[i] = prefix .. file

@@ -1,29 +1,43 @@
 from box import Box
-from src.v5.schema import Recipe, CORE, EXTRA
+from src.recipe.schema import Recipe, CORE, EXTRA
 
-base=Box()
 
-base.preinstalled=Recipe(
-    pkg=[
-        ["base", CORE],
-        # ["pacman", CORE],
-        # ["glibc", CORE],
-        # ["systemd", CORE],
-    ],
+x=Box()
+
+x.fs=Recipe(
     config=[
-        # TODO: should we use cmd to modify config file? If yes write the function func(file, desire_content)
-        "/etc/pacman.conf"
+        "/etc/fstab",
+        "sudo", "systemctl", "daemon-reload",
+        "sudo", "mount", "-a",
     ]
 )
 
-base.build_package=Recipe(
+x.base=Recipe(
+    pkg=[
+        # ["base", CORE],
+        # ["glibc", CORE],
+        # ["pacman", CORE],
+        # ["systemd", CORE],
+        # ["lz4", CORE],
+        # ["zstd", CORE],
+        ["pacman-contrib", EXTRA],
+    ],
+    config=[
+        # "~/.config/environment.d",
+        ["manual", "/etc/pacman.conf"] # use command here?
+    ]
+)
+
+x.build=Recipe(
     pkg=[
         ["git", EXTRA],
         ["mold", EXTRA],
         ["ccache", EXTRA],
-        ["base-devel", EXTRA],
+
+        ["axel", EXTRA],
+        ["base-devel", CORE],
+        # ["sudo", EXTRA],
         # ["gcc", EXTRA],
-        # ["zstd", EXTRA],
     ],
     config=[
         "~/.makepkg.conf",
@@ -34,5 +48,19 @@ base.build_package=Recipe(
         ["git", "clone", "https://aur.archlinux.org/paru.git"],
         ["cd", "paru"],
         ["makepkg", "-si"],
+    ]
+)
+
+x.core_utils= Recipe(
+    pkg=[
+        ["fd", EXTRA],
+        ["fzf", EXTRA],
+        ["ripgrep", EXTRA],
+
+        ["bat", EXTRA],
+        ["eza", EXTRA],
+        ["zoxide", EXTRA],
+
+        ["jq", EXTRA],
     ]
 )

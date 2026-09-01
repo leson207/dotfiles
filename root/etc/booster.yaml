@@ -1,0 +1,13 @@
+# Include only modules needed for this host (smaller image, faster boot)
+universal: false
+
+# Extra kernel modules to force-include
+extra_files: ""
+
+# Increase verbosity during early boot for debugging
+log_level: warning
+
+strip: true
+vconsole: true
+compression: zstd
+

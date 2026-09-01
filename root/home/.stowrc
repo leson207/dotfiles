@@ -1,5 +1,5 @@
 --dir=./victor
---target=$HOME
+--target=/home/victor
 --ignore=.config/containers
 --ignore=.checkpoint
 --verbose=1

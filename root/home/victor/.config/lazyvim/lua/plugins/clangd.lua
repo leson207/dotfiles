@@ -20,7 +20,7 @@ return {
 					"--completion-style=bundled",
 					"--function-arg-placeholders=0",
 					"--experimental-modules-support",
-					"--fallback-style=llvm",
+					"--fallback-style=gnu",
 				},
 				init_options = {
 					usePlaceholders = true,
