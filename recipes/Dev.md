@@ -10,3 +10,9 @@ check undeclared/uninstalled unit/package
 automate fstab, linux.conf, linux-cachyos-bore.conf, ... thing need disk id
 wifi specific: nmcli connection modify "Co Phuong" ipv4.dns ""
 
+
+list of manual thing:
+fstab
+boot loader
+git secret
+...
