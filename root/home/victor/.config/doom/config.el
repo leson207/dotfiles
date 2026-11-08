@@ -82,8 +82,8 @@
 (after! evil
   (evil-global-set-key 'motion "j" #'evil-next-visual-line)
   (evil-global-set-key 'motion "k" #'evil-previous-visual-line)
-  (evil-global-set-key 'motion "H" #'next-buffer)
-  (evil-global-set-key 'motion "L" #'previous-buffer)
+  (evil-global-set-key 'motion "H" #'centaur-tabs-backward)
+  (evil-global-set-key 'motion "L" #'centaur-tabs-forward)
 )
 
 (setq evil-escape-key-sequence "jk")
@@ -113,3 +113,36 @@
                   git-commit-mode))
     (add-to-list 'eglot-server-programs
                  `(,mode . ("harper-ls" "--stdio")))))
+
+; (setq org-roam-directory (file-truename "~/Desktop/Vault/roam"))
+;
+; (after! org-roam
+;   (org-roam-db-autosync-enable))
+;
+; (after! org-roam
+;   (setq org-roam-capture-templates
+;         '(("d" "default" plain
+;            "* Idea\n\n%?\n\n* Related\n\n* Sources\n"
+;            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+;                               "#+title: ${title}\n#+filetags:")
+;            :unnarrowed t
+;            :empty-lines-before 1)))
+;   (add-hook 'org-roam-capture-new-node-hook
+;             (lambda ()
+;               (org-entry-put (point) "LAST_MODIFICATION" "create")
+;               (org-entry-put (point) "LAST_MODIFICATION_TIME"
+;                               (format-time-string "%Y-%m-%d %H:%M:%S"))
+;               (save-excursion
+;                 (goto-char (point-min))
+;                 (when (re-search-forward "^:END:\n" nil t)
+;                   (unless (looking-at "\n")
+;                     (insert "\n")))))))
+;
+; (advice-add 'org-capture-kill :before
+;             (lambda (&rest _) (set-buffer-modified-p nil)))
+;
+; (after! org-capture
+;   (advice-add 'org-capture-kill :around
+;               (lambda (orig-fn &rest args)
+;                 (cl-letf (((symbol-function 'y-or-n-p) (lambda (&rest _) t)))
+;                   (apply orig-fn args)))))

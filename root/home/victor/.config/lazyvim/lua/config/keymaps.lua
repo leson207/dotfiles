@@ -58,7 +58,7 @@ vim.keymap.set('t', '<leader>ty', function ()
 		break
 		end
 	end
-	local output = table.concat(vim.list_slice(lines, start_line, #lines-4), "\n")
+	local output = table.concat(vim.list_slice(lines, start_line, #lines-3), "\n")
 	vim.fn.setreg('+', output)
 	print("Copy last command output to clipboard")
 end, { noremap = true, silent = true, desc = "Copy last command output to clipboard"})

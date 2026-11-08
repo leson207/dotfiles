@@ -25,6 +25,9 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
 
+# zinit ice wait lucid atload'_zsh_autosuggest_start'
+# zinit light zsh-users/zsh-autosuggestions
+
 # source ~/.local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ~/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

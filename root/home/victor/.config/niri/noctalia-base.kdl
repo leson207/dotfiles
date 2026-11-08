@@ -1,3 +1,7 @@
+include "base.kdl"
+
+spawn-sh-at-startup "app2unit -- noctalia"
+
 window-rule {
   // Rounded corners for a modern look.
   geometry-corner-radius 20
@@ -18,24 +22,24 @@ layer-rule {
   place-within-backdrop true
 }
 
-// // Wallpaper: Stationary
-// // Set the regular wallpaper on the backdrop.
-// layer-rule {
-//   match namespace="^noctalia-wallpaper*"
-//   place-within-backdrop true
-// }
-//
-// // Set transparent workspace background color so you see the backdrop at all times.
-// layout {
-//   background-color "transparent"
-// }
-//
-// // Optionally, disable the workspace shadows in the overview.
-// overview {
-//   workspace-shadow {
-//     off
-//   }
-// }
+// Wallpaper: Stationary
+// Set the regular wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
+}
+
+// Set transparent workspace background color so you see the backdrop at all times.
+layout {
+  background-color "transparent"
+}
+
+// Optionally, disable the workspace shadows in the overview.
+overview {
+  workspace-shadow {
+    off
+  }
+}
 
 // Blur
 /* Apps: blur them all without xray for a better look */

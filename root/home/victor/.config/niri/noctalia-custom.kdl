@@ -1,0 +1,7 @@
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+
+    default-column-width { fixed 1200; }
+    default-window-height { fixed 750; }
+}

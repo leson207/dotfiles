@@ -1,25 +1,27 @@
 -- build list from same directory
-swayimg.imagelist.enable_adjacent(true)
-swayimg.imagelist.enable_recursive(false)
+swayimg.imagelist.adjacent = true
+swayimg.imagelist.recursive = false
 
 -- sort by modification time
-swayimg.imagelist.set_order("mtime")
-swayimg.imagelist.enable_reverse(true)
+swayimg.imagelist.order = "mtime"
+swayimg.imagelist.reverse = true
 
 -- clean UI
-swayimg.viewer.set_text("topleft", {})
-swayimg.viewer.set_text("topright", {})
-swayimg.viewer.set_text("bottomleft", {})
+swayimg.viewer.text = {
+    topleft = {},
+    topright = {},
+    bottomleft = {},
+}
 
-swayimg.text.set_timeout(0)
-swayimg.text.set_status_timeout(0)
+swayimg.text.timeout = 0
+swayimg.text.status_timeout = 0
 
 -- quit
 swayimg.viewer.on_key("q", function()
     swayimg.exit()
 end)
 
--- IMPORTANT: use viewer switching (this is correct in 5.5)
+-- navigation
 swayimg.viewer.on_key("Left", function()
     swayimg.viewer.switch_image("prev")
 end)

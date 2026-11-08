@@ -16,3 +16,9 @@ fstab
 boot loader
 git secret
 ...
+
+automate backup:
+Downloads:
+Code
+Pictures
+....
